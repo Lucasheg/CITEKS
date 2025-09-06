@@ -1,58 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
 <head>
   <meta charset="utf-8" />
-  <title>Odd Fellow Barber — Cuts, Shaves, Stories</title>
-  <meta name="description" content="Odd Fellow Barber — editorial, characterful cuts and shaves. Book a seat." />
+  <title>Odd Fellow Barber — Kutt, Barbering, Personlighet</title>
+  <meta name="description" content="Odd Fellow Barber — klassiske kutt, moderne finish. Book time på nett." />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#FFFAF2" />
-  <!-- Editorial fonts (distinct from prior): Newsreader + Manrope -->
+  <meta name="theme-color" content="#FFF7EE" />
+  <!-- Redaksjonelle fonter -->
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700;6..72,800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
-       CITEKS RULES (A–E) — ENFORCED
-       - Major Third from 16px; letter/line rules
-       - Grid: 12 desktop / 4 mobile
-       - Spacing: 8pt system
-       - 60/30/10 color with high contrast
-       - One clear goal per page: Book a seat
+       CITEKS RULES (A–E)
+       - Major Third 1.25 fra 16px (letter/line regler)
+       - Grid 12/4, 8-pt spacing
+       - 60/30/10, høy kontrast
+       - Én målhandling: Book time
        ========================================================= */
 
     :root{
-      /* 60/30/10 palette — editorial, not generic barber */
-      --bg:#FFFAF2;           /* 60% paper */
-      --ink:#141312;          /* body text */
-      --muted:#5F5A56;
+      /* 60/30/10 — krem, espresso, messing */
+      --bg:#FFF7EE;            /* 60% papir */
+      --ink:#1A1715;
+      --muted:#6E625B;
 
-      --panel:#0B2320;        /* 30% bottle green panels */
-      --panel-ink:#F2F6F5;
+      --panel:#1F1713;         /* 30% espresso-paneler */
+      --panel-ink:#F5EEE6;
 
-      --accent:#A31621;       /* 10% burgundy action */
-      --accent-600:#82101A;
-      --accent-soft:#FFE6E9;
+      --accent:#C58A3B;        /* 10% messing/brun */
+      --accent-600:#A87428;
+      --accent-soft:#F8EBD2;
 
-      --stripe-blue:#124E96;  /* rare decorative stripe, not CTA */
+      --detail:#6B3F2B;        /* dekorativ brun (tidl. stripe) */
 
-      /* Type scale — Major Third (1.25) from 16px */
+      /* Type scale (Major Third) */
       --fs-p:16px;
       --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
       --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
 
-      /* Letter-spacing & line-height rules */
+      /* Letter/line regler */
       --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
       --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
 
-      /* 8pt spacing */
+      /* 8-pt spacing */
       --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px;
 
-      /* Layout */
       --container:1120px;
 
-      /* Depth & motion */
-      --e1: 0 10px 30px rgba(0,0,0,.08);
-      --e2: 0 18px 60px rgba(0,0,0,.16);
-      --ring: 0 0 0 3px rgba(163,22,33,.22);
+      --e1: 0 10px 30px rgba(0,0,0,.10);
+      --e2: 0 18px 60px rgba(0,0,0,.18);
+      --ring: 0 0 0 3px rgba(197,138,59,.25);
       --ease: cubic-bezier(.2,.6,.2,1);
     }
 
@@ -67,7 +64,7 @@
     }
 
     /* Type */
-    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-family:"Newsreader", serif; font-weight:800; color:#0E0D0C}
+    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-family:"Newsreader", serif; font-weight:800; color:#120F0D}
     h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
     h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
     h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
@@ -75,14 +72,13 @@
     h5{font-size:var(--fs-h5)}
     h6{font-size:var(--fs-h6); letter-spacing:var(--ls-h6)}
     p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font: 800 12px/1 "Manrope"; letter-spacing:.24em; text-transform:uppercase; color:#3B3734}
+    .eyebrow{font: 800 12px/1 "Manrope"; letter-spacing:.24em; text-transform:uppercase; color:#4A403A}
 
-    /* Links & Buttons */
+    /* Lenker & knapper */
     a{color:var(--accent); text-decoration:none}
     a:hover{color:var(--accent-600)}
     a:focus{outline:none; box-shadow:var(--ring); border-radius:12px}
 
-    /* Distinct button styles: brass stamp + ribbon */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:12px;
       padding:12px 18px; border-radius:14px; border:2px solid transparent;
@@ -91,15 +87,16 @@
       position:relative;
     }
     .btn-pri{
-      background:linear-gradient(180deg,#C5404C,var(--accent)); color:#fff; border-color:#C5404C; box-shadow:0 2px 0 #7A121A, var(--e1);
+      background:linear-gradient(180deg,#D19A4C,var(--accent)); color:#2C1B0D; border-color:#D19A4C;
+      box-shadow: 0 2px 0 #8C5E23, var(--e1);
     }
-    .btn-pri:hover{transform:translateY(-2px); box-shadow:0 3px 0 #6B1017, var(--e2)}
+    .btn-pri:hover{transform:translateY(-2px); box-shadow:0 3px 0 #7B541F, var(--e2); color:#fff}
     .btn-ghost{
-      background:transparent; color:var(--accent-600); border-color:#F3B7BE;
+      background:transparent; color:#8A5B27; border-color:#E7C792;
     }
     .btn-ghost:hover{background:var(--accent-soft)}
 
-    /* Container & Grid */
+    /* Layout */
     .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
     .section{padding: clamp(56px, 8vw, 120px) 0}
     .grid{display:grid; gap:var(--s3)}
@@ -110,403 +107,297 @@
     @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-8,.span-7,.span-6,.span-5,.span-4{grid-column:1/-1} }
     @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-    /* === LAYOUT: editorial masthead strip left, content freeform right === */
-    .masthead{
-      position:fixed; inset:0 auto 0 0; width:84px; display:flex; flex-direction:column; align-items:center; gap:18px;
-      border-right:1px solid rgba(0,0,0,.06); background:linear-gradient(180deg,#FFFDFC,#FFF4E6);
-      z-index:60;
-    }
-    .mast-title{
-      writing-mode:vertical-rl; transform:rotate(180deg);
-      font-family:"Newsreader"; font-weight:800; letter-spacing:.14em; font-size:20px; margin-top:12px;
-    }
-    .pole{
-      width:12px; height:160px; border-radius:6px; overflow:hidden; border:1px solid rgba(0,0,0,.08); box-shadow:var(--e1);
-      background:
-        repeating-linear-gradient(135deg, var(--accent) 0 10px, #fff 10px 20px, var(--stripe-blue) 20px 30px, #fff 30px 40px);
-      animation: pole 14s linear infinite;
-    }
-    @keyframes pole{ to{ background-position: 0 240px } }
-    .seal{
-      width:56px; height:56px; border-radius:50%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(163,22,33,.25), transparent 60%),
-        repeating-conic-gradient(from 0deg, #7D161F 0 6deg, #A31621 6deg 12deg);
-      display:grid; place-items:center; color:#fff; font-weight:900; font-size:10px; text-align:center; padding:6px;
-      box-shadow:var(--e1); border:1px solid rgba(0,0,0,.08);
-    }
-
-    /* Header — minimal; nav lives in masthead for mobile via menu */
+    /* ================== NY HEADER ================== */
+    /* Hengende skilt med «kjeder» og tretekstur (kun CSS) */
     header{
-      position:sticky; top:0; z-index:50; margin-left:84px;
-      background:rgba(255,250,242,.85); backdrop-filter:saturate(140%) blur(8px);
+      position:sticky; top:0; z-index:60;
+      background:rgba(255,247,238,.85); backdrop-filter:saturate(140%) blur(8px);
       border-bottom:1px solid rgba(0,0,0,.06);
     }
-    .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
-    .brand{font-family:"Newsreader"; font-weight:800; letter-spacing:-.02em; font-size:22px}
-    .nav{display:flex; gap:var(--s3); align-items:center}
-    .nav a{color:#141312; opacity:.9}
-    .nav a:hover{opacity:1}
-    .spacer{flex:1}
-    .nav-toggle{display:none}
-    @media (max-width: 960px){
-      .nav{display:none}
-      .nav-toggle{display:inline-flex; margin-right:8px; padding:10px 12px; border:1px solid rgba(0,0,0,.08); border-radius:10px; background:#fff}
-      #mobileNav[hidden]{display:none}
-      #mobileNav{position:fixed; left:84px; right:16px; top:64px; bottom:auto; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--e2); padding:12px; z-index:70}
-      #mobileNav a{display:block; padding:10px; color:#141312}
+    .sign-wrap{display:grid; place-items:center; padding:10px 0}
+    .chains{
+      display:flex; gap:120px; align-items:center; justify-content:center; position:relative;
     }
+    .chain{
+      width:2px; height:22px; background:linear-gradient(180deg,#7D6A5C,#3E3128); border-radius:2px;
+      box-shadow:0 0 0 1px rgba(0,0,0,.05);
+    }
+    .sign{
+      margin-top:-6px;
+      min-width:320px; display:grid; gap:6px; place-items:center;
+      padding:12px 18px; border-radius:16px; border:2px solid #DCC5AE;
+      color:#2A201A; box-shadow:var(--e1);
+      background:
+        radial-gradient(120% 80% at 30% 10%, rgba(255,255,255,.35), transparent 50%),
+        conic-gradient(from 0deg at 50% 50%, #B8865B, #A5754E, #C0936A, #B48258, #B8865B);
+      position:relative;
+    }
+    .sign::after{ /* liten messing-plakett */
+      content:""; position:absolute; right:10px; bottom:10px; width:54px; height:10px; border-radius:6px;
+      background:linear-gradient(180deg, #E6C58B, #C59B4F); opacity:.9;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.12);
+    }
+    .brand{font-family:"Newsreader"; font-weight:800; font-size:22px; letter-spacing:.08em; text-transform:uppercase}
+    .sub{font: 600 12px/1 "Manrope"; letter-spacing:.18em}
+    .nav-row{display:flex; gap:var(--s3); justify-content:center; padding:8px 0}
+    .nav-row a{color:#1A1715; opacity:.9}
+    .nav-row a:hover{opacity:1}
 
-    /* HERO — poster composition, NO previous placements */
+    /* HERO — varm vignette, redaksjonell layout (ingen sticky CTA) */
     .poster{
-      position:relative; isolation:isolate; margin-left:84px; overflow:hidden;
+      position:relative; isolation:isolate; overflow:hidden;
       background:
-        radial-gradient(900px 600px at 110% -20%, rgba(163,22,33,.12), transparent 60%),
-        radial-gradient(700px 400px at -20% 120%, rgba(18,78,150,.08), transparent 60%);
+        radial-gradient(900px 600px at 110% -20%, rgba(197,138,59,.12), transparent 60%),
+        radial-gradient(700px 400px at -20% 120%, rgba(107,63,43,.10), transparent 60%);
     }
-    .halftone{
-      position:absolute; inset:auto -10% 0 -10%; height:220px; opacity:.3;
+    .tone{
+      position:absolute; inset:auto -10% 0 -10%; height:220px; opacity:.25;
       background:
-        radial-gradient(circle at 10px 10px, rgba(0,0,0,.25) 1px, transparent 2px) 0 0/14px 14px repeat;
+        radial-gradient(circle at 10px 10px, rgba(0,0,0,.22) 1px, transparent 2px) 0 0/14px 14px repeat;
       clip-path: polygon(0 58%, 100% 30%, 100% 100%, 0 100%);
     }
-    .headline{
-      display:grid; gap:var(--s1); grid-template-columns: 1fr auto; align-items:end;
-    }
     .ribbon{
-      padding:6px 10px; border-radius:999px; background:#FFF1F3; color:#7E1720; border:1px solid #F7C3CA; font-weight:900; letter-spacing:.08em;
+      padding:6px 10px; border-radius:999px; background:#F6E6C8; color:#6E4A1B; border:1px solid #E4C88F; font-weight:900; letter-spacing:.08em;
       box-shadow:var(--e1);
     }
 
-    /* MENU — tear tabs floating across column grid */
-    .tabs-wrap{position:relative}
-    .tear-tabs{
-      display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr);
-    }
+    /* MENY – rivefliker */
+    .tabs{display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr)}
     .tab{
-      grid-column: span 3;
-      background:#fff; border:2px solid #EADAD6; border-radius:16px; padding:var(--s3);
-      box-shadow: var(--e1); position:relative; overflow:hidden;
+      grid-column: span 3; background:#fff; border:2px solid #E4D2C2; border-radius:16px; padding:var(--s3); box-shadow:var(--e1); position:relative; overflow:hidden;
     }
     .tab::before{
       content:""; position:absolute; right:-10px; top:0; bottom:0; width:18px;
-      background:
-        radial-gradient(circle at 9px 9px, #0000 7px, #EADAD6 8px) left top/18px 18px repeat-y;
+      background: radial-gradient(circle at 9px 9px, #0000 7px, #E4D2C2 8px) left top/18px 18px repeat-y;
     }
     @media (max-width:1000px){ .tab{grid-column:span 6} }
     @media (max-width:640px){ .tab{grid-column:span 12} }
 
-    /* CHAIR CARDS — bottle green slabs with angled thumb notch */
+    /* STOLER – espresso-panel */
     .chairs{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
     @media (max-width:1000px){ .chairs{grid-template-columns:1fr} }
     .chair{
-      background:var(--panel); color:var(--panel-ink); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:var(--s3);
-      box-shadow: var(--e1); position:relative;
+      background:var(--panel); color:var(--panel-ink); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:var(--s3); box-shadow:var(--e1); position:relative;
     }
     .chair::after{
       content:""; position:absolute; right:12px; top:12px; width:20px; height:20px; border-radius:4px;
-      background:conic-gradient(from 180deg, rgba(255,255,255,.5), rgba(255,255,255,0));
-      mix-blend:screen;
+      background:conic-gradient(from 180deg, rgba(255,255,255,.5), rgba(255,255,255,0)); mix-blend:screen;
     }
 
-    /* PRICES — guilloché certificate card */
+    /* PRISER – sertifikat */
     .cert{
-      background:#fff; border:2px solid #E5D7CF; border-radius:20px; padding:var(--s3);
-      box-shadow:var(--e1); position:relative; overflow:hidden;
+      background:#fff; border:2px solid #E4D2C2; border-radius:20px; padding:var(--s3); box-shadow:var(--e1); position:relative; overflow:hidden;
     }
     .cert::before{
       content:""; position:absolute; inset:10px; border-radius:14px;
-      background: repeating-conic-gradient(#F9EEE7 0 10deg, #FFF 10deg 20deg);
+      background: repeating-conic-gradient(#F7E9D6 0 10deg, #FFF 10deg 20deg);
       opacity:.7; mask-image: radial-gradient(120% 90% at 50% 50%, #000 60%, transparent 100%);
     }
-    .row{display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px dashed #E5D7CF}
+    .row{display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px dashed #E4D2C2}
     .row:last-child{border-bottom:0}
 
-    /* FAQ */
-    details{background:#fff; border:2px solid #E5D7CF; border-radius:14px; padding:12px 16px; box-shadow:var(--e1)}
+    /* FAQ & skjema */
+    details{background:#fff; border:2px solid #E4D2C2; border-radius:14px; padding:12px 16px; box-shadow:var(--e1)}
     summary{cursor:pointer; font-weight:800; color:#111}
 
-    /* FORM (Netlify) */
-    form.sheet{background:#fff; border:2px solid #E5D7CF; border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
+    form.sheet{background:#fff; border:2px solid #E4D2C2; border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
     label{display:block; font-weight:800; margin-bottom:8px}
     input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:2px solid #E5D7CF; background:#FFFEFD; color:#141312;
+      width:100%; padding:12px 14px; border-radius:12px; border:2px solid #E4D2C2; background:#FFFEFD; color:#1A1715;
     }
     input:focus, select:focus, textarea:focus{outline:none; box-shadow:var(--ring)}
 
-    /* Sticky CTA (mobile) */
-    .sticky-cta{position:fixed; bottom:14px; left:84px; right:0; display:flex; justify-content:center; pointer-events:none; z-index:40}
-    .sticky-cta .btn{pointer-events:auto}
-    @media (max-width: 720px){ .sticky-cta{left:0} }
-
-    /* Utilities */
+    /* Utilities & reveal */
     .mt1{margin-top:var(--s1)} .mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)}
     .mb0{margin-bottom:0}
     .grid-3{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
     .grid-2{display:grid; gap:var(--s3); grid-template-columns:repeat(2,1fr)}
     @media (max-width:1000px){ .grid-3,.grid-2{grid-template-columns:1fr} }
 
-    /* Reveal-on-scroll (used with $) */
     .reveal{opacity:0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
     .reveal.in{opacity:1; transform:none}
   </style>
 </head>
 <body>
 
-  <!-- Vertical editorial masthead -->
-  <aside class="masthead" aria-label="Masthead">
-    <div class="mast-title">Odd&nbsp;Fellow&nbsp;Barber</div>
-    <div class="pole" aria-hidden="true"></div>
-    <div class="seal" aria-hidden="true">EST.<br>2014</div>
-  </aside>
-
-  <!-- Header (compact, different structure) -->
+  <!-- HEADER: kjeder + hengende skilt + nav-rad -->
   <header>
-    <div class="container bar">
-      <div class="brand">Odd Fellow Barber</div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#poster">Intro</a>
-        <a href="#menu">Menu</a>
-        <a href="#chairs">Chairs</a>
-        <a href="#prices">Prices</a>
-        <a href="#book">Book</a>
-        <a href="#faqs">FAQs</a>
-      </nav>
-      <div class="spacer"></div>
-      <a class="btn btn-pri" href="#book">Book a seat</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">☰</button>
+    <div class="sign-wrap">
+      <div class="chains" aria-hidden="true">
+        <div class="chain"></div><div class="chain"></div>
+      </div>
+      <div class="sign">
+        <div class="brand">Odd Fellow Barber</div>
+        <div class="sub">Kutt • Barbering • Personlighet</div>
+      </div>
     </div>
-    <nav id="mobileNav" hidden>
-      <a href="#poster">Intro</a>
-      <a href="#menu">Menu</a>
-      <a href="#chairs">Chairs</a>
-      <a href="#prices">Prices</a>
+    <nav class="nav-row" aria-label="Primær navigasjon">
+      <a href="#intro">Intro</a>
+      <a href="#meny">Meny</a>
+      <a href="#stoler">Stoler</a>
+      <a href="#priser">Priser</a>
       <a href="#book">Book</a>
-      <a href="#faqs">FAQs</a>
-      <a class="btn btn-pri" href="#book">Book a seat</a>
+      <a href="#faqs">FAQ</a>
     </nav>
   </header>
 
-  <main id="poster">
-    <!-- POSTER HERO — magazine spread; copy left, meta right -->
-    <section class="poster section" aria-label="Intro">
-      <div class="halftone" aria-hidden="true"></div>
+  <main id="intro">
+    <!-- HERO / POSTER -->
+    <section class="poster section">
+      <div class="tone" aria-hidden="true"></div>
       <div class="container grid g-12">
         <div class="span-7">
-          <div class="headline reveal">
-            <div>
-              <span class="eyebrow">Cuts • Shaves • Stories</span>
-              <h1>Barbering with<br>opinion.</h1>
-            </div>
-            <span class="ribbon">Walk-ins welcome</span>
+          <div class="reveal" style="display:grid; gap:8px;">
+            <span class="eyebrow">Siden 2014 • Kaffekopp mens du venter</span>
+            <h1>Barbering med mening.</h1>
           </div>
-          <p class="mt2 reveal">Fades that disappear. Scissor work with structure. Beards lined to camera-ready. Coffee while you wait, hot towels when you sit.</p>
+          <p class="mt2 reveal">Fades som forsvinner, saksarbeid med struktur, skjegg som treffer kamera. Ingen hardt salg — bare godt håndverk.</p>
           <div class="mt3 reveal" style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="btn btn-pri" href="#book">Book a seat</a>
-            <a class="btn btn-ghost" href="#prices">See prices</a>
+            <a class="btn btn-pri" href="#book">Book time</a>
+            <a class="btn btn-ghost" href="#priser">Se priser</a>
+            <span class="ribbon">Drop-in velkommen</span>
           </div>
         </div>
         <div class="span-5">
           <div class="reveal cert">
-            <h4 style="margin-bottom:6px">House Badge</h4>
-            <p class="mb0">No hard sell. No shortcuts. Clean stations. Sharp tools. Good music.</p>
+            <h4 style="margin-bottom:6px">Husets kodeks</h4>
+            <p class="mb0">Rene plasser. Skarpe verktøy. Gode toner. Varm håndklut ved stolen.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MENU — tear tabs across the grid -->
-    <section id="menu" class="section tabs-wrap" aria-label="Menu">
+    <!-- MENY -->
+    <section id="meny" class="section">
       <div class="container">
-        <h2 class="reveal">The Menu</h2>
-        <div class="tear-tabs mt3">
-          <article class="tab reveal">
-            <h4>Scissor Cut</h4>
-            <p>Structured silhouette, textured finish.</p>
-          </article>
-          <article class="tab reveal">
-            <h4>Skin Fade</h4>
-            <p>Razor-clean outline, seamless blend.</p>
-          </article>
-          <article class="tab reveal">
-            <h4>Beard Shape</h4>
-            <p>Line-up + bulk control + hot towel.</p>
-          </article>
-          <article class="tab reveal">
-            <h4>Hot Towel Shave</h4>
-            <p>Steam prep, straight razor, aftercare.</p>
-          </article>
+        <h2 class="reveal">Meny</h2>
+        <div class="tabs mt3">
+          <article class="tab reveal"><h4>Saksklipp</h4><p>Form og tekstur som vokser pent i 4–6 uker.</p></article>
+          <article class="tab reveal"><h4>Skin Fade</h4><p>Sømløs overgang, barberkniv i finish.</p></article>
+          <article class="tab reveal"><h4>Skjeggform</h4><p>Linjer, volumkontroll og varm håndklut.</p></article>
+          <article class="tab reveal"><h4>Hot Towel Shave</h4><p>Damp, kniv, etterpleie. Klassikeren.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- CHAIRS — editorial bios on bottle green slabs -->
-    <section id="chairs" class="section" aria-label="Chairs" style="background:linear-gradient(180deg,#FFFFFF,#F6F1E9)">
+    <!-- STOLER -->
+    <section id="stoler" class="section" style="background:linear-gradient(180deg,#FFFFFF,#F4E7D7)">
       <div class="container">
-        <h2 class="reveal">At the chairs</h2>
+        <h2 class="reveal">Ved stolene</h2>
         <div class="chairs mt3">
-          <div class="chair reveal">
-            <h4>Viktor</h4>
-            <p>Fade precisionist. Loves the quiet taper that shocks in profile.</p>
-          </div>
-          <div class="chair reveal">
-            <h4>Maya</h4>
-            <p>Scissor architect. Shapes that grow out handsome for 4–6 weeks.</p>
-          </div>
-          <div class="chair reveal">
-            <h4>Hadi</h4>
-            <p>Beard tactician. Symmetry, line discipline, and warm finishes.</p>
-          </div>
+          <div class="chair reveal"><h4>Viktor</h4><p>Fade-perfeksjonist. Stille taper som smeller i profil.</p></div>
+          <div class="chair reveal"><h4>Maya</h4><p>Saksarkitekt. Silhuetter som holder formen.</p></div>
+          <div class="chair reveal"><h4>Hadi</h4><p>Skjegg-taktiker. Symmetri og varme avslutninger.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- PRICES — certificate card with guilloché -->
-    <section id="prices" class="section" aria-label="Prices" style="background:#fff">
+    <!-- PRISER -->
+    <section id="priser" class="section" style="background:#fff">
       <div class="container">
-        <h2 class="reveal">Price list</h2>
+        <h2 class="reveal">Prisliste</h2>
         <div class="cert mt2 reveal">
-          <div class="row"><span>Scissor Cut</span><strong>kr 390</strong></div>
+          <div class="row"><span>Saksklipp</span><strong>kr 390</strong></div>
           <div class="row"><span>Skin Fade</span><strong>kr 420</strong></div>
-          <div class="row"><span>Clipper All Over</span><strong>kr 280</strong></div>
-          <div class="row"><span>Beard Trim & Shape</span><strong>kr 250</strong></div>
-          <div class="row"><span>Cut + Beard</span><strong>kr 590</strong></div>
+          <div class="row"><span>Maskinklipp</span><strong>kr 280</strong></div>
+          <div class="row"><span>Skjeggtrim & form</span><strong>kr 250</strong></div>
+          <div class="row"><span>Klipp + Skjegg</span><strong>kr 590</strong></div>
           <div class="row"><span>Hot Towel Shave</span><strong>kr 520</strong></div>
         </div>
-        <p class="mt2" style="color:#3A3734">Student & weekday lunch pricing available — ask at the chair.</p>
+        <p class="mt2" style="color:#4A403A">Student/lunsjpriser hverdager — spør i stolen.</p>
       </div>
     </section>
 
-    <!-- BOOK — single goal -->
-    <section id="book" class="section" aria-label="Book">
+    <!-- BOOK -->
+    <section id="book" class="section">
       <div class="container grid g-12">
         <div class="span-6">
-          <h2>Book a seat</h2>
-          <p class="muted">Tell us when and what. We’ll confirm fast.</p>
+          <h2>Book time</h2>
+          <p class="muted">Si når og hva. Vi bekrefter raskt.</p>
           <form class="sheet mt2" name="odd-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="odd-booking">
-            <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+            <p style="display:none"><label>Ikke fyll ut: <input name="bot-field"></label></p>
             <div class="grid g-12">
-              <div class="span-6">
-                <label>Name</label>
-                <input required name="name" placeholder="Jane Doe">
-              </div>
-              <div class="span-6">
-                <label>Email</label>
-                <input required type="email" name="email" placeholder="you@company.com">
-              </div>
+              <div class="span-6"><label>Navn</label><input required name="name" placeholder="Ola Nordmann"></div>
+              <div class="span-6"><label>E-post</label><input required type="email" name="email" placeholder="deg@firma.no"></div>
             </div>
             <div class="grid g-12">
+              <div class="span-6"><label>Telefon</label><input required name="phone" placeholder="+47 …"></div>
               <div class="span-6">
-                <label>Phone</label>
-                <input required name="phone" placeholder="+47 …">
-              </div>
-              <div class="span-6">
-                <label>Service</label>
+                <label>Tjeneste</label>
                 <select name="service" required>
-                  <option value="">Select…</option>
-                  <option>Scissor Cut</option>
-                  <option>Skin Fade</option>
-                  <option>Clipper All Over</option>
-                  <option>Beard Trim & Shape</option>
-                  <option>Cut + Beard</option>
-                  <option>Hot Towel Shave</option>
+                  <option value="">Velg…</option>
+                  <option>Saksklipp</option><option>Skin Fade</option><option>Maskinklipp</option>
+                  <option>Skjeggtrim & form</option><option>Klipp + Skjegg</option><option>Hot Towel Shave</option>
                 </select>
               </div>
             </div>
-            <label class="mt2">Preferred time</label>
+            <label class="mt2">Ønsket tid</label>
             <select name="slot" required>
-              <option value="">Select…</option>
-              <option>Morning (09–12)</option>
-              <option>Afternoon (12–16)</option>
-              <option>Evening (16–19)</option>
+              <option value="">Velg…</option>
+              <option>Morgen (09–12)</option><option>Ettermiddag (12–16)</option><option>Kveld (16–19)</option>
             </select>
-            <label class="mt2">Notes</label>
-            <textarea rows="4" name="notes" placeholder="Style notes, barber preference, etc."></textarea>
-            <button class="btn btn-pri mt2" type="submit">Confirm booking</button>
-            <p class="mt1" style="color:#3A3734">No pre-payment. We reply within 24h.</p>
+            <label class="mt2">Notater</label>
+            <textarea rows="4" name="notes" placeholder="Stil, barber, osv."></textarea>
+            <button class="btn btn-pri mt2" type="submit">Bekreft</button>
+            <p class="mt1" style="color:#4A403A">Ingen forhåndsbetaling. Svar innen 24t.</p>
           </form>
         </div>
         <aside class="span-6">
           <div class="cert reveal">
-            <h4>Hours & Location</h4>
-            <div class="row"><span>Mon–Fri</span><strong>09:00–19:00</strong></div>
-            <div class="row"><span>Saturday</span><strong>10:00–16:00</strong></div>
-            <div class="row"><span>Sunday</span><strong>Closed</strong></div>
-            <div class="row"><span>Address</span><strong>Langmyrvegen 22A, Oslo</strong></div>
-            <p class="mt2">Questions? <a href="mailto:contact@citeks.net">contact@citeks.net</a> • +47 55 55 55</p>
+            <h4>Åpningstider & Adresse</h4>
+            <div class="row"><span>Man–Fre</span><strong>09:00–19:00</strong></div>
+            <div class="row"><span>Lørdag</span><strong>10:00–16:00</strong></div>
+            <div class="row"><span>Søndag</span><strong>Stengt</strong></div>
+            <div class="row"><span>Adresse</span><strong>Langmyrvegen 22A, Oslo</strong></div>
+            <p class="mt2">Spørsmål? <a href="mailto:contact@citeks.net">contact@citeks.net</a> • +47 55 55 55</p>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- FAQs -->
-    <section id="faqs" class="section" aria-label="FAQs" style="background:#fff">
+    <!-- FAQ -->
+    <section id="faqs" class="section" style="background:#fff">
       <div class="container">
-        <h2 class="reveal">FAQs</h2>
-        <details class="mt2 reveal"><summary>Do you take walk-ins?</summary><p class="mt1">Yes — first come, first served. Booking guarantees your slot.</p></details>
-        <details class="mt2 reveal"><summary>Do you cut kids’ hair?</summary><p class="mt1">Absolutely. We keep it quick and friendly.</p></details>
-        <details class="mt2 reveal"><summary>Cash or card?</summary><p class="mt1">Both. Tips optional.</p></details>
+        <h2 class="reveal">Ofte stilte spørsmål</h2>
+        <details class="mt2 reveal"><summary>Tar dere drop-in?</summary><p class="mt1">Ja. Førstemann til mølla. Booking sikrer plass.</p></details>
+        <details class="mt2 reveal"><summary>Klipper dere barn?</summary><p class="mt1">Ja — raskt og hyggelig.</p></details>
+        <details class="mt2 reveal"><summary>Betaling?</summary><p class="mt1">Kort og kontant. Tips valgfritt.</p></details>
       </div>
     </section>
   </main>
 
-  <footer class="section" style="padding-top:32px; padding-bottom:32px; margin-left:84px;">
+  <footer class="section" style="padding-top:32px; padding-bottom:32px;">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
       <div class="brand" style="font-family:'Newsreader'; font-weight:800;">Odd Fellow Barber</div>
-      <p class="muted">© <span data-year></span> Odd Fellow Barber — Cuts, Shaves, Stories</p>
+      <p class="muted">© <span data-year></span> Odd Fellow Barber — Kutt, Barbering, Personlighet</p>
     </div>
   </footer>
 
-  <div class="sticky-cta">
-    <a class="btn btn-pri" href="#book">Book a seat</a>
-  </div>
+  <!-- Merk: ingen sticky bottom CTA lenger -->
 
-  <!-- jQuery ($) for micro-interactions + reveal -->
+  <!-- jQuery for mikrointeraksjoner -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>
-    // Mobile menu
-    const toggle = document.querySelector('.nav-toggle');
-    const mobileNav = document.getElementById('mobileNav');
-    if(toggle){
-      toggle.addEventListener('click', ()=>{
-        const open = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!open));
-        mobileNav.hidden = open;
+    // Reveal on scroll
+    const $els = $('.reveal, details');
+    function reveal(){
+      const top = $(window).scrollTop(), h = $(window).height();
+      $els.each(function(){
+        const $el = $(this); if($el.hasClass('in')) return;
+        const r = this.getBoundingClientRect(), absTop = top + r.top;
+        if(absTop < top + h*0.88) $el.addClass('in');
       });
     }
-
-    // Reveal on scroll with $
-    const $els = $('.reveal, details');
-    const reveal = () => {
-      const top = $(window).scrollTop();
-      const h = $(window).height();
-      $els.each(function(){
-        const $el = $(this);
-        if($el.hasClass('in')) return;
-        const rect = this.getBoundingClientRect();
-        const absTop = top + rect.top;
-        if (absTop < top + h*0.88) $el.addClass('in');
-      });
-    };
     $(window).on('scroll resize', reveal); $(reveal);
 
-    // Smooth anchors with $
+    // Glatt anker-scroll
     $('a[href^="#"]').on('click', function(e){
-      const id = $(this).attr('href').slice(1);
-      const $t = $('#'+id);
+      const id = $(this).attr('href').slice(1), $t = $('#'+id);
       if($t.length){ e.preventDefault(); $('html, body').animate({scrollTop: $t.offset().top - 8}, 500); }
     });
 
-    // Magnetic primary button (subtle)
-    $('.btn-pri').on('mousemove', function(e){
-      const r = this.getBoundingClientRect();
-      const dx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
-      const dy = (e.clientY - (r.top + r.height/2)) / (r.height/2);
-      $(this).css('transform', `translate(${dx*2}px, ${dy*2}px)`);
-    }).on('mouseleave', function(){ $(this).css('transform',''); });
-
-    // Year
+    // Årstall
     document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
   </script>
 </body>
