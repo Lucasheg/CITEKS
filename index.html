@@ -2,43 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>VIGOR LAB — Strength • Conditioning • Community</title>
-  <meta name="description" content="VIGOR LAB: premium neighborhood gym. Strength & conditioning classes, coaches who care, no-intimidation vibe. Start your 7-day pass." />
+  <title>VIGOR LAB — Start your 7-day pass</title>
+  <meta name="description" content="VIGOR LAB: bold neighborhood gym. Coached sessions. No contract. Start your 7-day pass." />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0B0E11" />
+  <meta name="theme-color" content="#FFF8F4" />
   <link rel="canonical" href="https://vigorlab.example/">
 
   <style>
     /* =========================================================
-       CITEKS RULES ENFORCED
-       - Type: Major Third (1.25) from 16px
-       - Letter-spacing: p=0, h6=-0.5%, h3=-1.5%, h1=-2%
-       - Line-height: p=150%, h4=130%, h2=110%, h1=100%
+       CITEKS RULES (A–E) — ENFORCED
+       - Type: Major Third from 16px; letter/line rules applied
        - Grid: 12 desktop / 4 mobile
-       - Spacing: 8-pt scale
-       - Color: 60/30/10 with strong contrast, accessible
-       - One goal per page: Start 7-day pass
+       - Spacing: 8-pt system
+       - Color: 60/30/10 (Editorial Light + Graphite + Electric Orange)
+       - Conversion: One goal per page (Start 7-day pass)
        ========================================================= */
 
     :root{
-      /* 60/30/10 — “gym energy” (light neutral + graphite + neon lime) */
-      --bg:#FAFAF9;          /* 60% */
-      --ink:#0E1113;
-      --muted:#5E6468;
+      /* 60/30/10 palette — NEW (no lime, no navy) */
+      --bg: #FFF8F4;            /* 60% base */
+      --ink:#171717;            /* body text */
+      --muted:#6B6B6B;
 
-      --panel:#0B0E11;       /* 30% secondary surfaces */
-      --panel-ink:#EDEEEF;
+      --panel:#1C1C1E;          /* 30% surfaces (dark graphite) */
+      --panel-ink:#F5F5F6;
 
-      --accent:#22C55E;      /* 10% primary action (neon lime) */
-      --accent-600:#16A34A;
-      --accent-soft:#E8F8EE;
+      --accent:#FF6B3D;         /* 10% action (electric orange) */
+      --accent-600:#E8562B;
+      --accent-soft:#FFE8DF;
 
-      /* Type scale (Major Third from 16px) */
+      /* Type scale — Major Third (1.25) rooted at 16px */
       --fs-p:16px;
       --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
       --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
 
-      /* Tracking / leading per spec */
+      /* Letter-spacing & line-height rules */
       --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
       --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
 
@@ -48,10 +46,10 @@
       /* Layout */
       --container:1120px;
 
-      /* Elevation + motion */
-      --e1: 0 8px 30px rgba(0,0,0,.06);
-      --e2: 0 16px 60px rgba(0,0,0,.12);
-      --ring: 0 0 0 3px rgba(34,197,94,.25);
+      /* Depth & motion */
+      --e1: 0 10px 30px rgba(0,0,0,.07);
+      --e2: 0 18px 60px rgba(0,0,0,.12);
+      --ring: 0 0 0 3px rgba(255,107,61,.25);
       --ease: cubic-bezier(.2,.6,.2,1);
     }
 
@@ -67,8 +65,8 @@
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Type */
-    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-weight:900}
+    /* ===== Type */
+    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-weight:1000}
     h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
     h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
     h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
@@ -76,131 +74,159 @@
     h5{font-size:var(--fs-h5)}
     h6{font-size:var(--fs-h6); letter-spacing:var(--ls-h6)}
     p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#2B3135}
+    .eyebrow{font-weight:900; text-transform:uppercase; letter-spacing:.06em; color:#383838}
 
-    /* Links & Buttons */
+    /* ===== Links & Buttons */
     a{color:var(--accent); text-decoration:none}
     a:hover{color:var(--accent-600)}
-    a:focus{outline:none; box-shadow:var(--ring); border-radius:10px}
+    a:focus{outline:none; box-shadow:var(--ring); border-radius:12px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:12px; font-weight:900; border:1px solid transparent;
+      padding:12px 16px; border-radius:14px; font-weight:1000; border:1px solid transparent;
       transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
+      will-change: transform;
     }
     .btn:focus{box-shadow:var(--ring)}
-    .btn-pri{background:var(--accent); color:#06240F; box-shadow:var(--e1)}
-    .btn-pri:hover{transform:translateY(-2px) scale(1.01); background:var(--accent-600); box-shadow:var(--e2); color:#fff}
-    .btn-sec{background:var(--accent-soft); color:#085328; border-color:#B7ECCB}
+    .btn-pri{background:var(--accent); color:#2A0F06; box-shadow: var(--e1)}
+    .btn-pri:hover{transform:translateY(-2px) scale(1.01); background:var(--accent-600); color:#fff; box-shadow:var(--e2)}
+    .btn-sec{background:var(--accent-soft); color:#9A3216; border-color:#FFC9B6}
     .btn-sec:hover{transform:translateY(-1px)}
 
-    /* Container & Grid */
+    /* ===== Container & Grid */
     .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
     .section{padding: clamp(56px, 8vw, 120px) 0}
     .grid{display:grid; gap:var(--s3)}
     .g-12{grid-template-columns:repeat(12,1fr)}
-    .span-7{grid-column:span 7} .span-5{grid-column:span 5}
     .span-8{grid-column:span 8} .span-4{grid-column:span 4}
+    .span-7{grid-column:span 7} .span-5{grid-column:span 5}
     .span-6{grid-column:span 6}
-    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-7,.span-5,.span-8,.span-4,.span-6{grid-column:1/-1} }
+    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-8,.span-4,.span-7,.span-5,.span-6{grid-column:1/-1} }
     @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-    /* Header — kinetic bar with scroll progress */
+    /* ===== Header — clean with circular progress dot (no card) */
     header{
-      position:sticky; top:0; z-index:50; background:rgba(250,250,249,.85);
-      backdrop-filter:saturate(150%) blur(8px); border-bottom:1px solid rgba(0,0,0,.06);
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,248,244,.85); backdrop-filter:saturate(140%) blur(8px);
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
     .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
     .brand{font-weight:1000; letter-spacing:-.02em; font-size:22px}
     .nav{display:flex; gap:var(--s3); align-items:center}
-    .nav a{color:#0E1113; opacity:.9}
+    .nav a{color:#171717; opacity:.9}
     .nav a:hover{opacity:1}
     .spacer{flex:1}
     .nav-toggle{display:none}
-    #progress{position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent),transparent); transform-origin:left; transform:scaleX(0)}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 0 rgba(255,107,61,.6); animation:pulse 2s infinite}
+    @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(255,107,61,.6)} 70%{box-shadow:0 0 0 10px rgba(255,107,61,0)} 100%{box-shadow:0 0 0 0 rgba(255,107,61,0)} }
     @media (max-width: 960px){
       .nav{display:none}
       .nav-toggle{display:inline-flex; padding:10px 12px; border:1px solid rgba(0,0,0,.08); border-radius:10px; background:#fff}
       #mobileNav[hidden]{display:none}
       #mobileNav{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--e2); padding:12px}
-      #mobileNav a{display:block; padding:10px; color:#0E1113}
+      #mobileNav a{display:block; padding:10px; color:#171717}
     }
 
-    /* HERO — diagonal kinetic field with clip shapes */
+    /* ===== HERO — circular kinetic rings + radial grid (NO side card) */
     .hero{
-      position:relative; isolation:isolate;
+      position:relative; isolation:isolate; overflow:hidden;
+      --mx: 50%; --my: 30%; /* updated by JS for spotlight */
       background:
-        conic-gradient(from 210deg at 120% -10%, rgba(34,197,94,.18) 0deg, transparent 80deg),
-        conic-gradient(from 40deg at -20% 120%, rgba(34,197,94,.12) 0deg, transparent 120deg);
+        radial-gradient( 400px 400px at var(--mx) var(--my), rgba(255,107,61,.10), transparent 70%),
+        radial-gradient( 800px 800px at 120% -20%, rgba(255,107,61,.08), transparent 60%);
     }
-    .belt{
-      position:absolute; inset:auto 0 -80px 0; height:180px;
+    .rings{
+      position:absolute; inset:-200px -200px auto -200px; height:520px; width:520px; margin:auto; left:0; right:0; top:-80px;
       background:
-        repeating-linear-gradient(45deg, rgba(255,255,255,.0) 0 24px, rgba(13,19,18,.05) 24px 48px);
-      clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
+        radial-gradient(circle at center, transparent 0 54px, rgba(0,0,0,.06) 55px 56px, transparent 57px),
+        radial-gradient(circle at center, transparent 0 120px, rgba(0,0,0,.05) 121px 122px, transparent 123px),
+        radial-gradient(circle at center, transparent 0 200px, rgba(0,0,0,.04) 201px 202px, transparent 203px);
+      border-radius:50%;
+      filter: blur(.2px);
+      animation: spin 26s linear infinite;
       z-index:-1;
     }
-    .hero-card{
-      background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3);
-      box-shadow: var(--e1);
-      transform: translateY(0) rotate(-.6deg);
-      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
-    }
-    .hero-card:hover{ transform: translateY(-2px) rotate(0); box-shadow: var(--e2) }
+    @keyframes spin { to{ transform: rotate(360deg) } }
 
-    /* Program tiles — angular */
-    .tiles{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
-    @media (max-width: 1000px){ .tiles{grid-template-columns:1fr} }
-    .tile{
-      position:relative; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:var(--s3);
-      box-shadow: var(--e1); overflow:hidden;
+    .ring-dots{
+      position:absolute; inset:0; margin:auto; height:360px; width:360px; left:0; right:0; top:40px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,107,61,.6) 4px, transparent 5px) 0 0/36px 180px,
+        radial-gradient(circle at 0% 50%, rgba(255,107,61,.35) 3px, transparent 4px) 0 0/180px 36px;
+      border-radius:50%;
+      filter:saturate(120%);
+      animation: orbit 18s linear infinite reverse;
+      z-index:-1;
     }
-    .tile::after{
-      content:""; position:absolute; right:-40px; top:-40px; width:160px; height:160px;
-      background: radial-gradient(60px 60px at 60% 60%, rgba(34,197,94,.18), transparent 70%);
-      transform: rotate(12deg);
+    @keyframes orbit { to{ transform: rotate(-360deg) } }
+
+    .hero-stack{max-width: 26ch}
+    .hero-cta{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:var(--s3)
+    }
+    .chip{display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid rgba(0,0,0,.08); padding:8px 10px; border-radius:999px; box-shadow:var(--e1)}
+    .chip .dot{width:8px; height:8px}
+
+    /* ===== PROGRAM ARCH (curved tickets) */
+    .arch{
+      display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr);
+    }
+    @media (max-width: 1000px){ .arch{grid-template-columns:1fr} }
+    .ticket{
+      position:relative; padding:var(--s3); background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:var(--e1);
+      border-radius:24px 24px 8px 24px; /* asymmetric curve */
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%); /* notch */
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .ticket:hover{ transform: translateY(-2px) rotate(-.2deg); box-shadow:var(--e2) }
+    .ticket::after{
+      content:""; position:absolute; right:8px; bottom:8px; width:28px; height:28px; border-radius:50%;
+      background:radial-gradient(circle at 40% 40%, rgba(255,107,61,.35), transparent 60%);
+      filter: blur(1px);
     }
 
-    /* Panel (dark) */
-    .panel{
-      background:var(--panel); color:var(--panel-ink);
-      border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:var(--s3);
-      box-shadow: var(--e1);
+    /* ===== DARK METRIC PANEL (no cards) */
+    .metrics{
+      background:var(--panel); color:var(--panel-ink); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .m-grid{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
+    @media (max-width: 1000px){ .m-grid{grid-template-columns:1fr} }
+    .metric{
+      padding:var(--s3); border:1px solid rgba(255,255,255,.08); border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      box-shadow:0 1px 0 rgba(255,255,255,.04) inset;
     }
 
-    /* Schedule band */
-    .band{
-      background:linear-gradient(180deg,#FFFFFF, #F1F5F2);
-      border-top:1px solid rgba(0,0,0,.06); border-bottom:1px solid rgba(0,0,0,.06);
+    /* ===== PRICING TAGS */
+    .tag{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px;
+      background:var(--accent-soft); color:#9A3216; border:1px solid #FFC9B6; font-weight:900;
     }
 
-    /* Testimonials (quote cards) */
-    .quote{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3); box-shadow:var(--e1)}
-
-    /* FAQ */
+    /* ===== FAQ */
     details{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:12px 16px; box-shadow:var(--e1)}
-    summary{cursor:pointer; font-weight:900; color:#101314}
+    summary{cursor:pointer; font-weight:1000; color:#111}
 
-    /* Forms */
-    form.card{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:var(--s3); box-shadow:var(--e1)}
-    label{display:block; font-weight:800; margin-bottom:8px}
+    /* ===== Forms (Netlify) */
+    form.sheet{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
+    label{display:block; font-weight:900; margin-bottom:8px}
     input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #DBE0E3; background:#FCFDFB; color:#0E1113;
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #E4E4E7; background:#FFFEFD; color:#171717;
     }
     input:focus, select:focus, textarea:focus{outline:none; box-shadow:var(--ring)}
 
-    /* Sticky CTA (mobile) */
+    /* ===== Sticky CTA (mobile) */
     .sticky-cta{position:fixed; bottom:14px; left:0; right:0; display:flex; justify-content:center; pointer-events:none; z-index:40}
     .sticky-cta .btn{pointer-events:auto}
     @media (min-width: 720px){ .sticky-cta{display:none} }
 
-    /* Utilities */
+    /* ===== Utilities */
     .mt1{margin-top:var(--s1)} .mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)}
     .mb0{margin-bottom:0}
     .grid-3{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
     .grid-2{display:grid; gap:var(--s3); grid-template-columns:repeat(2,1fr)}
     @media (max-width:1000px){ .grid-3,.grid-2{grid-template-columns:1fr} }
 
-    /* Reveal-on-scroll */
+    /* ===== Reveal-on-scroll */
     .reveal{opacity:0; transform: translateY(12px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
     .reveal.in{opacity:1; transform:none}
   </style>
@@ -214,78 +240,68 @@
       <nav class="nav" aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#programs">Programs</a>
-        <a href="#coaches">Coaches</a>
+        <a href="#proof">Proof</a>
         <a href="#pricing">Pricing</a>
-        <a href="#schedule">Schedule</a>
+        <a href="#join">Join</a>
         <a href="#faqs">FAQs</a>
       </nav>
       <div class="spacer"></div>
+      <div class="dot" aria-hidden="true"></div>
       <a class="btn btn-pri" href="#join">Start 7-day pass</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">☰</button>
-      <div id="progress"></div>
     </div>
     <nav id="mobileNav" hidden>
       <a href="#home">Home</a>
       <a href="#programs">Programs</a>
-      <a href="#coaches">Coaches</a>
+      <a href="#proof">Proof</a>
       <a href="#pricing">Pricing</a>
-      <a href="#schedule">Schedule</a>
+      <a href="#join">Join</a>
       <a href="#faqs">FAQs</a>
       <a class="btn btn-pri" href="#join">Start 7-day pass</a>
     </nav>
   </header>
 
   <main id="home">
-    <!-- HERO -->
-    <section class="hero section">
-      <div class="belt" aria-hidden="true"></div>
+    <!-- HERO (no right-side rectangle; center stack + kinetic rings) -->
+    <section class="hero section" aria-label="Intro">
+      <div class="rings" aria-hidden="true"></div>
+      <div class="ring-dots" aria-hidden="true"></div>
       <div class="container grid g-12">
-        <div class="span-7 reveal">
-          <span class="eyebrow">Strength • Conditioning • Community</span>
-          <h1>Stronger every week — without the intimidation.</h1>
-          <p class="mt2">Coached small-group training, clean facility, and progress you can feel. First-timers welcome.</p>
-          <div class="mt3">
-            <a class="btn btn-pri" href="#join">Start 7-day pass</a>
-            <a class="btn btn-sec" href="#tour">Book a tour</a>
-          </div>
-          <div class="mt3" style="display:flex; gap:12px; flex-wrap:wrap;">
-            <span class="eyebrow" style="background:var(--accent-soft); padding:6px 10px; border-radius:999px;">Open 05–23</span>
-            <span class="eyebrow" style="background:var(--accent-soft); padding:6px 10px; border-radius:999px;">No contract</span>
-            <span class="eyebrow" style="background:var(--accent-soft); padding:6px 10px; border-radius:999px;">Free intro session</span>
-          </div>
-        </div>
-        <div class="span-5 reveal">
-          <div class="hero-card">
-            <h6>What you’ll get</h6>
-            <ul class="mt1">
-              <li>Personal coaching inside small classes</li>
-              <li>Programs for all levels</li>
-              <li>Results tracked weekly</li>
-            </ul>
-            <div class="mt2" style="border-left:4px solid var(--accent); padding-left:12px;">
-              <p class="mb0"><strong>One goal:</strong> Start your 7-day pass. We’ll message you the schedule and set up your intro.</p>
+        <div class="span-8">
+          <div class="hero-stack reveal">
+            <span class="eyebrow">Strength • Conditioning • Community</span>
+            <h1>Build real strength. Feel better every week.</h1>
+            <p class="mt2">Coached group training, technique first. First-timers welcome. No contract.</p>
+            <div class="hero-cta">
+              <a class="btn btn-pri" href="#join">Start 7-day pass</a>
+              <a class="btn btn-sec" href="#tour">Book a tour</a>
+              <span class="chip"><span class="dot"></span> Open 05–23</span>
+              <span class="chip"><span class="dot"></span> Free intro session</span>
             </div>
           </div>
+        </div>
+        <div class="span-4">
+          <!-- Empty column: lets rings breathe; not a card -->
         </div>
       </div>
     </section>
 
-    <!-- PROGRAMS -->
-    <section id="programs" class="section">
+    <!-- PROGRAM ARCH (curved tickets) -->
+    <section id="programs" class="section" aria-label="Programs">
       <div class="container">
         <h2 class="reveal">Programs</h2>
-        <div class="tiles mt3">
-          <article class="tile reveal">
+        <div class="arch mt3">
+          <article class="ticket reveal">
             <h4>Base Strength</h4>
             <p>Technique-first lifting in a supportive group. Build numbers safely.</p>
             <a class="btn btn-sec mt2" href="#join">Try with your pass</a>
           </article>
-          <article class="tile reveal">
+          <article class="ticket reveal">
             <h4>Engine & Sweat</h4>
             <p>Intervals & circuits for conditioning without burnout.</p>
             <a class="btn btn-sec mt2" href="#join">Try with your pass</a>
           </article>
-          <article class="tile reveal">
+          <article class="ticket reveal">
             <h4>Mobility Lab</h4>
             <p>Restore range, reduce aches, and lift better.</p>
             <a class="btn btn-sec mt2" href="#join">Try with your pass</a>
@@ -294,62 +310,47 @@
       </div>
     </section>
 
-    <!-- DARK PANEL: COACHES + PROOF -->
-    <section id="coaches" class="section" style="padding-top:0;">
-      <div class="panel">
-        <div class="container grid g-12">
-          <div class="span-8">
-            <h2>Coaches who meet you where you are.</h2>
-            <p style="color:#BDC3C7">Certified, experienced, and friendly. Every class has eyes on your form.</p>
-            <div class="grid-3 mt3">
-              <div class="quote"><strong>Ana S.</strong><br><span style="color:#94a3a9">Head Coach — Strength</span><p class="mt1">“We teach technique before load. The goal is progress without pain.”</p></div>
-              <div class="quote"><strong>Marco L.</strong><br><span style="color:#94a3a9">Coach — Conditioning</span><p class="mt1">“Consistent 45-min sessions beat random hero workouts.”</p></div>
-              <div class="quote"><strong>Liv K.</strong><br><span style="color:#94a3a9">Coach — Mobility</span><p class="mt1">“Small fixes change everything—your squat, your back, your week.”</p></div>
-            </div>
-          </div>
-          <aside class="span-4">
-            <div class="quote">
-              <h4>Members say</h4>
-              <p>“The only gym where I don’t feel lost. I’m lifting heavier and my knees finally don’t hurt.”</p>
-              <p class="mt1" style="color:#A8B0B4">4.9/5 average internal NPS • 500+ local members</p>
-              <a class="btn btn-pri mt2" href="#join">Start 7-day pass</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- SCHEDULE STRIP -->
-    <section id="schedule" class="section band">
+    <!-- DARK METRICS / PROOF -->
+    <section id="proof" class="section metrics" aria-label="Proof">
       <div class="container">
-        <h2 class="reveal">Class snapshot</h2>
-        <div class="grid-3 mt3">
-          <div class="card"><h6>Mon–Fri</h6><p class="mb0">06:00 • 07:00 • 12:00 • 17:00 • 18:00</p></div>
-          <div class="card"><h6>Saturday</h6><p class="mb0">09:00 Engine • 10:00 Strength</p></div>
-          <div class="card"><h6>Sunday</h6><p class="mb0">Open Gym 09:00–13:00</p></div>
+        <h2 class="reveal">Proof, not promises.</h2>
+        <div class="m-grid mt3">
+          <div class="metric reveal">
+            <h3 style="margin-bottom:4px">+78%</h3>
+            <p class="mb0">Members increased 5RM in 12 weeks (avg).</p>
+          </div>
+          <div class="metric reveal">
+            <h3 style="margin-bottom:4px">4.9/5</h3>
+            <p class="mb0">Internal NPS from 500+ local members.</p>
+          </div>
+          <div class="metric reveal">
+            <h3 style="margin-bottom:4px">0 contracts</h3>
+            <p class="mb0">Stay because you’re progressing, not because you’re locked in.</p>
+          </div>
         </div>
-        <p class="mt2" style="color:#3B403F">Full schedule sent after you start your pass.</p>
       </div>
     </section>
 
-    <!-- PRICING (starter examples) -->
-    <section id="pricing" class="section">
+    <!-- PRICING -->
+    <section id="pricing" class="section" aria-label="Pricing">
       <div class="container">
         <h2 class="reveal">Simple pricing</h2>
         <div class="grid-3 mt3">
-          <article class="card reveal" style="position:relative;">
-            <div style="position:absolute; right:12px; top:-10px; background:var(--accent); color:#06240F; padding:6px 10px; border-radius:8px; font-weight:900;">New</div>
-            <h4>7-Day Pass</h4>
+          <article class="reveal" style="background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:var(--s3); box-shadow:var(--e1)">
+            <span class="tag">New here</span>
+            <h4 class="mt2">7-Day Pass</h4>
             <p>Unlimited classes for a week.</p>
             <p class="muted">kr 0 (intro)</p>
           </article>
-          <article class="card reveal">
-            <h4>Monthly</h4>
+          <article class="reveal" style="background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:var(--s3); box-shadow:var(--e1)">
+            <span class="tag">Most chosen</span>
+            <h4 class="mt2">Monthly</h4>
             <p>Unlimited classes + open gym.</p>
             <p class="muted">From kr 699</p>
           </article>
-          <article class="card reveal">
-            <h4>10-Pack</h4>
+          <article class="reveal" style="background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:var(--s3); box-shadow:var(--e1)">
+            <span class="tag">Flexible</span>
+            <h4 class="mt2">10-Pack</h4>
             <p>Flexible visits, 6-month validity.</p>
             <p class="muted">kr 1490</p>
           </article>
@@ -360,23 +361,13 @@
       </div>
     </section>
 
-    <!-- FAQs -->
-    <section id="faqs" class="section" style="background:#fff">
-      <div class="container">
-        <h2 class="reveal">FAQs</h2>
-        <details class="mt2 reveal"><summary>Do I need experience?</summary><p class="mt1">No. We scale movements and teach technique first.</p></details>
-        <details class="mt2 reveal"><summary>Is the 7-day pass really free?</summary><p class="mt1">Yes. No contract. Try classes and meet the coaches.</p></details>
-        <details class="mt2 reveal"><summary>What should I bring?</summary><p class="mt1">Training shoes, water, and a good attitude.</p></details>
-      </div>
-    </section>
-
-    <!-- JOIN (Netlify form) + TOUR -->
-    <section id="join" class="section" style="background:linear-gradient(180deg,#FFFFFF, #F0F7F2)">
+    <!-- JOIN / TOUR -->
+    <section id="join" class="section" aria-label="Join" style="background:linear-gradient(180deg,#FFFFFF,#FFF1EA)">
       <div class="container grid g-12">
         <div class="span-7">
           <h2>Start your 7-day pass</h2>
           <p class="muted">Tell us who you are and we’ll send your schedule + intro invite.</p>
-          <form class="card mt2" name="vigor-pass" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <form class="sheet mt2" name="vigor-pass" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="vigor-pass">
             <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
             <div class="grid g-12">
@@ -413,11 +404,10 @@
             <textarea rows="4" name="notes" placeholder="Old injury, first time training, etc."></textarea>
             <button class="btn btn-pri mt2" type="submit">Get my 7-day pass</button>
           </form>
-          <p class="mt2" style="color:#3B403F">No contract • No spam • We reply within 24h</p>
+          <p class="mt2" style="color:#3E3A37">No contract • No spam • We reply within 24h</p>
         </div>
-
         <aside id="tour" class="span-5">
-          <div class="card">
+          <div class="sheet">
             <h4>Book a quick tour</h4>
             <p class="muted">See the space, meet a coach, pick your class.</p>
             <div class="mt2" style="min-height:420px">
@@ -427,6 +417,16 @@
             <p class="muted mt2">Questions? hello@vigorlab.gym • +47 55 55 55</p>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs" class="section" aria-label="FAQs" style="background:#fff">
+      <div class="container">
+        <h2 class="reveal">FAQs</h2>
+        <details class="mt2 reveal"><summary>Do I need experience?</summary><p class="mt1">No. We scale movements and teach technique first.</p></details>
+        <details class="mt2 reveal"><summary>Is the 7-day pass really free?</summary><p class="mt1">Yes. No contract. Try classes and meet the coaches.</p></details>
+        <details class="mt2 reveal"><summary>What should I bring?</summary><p class="mt1">Training shoes, water, and a good attitude.</p></details>
       </div>
     </section>
   </main>
@@ -442,7 +442,7 @@
     <a class="btn btn-pri" href="#join">Start 7-day pass</a>
   </div>
 
-  <!-- Inline scripts (no external build) -->
+  <!-- Inline scripts: new motions (spotlight, reveal), no external build -->
   <script>
     // Mobile menu
     const toggle = document.querySelector('.nav-toggle');
@@ -458,7 +458,7 @@
     // Reveal on scroll
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold:.12});
+    }, {threshold:.14});
     document.querySelectorAll('.reveal, details').forEach(el=> io.observe(el));
 
     // Smooth anchors
@@ -470,14 +470,24 @@
       });
     });
 
-    // Year + scroll progress
+    // Year
     document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
-    const prog = document.getElementById('progress');
-    window.addEventListener('scroll', ()=>{
-      const h = document.documentElement;
-      const s = (h.scrollTop)/(h.scrollHeight - h.clientHeight || 1);
-      prog.style.transform = 'scaleX('+s+')';
-    });
+
+    // Cursor spotlight for hero background (updates CSS vars)
+    const hero = document.querySelector('.hero');
+    if(hero){
+      hero.addEventListener('pointermove', (e)=>{
+        const r = hero.getBoundingClientRect();
+        const x = ((e.clientX - r.left)/r.width)*100;
+        const y = ((e.clientY - r.top)/r.height)*100;
+        hero.style.setProperty('--mx', x+'%');
+        hero.style.setProperty('--my', y+'%');
+      });
+      hero.addEventListener('pointerleave', ()=>{
+        hero.style.setProperty('--mx', '50%');
+        hero.style.setProperty('--my', '30%');
+      });
+    }
   </script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
