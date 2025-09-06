@@ -3,67 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <title>Harbor & Sage Law — Practical counsel for complex business decisions</title>
-  <meta name="description" content="Senior attorneys delivering fast, plain-English advice for SMEs and property investors. Transparent pricing. Book a consultation." />
+  <meta name="description" content="Senior attorneys for SMEs and property investors. Clear answers, transparent pricing. Book a consultation." />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#FCFAF5" />
   <link rel="canonical" href="https://harborandsage.law/">
 
   <style>
     /* =========================================================
-       CITEKS System: A–E rules enforced
-       - Type: Major Third from 16px; letter/line rules applied
-       - Grid: 12 desktop / 4 mobile, 8pt spacing
-       - Color: 60/30/10 on a light legal aesthetic
+       CITEKS Rules applied:
+       - Type: Major Third from 16px; letter/line rules
+       - Grid: 12 desktop / 4 mobile
+       - Spacing: 8pt scale
+       - Color: 60/30/10 (light editorial palette)
+       - One goal per page: Book a consultation
        ========================================================= */
-    :root{
-      /* 60/30/10 palette (light, professional) */
-      --neutral-bg:#F8FAFC;     /* 60% backgrounds */
-      --neutral-surface:#FFFFFF;
-      --neutral-ink:#0F172A;
-      --muted:#475569;          /* paragraph */
-      --secondary:#E6EEF8;      /* 30% section panels */
-      --secondary-ink:#0B1A39;
-      --accent:#2563EB;         /* 10% action */
-      --accent-600:#1D4ED8;
 
-      /* Type scale — Major Third (1.25) rooted at 16px */
+    :root{
+      /* === 60/30/10 palette (light, editorial) === */
+      /* 60% neutrals */
+      --bg: #FCFAF5;          /* bone */
+      --ink: #222525;         /* soft charcoal for body */
+      --muted: #5B625F;       /* paragraph text */
+      /* 30% secondary surfaces */
+      --panel: #EFF1EB;       /* fog green */
+      --panel-ink:#121612;    /* titles on panels */
+      /* 10% accent */
+      --accent:#C14D2D;       /* copper */
+      --accent-600:#9E3F24;   /* hover */
+      --accent-100:#F6EAE6;   /* subtle tint */
+
+      /* Type — Major Third from 16px */
       --fs-p:16px;
       --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
       --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
 
-      /* Letter-spacing rules */
+      /* Letter-spacing & line-height rules */
       --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
-
-      /* Line-height rules */
       --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
 
-      /* 8-pt spacing scale */
+      /* 8pt spacing */
       --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px;
 
-      /* Container & grid */
+      /* Layout */
       --container:1120px;
 
-      /* Elevation & motion */
-      --elev-1: 0 6px 20px rgba(15,23,42,.06);
-      --elev-2: 0 14px 40px rgba(15,23,42,.10);
-      --ring: 0 0 0 3px rgba(37,99,235,.25);
+      /* Depth & motion */
+      --elev-1: 0 10px 30px rgba(0,0,0,.06);
+      --elev-2: 0 18px 60px rgba(0,0,0,.10);
+      --ring: 0 0 0 3px rgba(193,77,45,.22);
       --ease: cubic-bezier(.2,.6,.2,1);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--neutral-bg);
-      color:var(--neutral-ink);
+      background:var(--bg);
+      color:var(--ink);
       font-size:var(--fs-p);
       line-height:var(--lh-p);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Type */
-    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-weight:700}
+    /* ===== Type ===== */
+    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-weight:800; color:#141616}
     h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
     h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
     h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
@@ -71,123 +75,124 @@
     h5{font-size:var(--fs-h5)}
     h6{font-size:var(--fs-h6); letter-spacing:var(--ls-h6)}
     p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#334155}
+    .eyebrow{font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#3A3F3C}
     .muted{color:var(--muted)}
 
-    /* Links & buttons */
+    /* ===== Links & buttons ===== */
     a{color:var(--accent); text-decoration:none}
     a:hover{color:var(--accent-600)}
     a:focus{outline:none; box-shadow:var(--ring); border-radius:10px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid transparent;
+      padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent;
       transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
       will-change: transform;
     }
     .btn:focus{box-shadow:var(--ring)}
-    .btn-pri{background:var(--accent); color:#fff; box-shadow:var(--elev-1)}
-    .btn-pri:hover{transform:translateY(-2px); box-shadow:var(--elev-2); background:var(--accent-600)}
-    .btn-sec{background:#EEF2FF; color:#1E3A8A; border-color:#C7D2FE}
+    .btn-pri{background:var(--accent); color:#fff; box-shadow: var(--elev-1)}
+    .btn-pri:hover{transform:translateY(-2px) scale(1.01); background:var(--accent-600); box-shadow:var(--elev-2)}
+    .btn-sec{background:var(--accent-100); color:var(--accent-600); border-color:#E7C8BF}
     .btn-sec:hover{transform:translateY(-1px)}
 
-    /* Container + Grid (12/4) */
+    /* ===== Layout ===== */
     .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
     .section{padding: clamp(56px, 8vw, 120px) 0}
+
+    /* 12/4 grid */
     .grid{display:grid; gap:var(--s3)}
     .g-12{grid-template-columns:repeat(12,1fr)}
     .span-7{grid-column:span 7} .span-5{grid-column:span 5}
     .span-8{grid-column:span 8} .span-4{grid-column:span 4}
-    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-7,.span-5,.span-8,.span-4{grid-column:1/-1} }
+    .span-6{grid-column:span 6}
+    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-7,.span-5,.span-8,.span-4,.span-6{grid-column:1/-1} }
     @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-    /* Header (glass, light) */
+    /* ===== Header (editorial bar with progress line) ===== */
     header{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(150%) blur(10px);
-      background:rgba(255,255,255,.7); border-bottom:1px solid rgba(2,6,23,.05);
+      position:sticky; top:0; z-index:50;
+      background:rgba(252,250,245,.8); backdrop-filter:saturate(150%) blur(8px);
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
+    .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
+    .brand{font-weight:900; letter-spacing:-.02em; font-size:22px}
     .nav{display:flex; gap:var(--s3); align-items:center}
-    .brand{font-weight:800; letter-spacing:-0.02em; font-size:22px; color:#0B1A39}
-    .nav a{color:#0B1A39; opacity:.9}
+    .nav a{color:#222525; opacity:.9}
     .nav a:hover{opacity:1}
     .spacer{flex:1}
     .nav-toggle{display:none}
+    #progress{position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent),transparent); transform-origin:left; transform:scaleX(0)}
     @media (max-width: 960px){
       .nav{display:none}
-      .nav-toggle{display:inline-flex; padding:10px 12px; border:1px solid #e2e8f0; border-radius:10px; background:#fff}
+      .nav-toggle{display:inline-flex; padding:10px 12px; border:1px solid rgba(0,0,0,.08); border-radius:10px; background:#fff}
       #mobileNav[hidden]{display:none}
-      #mobileNav{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid #e2e8f0; border-radius:14px; box-shadow:var(--elev-2); padding:12px}
-      #mobileNav a{display:block; padding:10px; color:#0B1A39}
+      #mobileNav{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--elev-2); padding:12px}
+      #mobileNav a{display:block; padding:10px; color:#222525}
     }
 
-    /* Hero with parallax shapes (pure CSS) */
-    .hero{position:relative; isolation:isolate}
-    .blob{
-      position:absolute; inset:auto auto -20% -10%;
-      width:52vw; aspect-ratio:1/1; background:radial-gradient(40% 40% at 30% 30%, #C7D2FE 0%, #E2E8F0 60%, transparent 65%);
-      filter:blur(30px); transform:translate3d(0,0,0); z-index:-1;
-      animation: float 10s var(--ease) infinite alternate;
+    /* ===== Hero: angled split with layered “folio” card ===== */
+    .hero{
+      position:relative; isolation:isolate;
+      background:
+        linear-gradient(165deg, transparent 60%, var(--panel) 60%),
+        radial-gradient(60% 80% at 120% -10%, rgba(193,77,45,.12) 0%, transparent 60%);
     }
-    .blob-2{
-      inset:-10% -10% auto auto; width:38vw;
-      background:radial-gradient(40% 40% at 70% 60%, #DBEAFE 0%, #F1F5F9 60%, transparent 70%);
-      animation-duration:12s;
-    }
-    @keyframes float { to{ transform: translate3d(0,-20px,0) } }
-
-    /* Cards & surfaces (light) */
-    .card{
-      background:var(--neutral-surface);
-      border:1px solid rgba(2,6,23,.06);
-      border-radius:16px; padding:var(--s3);
+    .folio{
+      background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3);
       box-shadow: var(--elev-1);
-      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+      transform: rotate(-.5deg); transition: transform .25s var(--ease), box-shadow .25s var(--ease);
     }
-    .card:hover{ transform: translateY(-2px); box-shadow: var(--elev-2); }
+    .folio:hover{ transform: rotate(0deg) translateY(-2px); box-shadow: var(--elev-2); }
 
-    /* Three-up cards */
-    .grid-3{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
-    @media (max-width: 1000px){ .grid-3{grid-template-columns:1fr} }
+    /* ===== Marquee (sectors served) ===== */
+    .marquee{overflow:hidden; border-block:1px solid rgba(0,0,0,.06); background:#fff}
+    .stripe{display:flex; gap:48px; white-space:nowrap; padding:12px 0; animation: slide 22s linear infinite}
+    .stripe span{color:#3A3F3C; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
+    @keyframes slide{ to{ transform: translateX(-50%) } }
 
-    /* Outcomes strip */
-    .pill{
-      background:#fff; border:1px solid rgba(2,6,23,.06); border-radius:999px;
-      padding:10px 14px; display:inline-flex; align-items:center; gap:8px; box-shadow:var(--elev-1)
+    /* ===== Cards, panels ===== */
+    .panel{
+      background:var(--panel); color:var(--panel-ink);
+      border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:var(--s3);
+      box-shadow: var(--elev-1);
     }
+    .card{
+      background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3);
+      box-shadow:var(--elev-1); transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .card:hover{ transform: translateY(-2px); box-shadow: var(--elev-2) }
 
-    /* FAQ */
-    details{background:#fff; border:1px solid rgba(2,6,23,.08); border-radius:14px; padding:12px 16px; box-shadow:var(--elev-1)}
-    summary{cursor:pointer; font-weight:700; color:#0B1A39}
+    /* ===== Numbered list (services) ===== */
+    .num{font-weight:900; font-size:34px; line-height:1; color:var(--accent); margin-right:12px}
 
-    /* Sticky mobile CTA */
+    /* ===== Outcomes strip ===== */
+    .pill{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:999px; padding:10px 14px; display:inline-flex; gap:8px; box-shadow:var(--elev-1)}
+
+    /* ===== FAQ ===== */
+    details{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:12px 16px; box-shadow:var(--elev-1)}
+    summary{cursor:pointer; font-weight:800; color:#121612}
+
+    /* ===== Sticky mobile CTA ===== */
     .sticky-cta{position:fixed; bottom:14px; left:0; right:0; display:flex; justify-content:center; pointer-events:none; z-index:40}
     .sticky-cta .btn{pointer-events:auto}
     @media (min-width: 720px){ .sticky-cta{display:none} }
 
-    /* Utilities */
+    /* ===== Utilities ===== */
     .mt1{margin-top:var(--s1)} .mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)}
     .mb0{margin-bottom:0}
-    .center{display:flex; align-items:center}
-    .right{text-align:right}
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; background:#EEF2FF; color:#1E3A8A; font-weight:700; border:1px solid #C7D2FE}
-    .divider{height:1px; background:rgba(2,6,23,.06); margin:var(--s3) 0}
+    .grid-3{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
+    .grid-2{display:grid; gap:var(--s3); grid-template-columns:repeat(2,1fr)}
+    @media (max-width:1000px){ .grid-3,.grid-2{grid-template-columns:1fr} }
 
-    /* Reveal-on-scroll */
+    /* ===== Reveal-on-scroll ===== */
     .reveal{opacity:0; transform: translateY(12px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
     .reveal.in{opacity:1; transform:none}
-
-    /* Tabbed practice (no extra files) */
-    .tabs{display:flex; gap:8px; flex-wrap:wrap}
-    .tab{padding:10px 14px; border-radius:999px; border:1px solid #dbe3f0; background:#fff; cursor:pointer; font-weight:700}
-    .tab[aria-selected="true"]{background:#2563EB; color:#fff; border-color:#2563EB}
-    .tabpanes > div{display:none}
-    .tabpanes > div[aria-hidden="false"]{display:block}
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div class="container center" style="gap:16px; padding:12px 0;">
+    <div class="container bar">
       <div class="brand">Harbor &amp; Sage Law</div>
       <nav class="nav" aria-label="Primary">
         <a href="#home">Home</a>
@@ -202,6 +207,7 @@
       <div class="spacer"></div>
       <a class="btn btn-pri" href="#contact">Book a consultation</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">☰</button>
+      <div id="progress"></div>
     </div>
     <nav id="mobileNav" hidden>
       <a href="#home">Home</a>
@@ -219,180 +225,124 @@
   <main id="home">
     <!-- Hero -->
     <section class="hero section">
-      <div class="blob"></div><div class="blob blob-2"></div>
       <div class="container grid g-12">
         <div class="span-7 reveal">
-          <span class="eyebrow">Plain-English. Practical. Fast.</span>
+          <span class="eyebrow">Plain-English • Practical • Fast</span>
           <h1>Practical counsel for complex business decisions.</h1>
-          <p class="mt2">Senior lawyers who speak your language—short answers, clear next steps, transparent fees.</p>
-          <ul class="mt2" style="color:var(--muted)">
-            <li>Contracts that reduce disputes</li>
-            <li>Employment policies that stand up</li>
-            <li>Property deals that move forward</li>
-          </ul>
+          <p class="mt2">Senior attorneys who speak your language—short answers, clear next steps, transparent fees.</p>
           <div class="mt3">
             <a class="btn btn-pri" href="#contact">Book a consultation</a>
             <a class="btn btn-sec" href="#resources">Download legal checklist</a>
           </div>
-          <div class="mt3 badge">Trusted by 200+ SMEs and investors</div>
         </div>
         <div class="span-5 reveal">
-          <div class="card">
-            <h6>What to expect</h6>
+          <div class="folio">
+            <h6>What clients want</h6>
             <ul class="mt1">
-              <li>30-min consult</li>
-              <li>Conflict check</li>
-              <li>Written next steps within 24h</li>
+              <li>One goal per page</li>
+              <li>Social proof early + clear value</li>
+              <li>Fast, accessible, mobile-first</li>
             </ul>
+            <div class="mt2" style="border-left:4px solid var(--accent); padding-left:12px;">
+              <p class="mb0"><strong>A psychology-backed approach:</strong> know → trust → like → feel. Proof above the fold. Friction low. Motion with restraint.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services snapshot -->
-    <section id="services" class="section" style="background:linear-gradient(180deg,#ffffff, #F3F7FE)">
-      <div class="container">
-        <h2 class="reveal">Services</h2>
-        <p class="muted">Outcome-focused counsel for SMEs and property investors.</p>
-        <div class="grid-3 mt3">
-          <article class="card reveal">
-            <h4>Business Law</h4>
-            <p>Bulletproof contracts, faster deals, fewer disputes.</p>
-            <a class="btn btn-sec mt2" href="#practice">Explore Business</a>
-          </article>
-          <article class="card reveal">
-            <h4>Employment Law</h4>
-            <p>Policies and actions that protect your team and your business.</p>
-            <a class="btn btn-sec mt2" href="#practice">Explore Employment</a>
-          </article>
-          <article class="card reveal">
-            <h4>Real Estate Law</h4>
-            <p>Confident acquisitions, clear leases, smooth exits.</p>
-            <a class="btn btn-sec mt2" href="#practice">Explore Real Estate</a>
-          </article>
+    <!-- Marquee -->
+    <div class="marquee" aria-label="Sectors served">
+      <div class="stripe">
+        <span>SMEs</span><span>Property Investors</span><span>Developers</span><span>Hospitality</span><span>Clinics</span><span>Manufacturing</span>
+        <span>SMEs</span><span>Property Investors</span><span>Developers</span><span>Hospitality</span><span>Clinics</span><span>Manufacturing</span>
+      </div>
+    </div>
+
+    <!-- Services (numbered editorial list) -->
+    <section id="services" class="section">
+      <div class="container grid g-12">
+        <div class="span-8">
+          <h2 class="reveal">Services</h2>
+          <div class="mt2">
+            <div class="card reveal" style="display:flex; align-items:flex-start;">
+              <div class="num">01</div>
+              <div>
+                <h4 class="mb0">Business Law</h4>
+                <p>Bulletproof contracts, faster deals, fewer disputes.</p>
+              </div>
+            </div>
+            <div class="card reveal mt2" style="display:flex; align-items:flex-start;">
+              <div class="num">02</div>
+              <div>
+                <h4 class="mb0">Employment Law</h4>
+                <p>Policies and actions that protect your team and business.</p>
+              </div>
+            </div>
+            <div class="card reveal mt2" style="display:flex; align-items:flex-start;">
+              <div class="num">03</div>
+              <div>
+                <h4 class="mb0">Real Estate Law</h4>
+                <p>Confident acquisitions, clear leases, smooth exits.</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <aside class="span-4">
+          <div class="panel reveal">
+            <h4>Outcomes</h4>
+            <div class="mt2"><span class="pill">Reduce risk</span></div>
+            <div class="mt1"><span class="pill">Move deals faster</span></div>
+            <div class="mt1"><span class="pill">Clear next steps</span></div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Practice Tabs -->
-    <section id="practice" class="section">
+    <!-- Practice (accordion style) -->
+    <section id="practice" class="section" style="background:linear-gradient(180deg,#FFFFFF,var(--panel))">
       <div class="container">
         <h2 class="reveal">Practice Areas</h2>
-        <div class="tabs mt2" role="tablist" aria-label="Practice areas">
-          <button class="tab" role="tab" aria-selected="true"  aria-controls="pane-business"  id="tab-business">Business</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="pane-employment" id="tab-employment">Employment</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="pane-realestate" id="tab-realestate">Real Estate</button>
-        </div>
-        <div class="tabpanes mt3">
-          <div id="pane-business" role="tabpanel" aria-labelledby="tab-business" aria-hidden="false">
-            <div class="grid g-12">
-              <div class="span-8">
-                <h3>Business Law</h3>
-                <p>Contracts, policies, and negotiations that move deals faster and reduce disputes.</p>
-                <h6 class="mt2">Deliverables</h6>
-                <ul>
-                  <li>Contract drafting & review</li>
-                  <li>Negotiation support</li>
-                  <li>Policy drafting</li>
-                  <li>Dispute strategy</li>
-                </ul>
-                <h6 class="mt2">Process</h6>
-                <ol>
-                  <li>Discovery & conflict check</li>
-                  <li>Draft & review with plain-English notes</li>
-                  <li>Finalize & handover</li>
-                  <li>Next steps & optional training</li>
-                </ol>
-              </div>
-              <aside class="span-4">
-                <div class="card">
-                  <h4>Ready to talk?</h4>
-                  <p class="muted">Book a 30-minute consult.</p>
-                  <a class="btn btn-pri" href="#contact">Book Business consult</a>
-                </div>
-              </aside>
+        <div class="grid-3 mt3">
+          <details class="reveal">
+            <summary>Business Law — deliverables & process</summary>
+            <div class="mt2">
+              <strong>Deliverables:</strong>
+              <ul><li>Contract drafting & review</li><li>Negotiation support</li><li>Policy drafting</li><li>Dispute strategy</li></ul>
+              <strong class="mt2">Process:</strong>
+              <ol><li>Discovery & conflict check</li><li>Draft with plain-English notes</li><li>Finalize & handover</li><li>Next steps & optional training</li></ol>
             </div>
-          </div>
-          <div id="pane-employment" role="tabpanel" aria-labelledby="tab-employment" aria-hidden="true">
-            <div class="grid g-12">
-              <div class="span-8">
-                <h3>Employment Law</h3>
-                <p>Policies and actions that protect your team and your business.</p>
-                <h6 class="mt2">Deliverables</h6>
-                <ul>
-                  <li>Termination & discipline guidance</li>
-                  <li>Employee handbook & policies</li>
-                  <li>Investigations</li>
-                  <li>Training</li>
-                </ul>
-                <h6 class="mt2">Process</h6>
-                <ol>
-                  <li>Discovery & conflict check</li>
-                  <li>Draft & review with plain-English notes</li>
-                  <li>Finalize & handover</li>
-                  <li>Next steps & optional training</li>
-                </ol>
-              </div>
-              <aside class="span-4">
-                <div class="card">
-                  <h4>Book an employment consult</h4>
-                  <p class="muted">Short answers, clear next steps.</p>
-                  <a class="btn btn-pri" href="#contact">Book Employment consult</a>
-                </div>
-              </aside>
+          </details>
+          <details class="reveal">
+            <summary>Employment Law — deliverables & process</summary>
+            <div class="mt2">
+              <strong>Deliverables:</strong>
+              <ul><li>Termination guidance</li><li>Handbook & policies</li><li>Investigations</li><li>Training</li></ul>
+              <strong class="mt2">Process:</strong>
+              <ol><li>Discovery & conflict check</li><li>Draft with plain-English notes</li><li>Finalize & handover</li><li>Next steps & optional training</li></ol>
             </div>
-          </div>
-          <div id="pane-realestate" role="tabpanel" aria-labelledby="tab-realestate" aria-hidden="true">
-            <div class="grid g-12">
-              <div class="span-8">
-                <h3>Real Estate Law</h3>
-                <p>Confident acquisitions, clear leases, smooth exits.</p>
-                <h6 class="mt2">Deliverables</h6>
-                <ul>
-                  <li>Acquisition due diligence</li>
-                  <li>Commercial leases</li>
-                  <li>Dispute resolution</li>
-                  <li>Exit planning</li>
-                </ul>
-                <h6 class="mt2">Process</h6>
-                <ol>
-                  <li>Discovery & conflict check</li>
-                  <li>Draft & review with plain-English notes</li>
-                  <li>Finalize & handover</li>
-                  <li>Next steps & optional training</li>
-                </ol>
-              </div>
-              <aside class="span-4">
-                <div class="card">
-                  <h4>Book a real estate consult</h4>
-                  <p class="muted">Deal pace with legal clarity.</p>
-                  <a class="btn btn-pri" href="#contact">Book Real Estate consult</a>
-                </div>
-              </aside>
+          </details>
+          <details class="reveal">
+            <summary>Real Estate Law — deliverables & process</summary>
+            <div class="mt2">
+              <strong>Deliverables:</strong>
+              <ul><li>Due diligence</li><li>Commercial leases</li><li>Dispute resolution</li><li>Exit planning</li></ul>
+              <strong class="mt2">Process:</strong>
+              <ol><li>Discovery & conflict check</li><li>Draft with plain-English notes</li><li>Finalize & handover</li><li>Next steps & optional training</li></ol>
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- Outcomes strip -->
-    <section class="section" style="background:var(--secondary);">
-      <div class="container">
-        <div class="grid g-12">
-          <div class="span-4"><div class="pill">Reduce risk</div></div>
-          <div class="span-4"><div class="pill">Move deals faster</div></div>
-          <div class="span-4"><div class="pill">Clear next steps</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing examples -->
+    <!-- Pricing (folio-style cards with “ribbon”) -->
     <section id="pricing" class="section">
       <div class="container">
         <h2 class="reveal">Pricing</h2>
         <p class="muted">Transparent examples. Complex matters quoted after consult.</p>
         <div class="grid-3 mt3">
-          <article class="card reveal">
+          <article class="card reveal" style="position:relative;">
+            <div style="position:absolute; right:12px; top:-10px; background:var(--accent); color:#fff; padding:6px 10px; border-radius:8px;">Popular</div>
             <h4>Policy Suite (Employment)</h4>
             <p>Core policies, templates, rollout guide.</p>
             <p class="muted">From kr 30,000</p>
@@ -408,52 +358,64 @@
             <p class="muted">From kr 25,000</p>
           </article>
         </div>
-        <div class="right mt3">
+        <div class="mt3" style="text-align:right;">
           <a class="btn btn-pri" href="#contact">Book a consultation</a>
         </div>
       </div>
     </section>
 
-    <!-- Case highlight -->
-    <section id="cases" class="section" style="background:linear-gradient(180deg,#F6FAFF,#ffffff)">
-      <div class="container">
-        <h2 class="reveal">Featured case</h2>
-        <div class="card mt2 reveal">
-          <h4>Termination Policy Overhaul</h4>
-          <p class="muted mb0">Situation → Strategy → Action → Outcome</p>
-          <p class="mt1">Outcome: Reduced disputes by 60% within six months.</p>
+    <!-- Case study (editorial) -->
+    <section id="cases" class="section" style="background:#fff">
+      <div class="container grid g-12">
+        <div class="span-6 reveal">
+          <h2>Termination Policy Overhaul</h2>
+          <p class="muted">Situation → Strategy → Action → Outcome</p>
+          <div class="mt2 card">
+            <p class="mb0"><strong>Outcome:</strong> 60% fewer disputes within six months; faster, clearer decisions.</p>
+          </div>
+        </div>
+        <div class="span-6 reveal">
+          <div class="panel">
+            <h4>What made it work</h4>
+            <ul>
+              <li>Plain-English drafts with decision notes</li>
+              <li>Short manager training</li>
+              <li>Template pack for documentation</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Team -->
-    <section id="team" class="section">
+    <section id="team" class="section" style="background:var(--panel);">
       <div class="container">
         <h2 class="reveal">Team</h2>
         <div class="grid-3 mt3">
           <div class="card reveal">
             <h4>Elena Hart</h4>
             <p class="muted">Partner — Business & Employment</p>
-            <p>Bar admissions: NO</p>
+            <p>Bar admissions: NO • Plain-English specialist</p>
           </div>
           <div class="card reveal">
             <h4>Jonas Aasen</h4>
             <p class="muted">Partner — Real Estate</p>
-            <p>Bar admissions: NO</p>
+            <p>Bar admissions: NO • Complex deals & leases</p>
           </div>
           <div class="card reveal">
             <h4>Advisory Panel</h4>
-            <p class="muted">Senior counsel network for complex matters.</p>
+            <p class="muted">Senior counsel network for specialist matters</p>
+            <p>Discretion & speed on sensitive work</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Resources -->
-    <section id="resources" class="section" style="background:#fff">
+    <section id="resources" class="section">
       <div class="container">
         <h2 class="reveal">Resources</h2>
-        <div class="grid-3 mt3">
+        <div class="grid-2 mt3">
           <article class="card reveal">
             <h4>Employment Termination Checklist</h4>
             <p>Skimmable steps to reduce risk.</p>
@@ -464,27 +426,22 @@
             <p>What to watch before you sign.</p>
             <a class="btn btn-sec mt2" href="#contact">Ask an attorney</a>
           </article>
-          <article class="card reveal">
-            <h4>Starter Contract Set</h4>
-            <p>What should be included.</p>
-            <a class="btn btn-sec mt2" href="#contact">Request a quote</a>
-          </article>
         </div>
       </div>
     </section>
 
     <!-- FAQs -->
-    <section id="faqs" class="section">
+    <section id="faqs" class="section" style="background:#fff">
       <div class="container">
         <h2 class="reveal">FAQs</h2>
-        <details class="mt2"><summary>How fast can we start?</summary><p class="mt1">We aim to schedule a consultation within 3 business days.</p></details>
-        <details class="mt2"><summary>Do you offer fixed fees?</summary><p class="mt1">For common matters, yes. Otherwise we confirm scope and provide estimates before starting.</p></details>
-        <details class="mt2"><summary>Will I get plain-English guidance?</summary><p class="mt1">Yes. We avoid legalese and provide clear next steps.</p></details>
+        <details class="mt2 reveal"><summary>How fast can we start?</summary><p class="mt1">We aim to schedule a consultation within 3 business days.</p></details>
+        <details class="mt2 reveal"><summary>Do you offer fixed fees?</summary><p class="mt1">For common matters, yes. Otherwise we confirm scope and provide estimates before starting.</p></details>
+        <details class="mt2 reveal"><summary>Will I get plain-English guidance?</summary><p class="mt1">Yes. We avoid legalese and provide clear next steps.</p></details>
       </div>
     </section>
 
     <!-- Contact / Book -->
-    <section id="contact" class="section" style="background:var(--secondary);">
+    <section id="contact" class="section" style="background:linear-gradient(180deg,var(--panel), #FFFFFF)">
       <div class="container grid g-12">
         <div class="span-7">
           <h2>Book a consultation</h2>
@@ -546,7 +503,7 @@
   </main>
 
   <footer class="section" style="padding-top:32px; padding-bottom:32px;">
-    <div class="container center" style="justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
       <div class="brand">Harbor &amp; Sage Law</div>
       <p class="muted">© <span data-year></span> Harbor & Sage Law • Practical counsel for complex business decisions.</p>
     </div>
@@ -556,7 +513,7 @@
     <a class="btn btn-pri" href="#contact">Book a consultation</a>
   </div>
 
-  <!-- Scripts (inline) -->
+  <!-- Inline scripts only -->
   <script>
     // Mobile menu
     const toggle = document.querySelector('.nav-toggle');
@@ -571,36 +528,28 @@
 
     // Reveal on scroll
     const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold: .12});
-    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal, details').forEach(el=> io.observe(el));
 
-    // Tabs (Practice Areas)
-    const tabs = document.querySelectorAll('.tab');
-    const panes = document.querySelectorAll('.tabpanes > div');
-    tabs.forEach(tab=>{
-      tab.addEventListener('click', ()=>{
-        tabs.forEach(t=>t.setAttribute('aria-selected','false'));
-        tab.setAttribute('aria-selected','true');
-        panes.forEach(p=>p.setAttribute('aria-hidden','true'));
-        const pane = document.getElementById('pane-' + tab.id.split('tab-')[1]);
-        if(pane) pane.setAttribute('aria-hidden','false');
-      });
-    });
-
-    // Smooth scroll for internal links
+    // Smooth internal links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', (e)=>{
         const id = a.getAttribute('href').slice(1);
         const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
       });
     });
 
-    // Year stamp
-    document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+    // Year + progress bar
+    document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
+    const prog = document.getElementById('progress');
+    window.addEventListener('scroll', ()=>{
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop)/(h.scrollHeight - h.clientHeight || 1);
+      prog.style.transform = 'scaleX('+scrolled+')';
+    });
+
   </script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
