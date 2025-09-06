@@ -2,55 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Harbor & Sage Law — Practical counsel for complex business decisions</title>
-  <meta name="description" content="Senior attorneys for SMEs and property investors. Clear answers, transparent pricing. Book a consultation." />
+  <title>VIGOR LAB — Strength • Conditioning • Community</title>
+  <meta name="description" content="VIGOR LAB: premium neighborhood gym. Strength & conditioning classes, coaches who care, no-intimidation vibe. Start your 7-day pass." />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#FCFAF5" />
-  <link rel="canonical" href="https://harborandsage.law/">
+  <meta name="theme-color" content="#0B0E11" />
+  <link rel="canonical" href="https://vigorlab.example/">
 
   <style>
     /* =========================================================
-       CITEKS Rules applied:
-       - Type: Major Third from 16px; letter/line rules
+       CITEKS RULES ENFORCED
+       - Type: Major Third (1.25) from 16px
+       - Letter-spacing: p=0, h6=-0.5%, h3=-1.5%, h1=-2%
+       - Line-height: p=150%, h4=130%, h2=110%, h1=100%
        - Grid: 12 desktop / 4 mobile
-       - Spacing: 8pt scale
-       - Color: 60/30/10 (light editorial palette)
-       - One goal per page: Book a consultation
+       - Spacing: 8-pt scale
+       - Color: 60/30/10 with strong contrast, accessible
+       - One goal per page: Start 7-day pass
        ========================================================= */
 
     :root{
-      /* === 60/30/10 palette (light, editorial) === */
-      /* 60% neutrals */
-      --bg: #FCFAF5;          /* bone */
-      --ink: #222525;         /* soft charcoal for body */
-      --muted: #5B625F;       /* paragraph text */
-      /* 30% secondary surfaces */
-      --panel: #EFF1EB;       /* fog green */
-      --panel-ink:#121612;    /* titles on panels */
-      /* 10% accent */
-      --accent:#C14D2D;       /* copper */
-      --accent-600:#9E3F24;   /* hover */
-      --accent-100:#F6EAE6;   /* subtle tint */
+      /* 60/30/10 — “gym energy” (light neutral + graphite + neon lime) */
+      --bg:#FAFAF9;          /* 60% */
+      --ink:#0E1113;
+      --muted:#5E6468;
 
-      /* Type — Major Third from 16px */
+      --panel:#0B0E11;       /* 30% secondary surfaces */
+      --panel-ink:#EDEEEF;
+
+      --accent:#22C55E;      /* 10% primary action (neon lime) */
+      --accent-600:#16A34A;
+      --accent-soft:#E8F8EE;
+
+      /* Type scale (Major Third from 16px) */
       --fs-p:16px;
       --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
       --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
 
-      /* Letter-spacing & line-height rules */
+      /* Tracking / leading per spec */
       --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
       --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
 
-      /* 8pt spacing */
+      /* 8-pt spacing */
       --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px;
 
       /* Layout */
       --container:1120px;
 
-      /* Depth & motion */
-      --elev-1: 0 10px 30px rgba(0,0,0,.06);
-      --elev-2: 0 18px 60px rgba(0,0,0,.10);
-      --ring: 0 0 0 3px rgba(193,77,45,.22);
+      /* Elevation + motion */
+      --e1: 0 8px 30px rgba(0,0,0,.06);
+      --e2: 0 16px 60px rgba(0,0,0,.12);
+      --ring: 0 0 0 3px rgba(34,197,94,.25);
       --ease: cubic-bezier(.2,.6,.2,1);
     }
 
@@ -66,8 +67,8 @@
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
-    /* ===== Type ===== */
-    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-weight:800; color:#141616}
+    /* Type */
+    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-weight:900}
     h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
     h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
     h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
@@ -75,30 +76,26 @@
     h5{font-size:var(--fs-h5)}
     h6{font-size:var(--fs-h6); letter-spacing:var(--ls-h6)}
     p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#3A3F3C}
-    .muted{color:var(--muted)}
+    .eyebrow{font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#2B3135}
 
-    /* ===== Links & buttons ===== */
+    /* Links & Buttons */
     a{color:var(--accent); text-decoration:none}
     a:hover{color:var(--accent-600)}
     a:focus{outline:none; box-shadow:var(--ring); border-radius:10px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:12px; font-weight:800; border:1px solid transparent;
+      padding:12px 16px; border-radius:12px; font-weight:900; border:1px solid transparent;
       transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
-      will-change: transform;
     }
     .btn:focus{box-shadow:var(--ring)}
-    .btn-pri{background:var(--accent); color:#fff; box-shadow: var(--elev-1)}
-    .btn-pri:hover{transform:translateY(-2px) scale(1.01); background:var(--accent-600); box-shadow:var(--elev-2)}
-    .btn-sec{background:var(--accent-100); color:var(--accent-600); border-color:#E7C8BF}
+    .btn-pri{background:var(--accent); color:#06240F; box-shadow:var(--e1)}
+    .btn-pri:hover{transform:translateY(-2px) scale(1.01); background:var(--accent-600); box-shadow:var(--e2); color:#fff}
+    .btn-sec{background:var(--accent-soft); color:#085328; border-color:#B7ECCB}
     .btn-sec:hover{transform:translateY(-1px)}
 
-    /* ===== Layout ===== */
+    /* Container & Grid */
     .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
     .section{padding: clamp(56px, 8vw, 120px) 0}
-
-    /* 12/4 grid */
     .grid{display:grid; gap:var(--s3)}
     .g-12{grid-template-columns:repeat(12,1fr)}
     .span-7{grid-column:span 7} .span-5{grid-column:span 5}
@@ -107,16 +104,15 @@
     @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-7,.span-5,.span-8,.span-4,.span-6{grid-column:1/-1} }
     @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-    /* ===== Header (editorial bar with progress line) ===== */
+    /* Header — kinetic bar with scroll progress */
     header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(252,250,245,.8); backdrop-filter:saturate(150%) blur(8px);
-      border-bottom:1px solid rgba(0,0,0,.06);
+      position:sticky; top:0; z-index:50; background:rgba(250,250,249,.85);
+      backdrop-filter:saturate(150%) blur(8px); border-bottom:1px solid rgba(0,0,0,.06);
     }
     .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
-    .brand{font-weight:900; letter-spacing:-.02em; font-size:22px}
+    .brand{font-weight:1000; letter-spacing:-.02em; font-size:22px}
     .nav{display:flex; gap:var(--s3); align-items:center}
-    .nav a{color:#222525; opacity:.9}
+    .nav a{color:#0E1113; opacity:.9}
     .nav a:hover{opacity:1}
     .spacer{flex:1}
     .nav-toggle{display:none}
@@ -125,65 +121,86 @@
       .nav{display:none}
       .nav-toggle{display:inline-flex; padding:10px 12px; border:1px solid rgba(0,0,0,.08); border-radius:10px; background:#fff}
       #mobileNav[hidden]{display:none}
-      #mobileNav{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--elev-2); padding:12px}
-      #mobileNav a{display:block; padding:10px; color:#222525}
+      #mobileNav{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--e2); padding:12px}
+      #mobileNav a{display:block; padding:10px; color:#0E1113}
     }
 
-    /* ===== Hero: angled split with layered “folio” card ===== */
+    /* HERO — diagonal kinetic field with clip shapes */
     .hero{
       position:relative; isolation:isolate;
       background:
-        linear-gradient(165deg, transparent 60%, var(--panel) 60%),
-        radial-gradient(60% 80% at 120% -10%, rgba(193,77,45,.12) 0%, transparent 60%);
+        conic-gradient(from 210deg at 120% -10%, rgba(34,197,94,.18) 0deg, transparent 80deg),
+        conic-gradient(from 40deg at -20% 120%, rgba(34,197,94,.12) 0deg, transparent 120deg);
     }
-    .folio{
+    .belt{
+      position:absolute; inset:auto 0 -80px 0; height:180px;
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,.0) 0 24px, rgba(13,19,18,.05) 24px 48px);
+      clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
+      z-index:-1;
+    }
+    .hero-card{
       background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3);
-      box-shadow: var(--elev-1);
-      transform: rotate(-.5deg); transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+      box-shadow: var(--e1);
+      transform: translateY(0) rotate(-.6deg);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
     }
-    .folio:hover{ transform: rotate(0deg) translateY(-2px); box-shadow: var(--elev-2); }
+    .hero-card:hover{ transform: translateY(-2px) rotate(0); box-shadow: var(--e2) }
 
-    /* ===== Marquee (sectors served) ===== */
-    .marquee{overflow:hidden; border-block:1px solid rgba(0,0,0,.06); background:#fff}
-    .stripe{display:flex; gap:48px; white-space:nowrap; padding:12px 0; animation: slide 22s linear infinite}
-    .stripe span{color:#3A3F3C; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
-    @keyframes slide{ to{ transform: translateX(-50%) } }
+    /* Program tiles — angular */
+    .tiles{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
+    @media (max-width: 1000px){ .tiles{grid-template-columns:1fr} }
+    .tile{
+      position:relative; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:var(--s3);
+      box-shadow: var(--e1); overflow:hidden;
+    }
+    .tile::after{
+      content:""; position:absolute; right:-40px; top:-40px; width:160px; height:160px;
+      background: radial-gradient(60px 60px at 60% 60%, rgba(34,197,94,.18), transparent 70%);
+      transform: rotate(12deg);
+    }
 
-    /* ===== Cards, panels ===== */
+    /* Panel (dark) */
     .panel{
       background:var(--panel); color:var(--panel-ink);
-      border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:var(--s3);
-      box-shadow: var(--elev-1);
+      border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:var(--s3);
+      box-shadow: var(--e1);
     }
-    .card{
-      background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3);
-      box-shadow:var(--elev-1); transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+
+    /* Schedule band */
+    .band{
+      background:linear-gradient(180deg,#FFFFFF, #F1F5F2);
+      border-top:1px solid rgba(0,0,0,.06); border-bottom:1px solid rgba(0,0,0,.06);
     }
-    .card:hover{ transform: translateY(-2px); box-shadow: var(--elev-2) }
 
-    /* ===== Numbered list (services) ===== */
-    .num{font-weight:900; font-size:34px; line-height:1; color:var(--accent); margin-right:12px}
+    /* Testimonials (quote cards) */
+    .quote{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:var(--s3); box-shadow:var(--e1)}
 
-    /* ===== Outcomes strip ===== */
-    .pill{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:999px; padding:10px 14px; display:inline-flex; gap:8px; box-shadow:var(--elev-1)}
+    /* FAQ */
+    details{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:12px 16px; box-shadow:var(--e1)}
+    summary{cursor:pointer; font-weight:900; color:#101314}
 
-    /* ===== FAQ ===== */
-    details{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:12px 16px; box-shadow:var(--elev-1)}
-    summary{cursor:pointer; font-weight:800; color:#121612}
+    /* Forms */
+    form.card{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:var(--s3); box-shadow:var(--e1)}
+    label{display:block; font-weight:800; margin-bottom:8px}
+    input, select, textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #DBE0E3; background:#FCFDFB; color:#0E1113;
+    }
+    input:focus, select:focus, textarea:focus{outline:none; box-shadow:var(--ring)}
 
-    /* ===== Sticky mobile CTA ===== */
+    /* Sticky CTA (mobile) */
     .sticky-cta{position:fixed; bottom:14px; left:0; right:0; display:flex; justify-content:center; pointer-events:none; z-index:40}
     .sticky-cta .btn{pointer-events:auto}
     @media (min-width: 720px){ .sticky-cta{display:none} }
 
-    /* ===== Utilities ===== */
+    /* Utilities */
     .mt1{margin-top:var(--s1)} .mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)}
     .mb0{margin-bottom:0}
     .grid-3{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
     .grid-2{display:grid; gap:var(--s3); grid-template-columns:repeat(2,1fr)}
     @media (max-width:1000px){ .grid-3,.grid-2{grid-template-columns:1fr} }
 
-    /* ===== Reveal-on-scroll ===== */
+    /* Reveal-on-scroll */
     .reveal{opacity:0; transform: translateY(12px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
     .reveal.in{opacity:1; transform:none}
   </style>
@@ -193,239 +210,152 @@
   <!-- Header -->
   <header>
     <div class="container bar">
-      <div class="brand">Harbor &amp; Sage Law</div>
+      <div class="brand">VIGOR LAB</div>
       <nav class="nav" aria-label="Primary">
         <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#practice">Practice</a>
+        <a href="#programs">Programs</a>
+        <a href="#coaches">Coaches</a>
         <a href="#pricing">Pricing</a>
-        <a href="#cases">Case Studies</a>
-        <a href="#team">Team</a>
-        <a href="#resources">Resources</a>
+        <a href="#schedule">Schedule</a>
         <a href="#faqs">FAQs</a>
       </nav>
       <div class="spacer"></div>
-      <a class="btn btn-pri" href="#contact">Book a consultation</a>
+      <a class="btn btn-pri" href="#join">Start 7-day pass</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">☰</button>
       <div id="progress"></div>
     </div>
     <nav id="mobileNav" hidden>
       <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#practice">Practice</a>
+      <a href="#programs">Programs</a>
+      <a href="#coaches">Coaches</a>
       <a href="#pricing">Pricing</a>
-      <a href="#cases">Case Studies</a>
-      <a href="#team">Team</a>
-      <a href="#resources">Resources</a>
+      <a href="#schedule">Schedule</a>
       <a href="#faqs">FAQs</a>
-      <a class="btn btn-pri" href="#contact">Book a consultation</a>
+      <a class="btn btn-pri" href="#join">Start 7-day pass</a>
     </nav>
   </header>
 
   <main id="home">
-    <!-- Hero -->
+    <!-- HERO -->
     <section class="hero section">
+      <div class="belt" aria-hidden="true"></div>
       <div class="container grid g-12">
         <div class="span-7 reveal">
-          <span class="eyebrow">Plain-English • Practical • Fast</span>
-          <h1>Practical counsel for complex business decisions.</h1>
-          <p class="mt2">Senior attorneys who speak your language—short answers, clear next steps, transparent fees.</p>
+          <span class="eyebrow">Strength • Conditioning • Community</span>
+          <h1>Stronger every week — without the intimidation.</h1>
+          <p class="mt2">Coached small-group training, clean facility, and progress you can feel. First-timers welcome.</p>
           <div class="mt3">
-            <a class="btn btn-pri" href="#contact">Book a consultation</a>
-            <a class="btn btn-sec" href="#resources">Download legal checklist</a>
+            <a class="btn btn-pri" href="#join">Start 7-day pass</a>
+            <a class="btn btn-sec" href="#tour">Book a tour</a>
+          </div>
+          <div class="mt3" style="display:flex; gap:12px; flex-wrap:wrap;">
+            <span class="eyebrow" style="background:var(--accent-soft); padding:6px 10px; border-radius:999px;">Open 05–23</span>
+            <span class="eyebrow" style="background:var(--accent-soft); padding:6px 10px; border-radius:999px;">No contract</span>
+            <span class="eyebrow" style="background:var(--accent-soft); padding:6px 10px; border-radius:999px;">Free intro session</span>
           </div>
         </div>
         <div class="span-5 reveal">
-          <div class="folio">
-            <h6>What clients want</h6>
+          <div class="hero-card">
+            <h6>What you’ll get</h6>
             <ul class="mt1">
-              <li>One goal per page</li>
-              <li>Social proof early + clear value</li>
-              <li>Fast, accessible, mobile-first</li>
+              <li>Personal coaching inside small classes</li>
+              <li>Programs for all levels</li>
+              <li>Results tracked weekly</li>
             </ul>
             <div class="mt2" style="border-left:4px solid var(--accent); padding-left:12px;">
-              <p class="mb0"><strong>A psychology-backed approach:</strong> know → trust → like → feel. Proof above the fold. Friction low. Motion with restraint.</p>
+              <p class="mb0"><strong>One goal:</strong> Start your 7-day pass. We’ll message you the schedule and set up your intro.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="marquee" aria-label="Sectors served">
-      <div class="stripe">
-        <span>SMEs</span><span>Property Investors</span><span>Developers</span><span>Hospitality</span><span>Clinics</span><span>Manufacturing</span>
-        <span>SMEs</span><span>Property Investors</span><span>Developers</span><span>Hospitality</span><span>Clinics</span><span>Manufacturing</span>
-      </div>
-    </div>
-
-    <!-- Services (numbered editorial list) -->
-    <section id="services" class="section">
-      <div class="container grid g-12">
-        <div class="span-8">
-          <h2 class="reveal">Services</h2>
-          <div class="mt2">
-            <div class="card reveal" style="display:flex; align-items:flex-start;">
-              <div class="num">01</div>
-              <div>
-                <h4 class="mb0">Business Law</h4>
-                <p>Bulletproof contracts, faster deals, fewer disputes.</p>
-              </div>
-            </div>
-            <div class="card reveal mt2" style="display:flex; align-items:flex-start;">
-              <div class="num">02</div>
-              <div>
-                <h4 class="mb0">Employment Law</h4>
-                <p>Policies and actions that protect your team and business.</p>
-              </div>
-            </div>
-            <div class="card reveal mt2" style="display:flex; align-items:flex-start;">
-              <div class="num">03</div>
-              <div>
-                <h4 class="mb0">Real Estate Law</h4>
-                <p>Confident acquisitions, clear leases, smooth exits.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <aside class="span-4">
-          <div class="panel reveal">
-            <h4>Outcomes</h4>
-            <div class="mt2"><span class="pill">Reduce risk</span></div>
-            <div class="mt1"><span class="pill">Move deals faster</span></div>
-            <div class="mt1"><span class="pill">Clear next steps</span></div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Practice (accordion style) -->
-    <section id="practice" class="section" style="background:linear-gradient(180deg,#FFFFFF,var(--panel))">
+    <!-- PROGRAMS -->
+    <section id="programs" class="section">
       <div class="container">
-        <h2 class="reveal">Practice Areas</h2>
-        <div class="grid-3 mt3">
-          <details class="reveal">
-            <summary>Business Law — deliverables & process</summary>
-            <div class="mt2">
-              <strong>Deliverables:</strong>
-              <ul><li>Contract drafting & review</li><li>Negotiation support</li><li>Policy drafting</li><li>Dispute strategy</li></ul>
-              <strong class="mt2">Process:</strong>
-              <ol><li>Discovery & conflict check</li><li>Draft with plain-English notes</li><li>Finalize & handover</li><li>Next steps & optional training</li></ol>
-            </div>
-          </details>
-          <details class="reveal">
-            <summary>Employment Law — deliverables & process</summary>
-            <div class="mt2">
-              <strong>Deliverables:</strong>
-              <ul><li>Termination guidance</li><li>Handbook & policies</li><li>Investigations</li><li>Training</li></ul>
-              <strong class="mt2">Process:</strong>
-              <ol><li>Discovery & conflict check</li><li>Draft with plain-English notes</li><li>Finalize & handover</li><li>Next steps & optional training</li></ol>
-            </div>
-          </details>
-          <details class="reveal">
-            <summary>Real Estate Law — deliverables & process</summary>
-            <div class="mt2">
-              <strong>Deliverables:</strong>
-              <ul><li>Due diligence</li><li>Commercial leases</li><li>Dispute resolution</li><li>Exit planning</li></ul>
-              <strong class="mt2">Process:</strong>
-              <ol><li>Discovery & conflict check</li><li>Draft with plain-English notes</li><li>Finalize & handover</li><li>Next steps & optional training</li></ol>
-            </div>
-          </details>
+        <h2 class="reveal">Programs</h2>
+        <div class="tiles mt3">
+          <article class="tile reveal">
+            <h4>Base Strength</h4>
+            <p>Technique-first lifting in a supportive group. Build numbers safely.</p>
+            <a class="btn btn-sec mt2" href="#join">Try with your pass</a>
+          </article>
+          <article class="tile reveal">
+            <h4>Engine & Sweat</h4>
+            <p>Intervals & circuits for conditioning without burnout.</p>
+            <a class="btn btn-sec mt2" href="#join">Try with your pass</a>
+          </article>
+          <article class="tile reveal">
+            <h4>Mobility Lab</h4>
+            <p>Restore range, reduce aches, and lift better.</p>
+            <a class="btn btn-sec mt2" href="#join">Try with your pass</a>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Pricing (folio-style cards with “ribbon”) -->
+    <!-- DARK PANEL: COACHES + PROOF -->
+    <section id="coaches" class="section" style="padding-top:0;">
+      <div class="panel">
+        <div class="container grid g-12">
+          <div class="span-8">
+            <h2>Coaches who meet you where you are.</h2>
+            <p style="color:#BDC3C7">Certified, experienced, and friendly. Every class has eyes on your form.</p>
+            <div class="grid-3 mt3">
+              <div class="quote"><strong>Ana S.</strong><br><span style="color:#94a3a9">Head Coach — Strength</span><p class="mt1">“We teach technique before load. The goal is progress without pain.”</p></div>
+              <div class="quote"><strong>Marco L.</strong><br><span style="color:#94a3a9">Coach — Conditioning</span><p class="mt1">“Consistent 45-min sessions beat random hero workouts.”</p></div>
+              <div class="quote"><strong>Liv K.</strong><br><span style="color:#94a3a9">Coach — Mobility</span><p class="mt1">“Small fixes change everything—your squat, your back, your week.”</p></div>
+            </div>
+          </div>
+          <aside class="span-4">
+            <div class="quote">
+              <h4>Members say</h4>
+              <p>“The only gym where I don’t feel lost. I’m lifting heavier and my knees finally don’t hurt.”</p>
+              <p class="mt1" style="color:#A8B0B4">4.9/5 average internal NPS • 500+ local members</p>
+              <a class="btn btn-pri mt2" href="#join">Start 7-day pass</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE STRIP -->
+    <section id="schedule" class="section band">
+      <div class="container">
+        <h2 class="reveal">Class snapshot</h2>
+        <div class="grid-3 mt3">
+          <div class="card"><h6>Mon–Fri</h6><p class="mb0">06:00 • 07:00 • 12:00 • 17:00 • 18:00</p></div>
+          <div class="card"><h6>Saturday</h6><p class="mb0">09:00 Engine • 10:00 Strength</p></div>
+          <div class="card"><h6>Sunday</h6><p class="mb0">Open Gym 09:00–13:00</p></div>
+        </div>
+        <p class="mt2" style="color:#3B403F">Full schedule sent after you start your pass.</p>
+      </div>
+    </section>
+
+    <!-- PRICING (starter examples) -->
     <section id="pricing" class="section">
       <div class="container">
-        <h2 class="reveal">Pricing</h2>
-        <p class="muted">Transparent examples. Complex matters quoted after consult.</p>
+        <h2 class="reveal">Simple pricing</h2>
         <div class="grid-3 mt3">
           <article class="card reveal" style="position:relative;">
-            <div style="position:absolute; right:12px; top:-10px; background:var(--accent); color:#fff; padding:6px 10px; border-radius:8px;">Popular</div>
-            <h4>Policy Suite (Employment)</h4>
-            <p>Core policies, templates, rollout guide.</p>
-            <p class="muted">From kr 30,000</p>
+            <div style="position:absolute; right:12px; top:-10px; background:var(--accent); color:#06240F; padding:6px 10px; border-radius:8px; font-weight:900;">New</div>
+            <h4>7-Day Pass</h4>
+            <p>Unlimited classes for a week.</p>
+            <p class="muted">kr 0 (intro)</p>
           </article>
           <article class="card reveal">
-            <h4>Commercial Lease Review</h4>
-            <p>Plain-English summary and negotiation points.</p>
-            <p class="muted">From kr 12,000</p>
+            <h4>Monthly</h4>
+            <p>Unlimited classes + open gym.</p>
+            <p class="muted">From kr 699</p>
           </article>
           <article class="card reveal">
-            <h4>Starter Contract Set</h4>
-            <p>Standard agreements tailored to your business.</p>
-            <p class="muted">From kr 25,000</p>
+            <h4>10-Pack</h4>
+            <p>Flexible visits, 6-month validity.</p>
+            <p class="muted">kr 1490</p>
           </article>
         </div>
         <div class="mt3" style="text-align:right;">
-          <a class="btn btn-pri" href="#contact">Book a consultation</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case study (editorial) -->
-    <section id="cases" class="section" style="background:#fff">
-      <div class="container grid g-12">
-        <div class="span-6 reveal">
-          <h2>Termination Policy Overhaul</h2>
-          <p class="muted">Situation → Strategy → Action → Outcome</p>
-          <div class="mt2 card">
-            <p class="mb0"><strong>Outcome:</strong> 60% fewer disputes within six months; faster, clearer decisions.</p>
-          </div>
-        </div>
-        <div class="span-6 reveal">
-          <div class="panel">
-            <h4>What made it work</h4>
-            <ul>
-              <li>Plain-English drafts with decision notes</li>
-              <li>Short manager training</li>
-              <li>Template pack for documentation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" class="section" style="background:var(--panel);">
-      <div class="container">
-        <h2 class="reveal">Team</h2>
-        <div class="grid-3 mt3">
-          <div class="card reveal">
-            <h4>Elena Hart</h4>
-            <p class="muted">Partner — Business & Employment</p>
-            <p>Bar admissions: NO • Plain-English specialist</p>
-          </div>
-          <div class="card reveal">
-            <h4>Jonas Aasen</h4>
-            <p class="muted">Partner — Real Estate</p>
-            <p>Bar admissions: NO • Complex deals & leases</p>
-          </div>
-          <div class="card reveal">
-            <h4>Advisory Panel</h4>
-            <p class="muted">Senior counsel network for specialist matters</p>
-            <p>Discretion & speed on sensitive work</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resources -->
-    <section id="resources" class="section">
-      <div class="container">
-        <h2 class="reveal">Resources</h2>
-        <div class="grid-2 mt3">
-          <article class="card reveal">
-            <h4>Employment Termination Checklist</h4>
-            <p>Skimmable steps to reduce risk.</p>
-            <a class="btn btn-sec mt2" href="#contact">Get help</a>
-          </article>
-          <article class="card reveal">
-            <h4>Commercial Lease Red Flags</h4>
-            <p>What to watch before you sign.</p>
-            <a class="btn btn-sec mt2" href="#contact">Ask an attorney</a>
-          </article>
+          <a class="btn btn-pri" href="#join">Start 7-day pass</a>
         </div>
       </div>
     </section>
@@ -434,68 +364,67 @@
     <section id="faqs" class="section" style="background:#fff">
       <div class="container">
         <h2 class="reveal">FAQs</h2>
-        <details class="mt2 reveal"><summary>How fast can we start?</summary><p class="mt1">We aim to schedule a consultation within 3 business days.</p></details>
-        <details class="mt2 reveal"><summary>Do you offer fixed fees?</summary><p class="mt1">For common matters, yes. Otherwise we confirm scope and provide estimates before starting.</p></details>
-        <details class="mt2 reveal"><summary>Will I get plain-English guidance?</summary><p class="mt1">Yes. We avoid legalese and provide clear next steps.</p></details>
+        <details class="mt2 reveal"><summary>Do I need experience?</summary><p class="mt1">No. We scale movements and teach technique first.</p></details>
+        <details class="mt2 reveal"><summary>Is the 7-day pass really free?</summary><p class="mt1">Yes. No contract. Try classes and meet the coaches.</p></details>
+        <details class="mt2 reveal"><summary>What should I bring?</summary><p class="mt1">Training shoes, water, and a good attitude.</p></details>
       </div>
     </section>
 
-    <!-- Contact / Book -->
-    <section id="contact" class="section" style="background:linear-gradient(180deg,var(--panel), #FFFFFF)">
+    <!-- JOIN (Netlify form) + TOUR -->
+    <section id="join" class="section" style="background:linear-gradient(180deg,#FFFFFF, #F0F7F2)">
       <div class="container grid g-12">
         <div class="span-7">
-          <h2>Book a consultation</h2>
-          <p class="muted">Short intake, then pick a slot that works.</p>
-          <!-- Netlify form -->
-          <form class="card mt2" name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="consultation">
+          <h2>Start your 7-day pass</h2>
+          <p class="muted">Tell us who you are and we’ll send your schedule + intro invite.</p>
+          <form class="card mt2" name="vigor-pass" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="vigor-pass">
             <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
             <div class="grid g-12">
               <div class="span-6">
                 <label>Name</label>
-                <input required name="name" placeholder="Jane Doe" />
+                <input required name="name" placeholder="Jane Doe">
               </div>
               <div class="span-6">
                 <label>Email</label>
-                <input required type="email" name="email" placeholder="you@company.com" />
+                <input required type="email" name="email" placeholder="you@company.com">
               </div>
             </div>
             <div class="grid g-12">
               <div class="span-6">
-                <label>Company</label>
-                <input name="company" placeholder="Acme AS" />
+                <label>Goal</label>
+                <select name="goal" required>
+                  <option value="">Select…</option>
+                  <option>Get stronger</option>
+                  <option>Lose fat / tone</option>
+                  <option>Feel better / move better</option>
+                </select>
               </div>
               <div class="span-6">
-                <label>Topic</label>
-                <select name="topic" required>
+                <label>Preferred time</label>
+                <select name="slot" required>
                   <option value="">Select…</option>
-                  <option>Business</option>
-                  <option>Employment</option>
-                  <option>Real Estate</option>
+                  <option>Morning (06–08)</option>
+                  <option>Midday (12–13)</option>
+                  <option>Evening (17–19)</option>
                 </select>
               </div>
             </div>
-            <label>Urgency</label>
-            <select name="urgency" required>
-              <option>Within 1 week</option>
-              <option>Within 2–3 weeks</option>
-              <option>Flexible</option>
-            </select>
-            <label class="mt2">Brief</label>
-            <textarea name="brief" rows="5" placeholder="A few lines about the matter…" required></textarea>
-            <button class="btn btn-pri mt2" type="submit">Submit intake</button>
+            <label class="mt2">Anything we should know?</label>
+            <textarea rows="4" name="notes" placeholder="Old injury, first time training, etc."></textarea>
+            <button class="btn btn-pri mt2" type="submit">Get my 7-day pass</button>
           </form>
-          <p class="mt2 muted">By booking you agree to a conflicts check and our standard terms.</p>
+          <p class="mt2" style="color:#3B403F">No contract • No spam • We reply within 24h</p>
         </div>
-        <aside class="span-5">
+
+        <aside id="tour" class="span-5">
           <div class="card">
-            <h4>Book a slot</h4>
-            <p class="muted">Calendly shows the next 14 days. Timezone aware.</p>
-            <div class="mt2" id="calendly" style="min-height:600px">
-              <!-- Replace data-url with actual Calendly URL -->
-              <div class="calendly-inline-widget" data-url="https://calendly.com/sample-org/consult" style="min-width:320px;height:600px;"></div>
+            <h4>Book a quick tour</h4>
+            <p class="muted">See the space, meet a coach, pick your class.</p>
+            <div class="mt2" style="min-height:420px">
+              <!-- Replace data-url with your Calendly link -->
+              <div class="calendly-inline-widget" data-url="https://calendly.com/sample-org/gym-tour" style="min-width:320px;height:420px;"></div>
             </div>
-            <p class="muted mt2">contact@harborandsage.law • +47 55 55 55</p>
+            <p class="muted mt2">Questions? hello@vigorlab.gym • +47 55 55 55</p>
           </div>
         </aside>
       </div>
@@ -504,16 +433,16 @@
 
   <footer class="section" style="padding-top:32px; padding-bottom:32px;">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-      <div class="brand">Harbor &amp; Sage Law</div>
-      <p class="muted">© <span data-year></span> Harbor & Sage Law • Practical counsel for complex business decisions.</p>
+      <div class="brand">VIGOR LAB</div>
+      <p class="muted">© <span data-year></span> VIGOR LAB • Strength • Conditioning • Community</p>
     </div>
   </footer>
 
   <div class="sticky-cta">
-    <a class="btn btn-pri" href="#contact">Book a consultation</a>
+    <a class="btn btn-pri" href="#join">Start 7-day pass</a>
   </div>
 
-  <!-- Inline scripts only -->
+  <!-- Inline scripts (no external build) -->
   <script>
     // Mobile menu
     const toggle = document.querySelector('.nav-toggle');
@@ -532,7 +461,7 @@
     }, {threshold:.12});
     document.querySelectorAll('.reveal, details').forEach(el=> io.observe(el));
 
-    // Smooth internal links
+    // Smooth anchors
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', (e)=>{
         const id = a.getAttribute('href').slice(1);
@@ -541,15 +470,14 @@
       });
     });
 
-    // Year + progress bar
+    // Year + scroll progress
     document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
     const prog = document.getElementById('progress');
     window.addEventListener('scroll', ()=>{
       const h = document.documentElement;
-      const scrolled = (h.scrollTop)/(h.scrollHeight - h.clientHeight || 1);
-      prog.style.transform = 'scaleX('+scrolled+')';
+      const s = (h.scrollTop)/(h.scrollHeight - h.clientHeight || 1);
+      prog.style.transform = 'scaleX('+s+')';
     });
-
   </script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
