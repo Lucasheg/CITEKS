@@ -2,39 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Bristle & Blade — Classic cuts, modern finish</title>
-  <meta name="description" content="Bristle & Blade Barber — classic cuts with a modern finish. Walk-ins welcome. Book a seat." />
+  <title>Odd Fellow Barber — Cuts, Shaves, Stories</title>
+  <meta name="description" content="Odd Fellow Barber — editorial, characterful cuts and shaves. Book a seat." />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#FFFBF5" />
-  <!-- Editorial + workhorse fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#FFFAF2" />
+  <!-- Editorial fonts (distinct from prior): Newsreader + Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700;6..72,800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
-       CITEKS RULES (A–E)
-       - Type: Major Third from 16px; letter/line rules
+       CITEKS RULES (A–E) — ENFORCED
+       - Major Third from 16px; letter/line rules
        - Grid: 12 desktop / 4 mobile
        - Spacing: 8pt system
-       - Color: 60/30/10
-       - Conversion: one goal (Book a seat)
+       - 60/30/10 color with high contrast
+       - One clear goal per page: Book a seat
        ========================================================= */
 
     :root{
-      /* 60/30/10: Cream / Ink, Navy panels, Barber Red accent */
-      --bg:#FFFBF5;            /* 60% neutrals */
-      --ink:#1C1C1C;
-      --muted:#666666;
+      /* 60/30/10 palette — editorial, not generic barber */
+      --bg:#FFFAF2;           /* 60% paper */
+      --ink:#141312;          /* body text */
+      --muted:#5F5A56;
 
-      --panel:#0E1A2B;         /* 30% secondary surfaces */
-      --panel-ink:#F5F7FA;
+      --panel:#0B2320;        /* 30% bottle green panels */
+      --panel-ink:#F2F6F5;
 
-      --accent:#D72638;        /* 10% action (barber red) */
-      --accent-600:#B11E2C;
-      --accent-soft:#FFE7EA;
+      --accent:#A31621;       /* 10% burgundy action */
+      --accent-600:#82101A;
+      --accent-soft:#FFE6E9;
 
-      --stripe-blue:#2B6CB0;   /* used sparingly for decorative barber stripes */
+      --stripe-blue:#124E96;  /* rare decorative stripe, not CTA */
 
-      /* Type scale (Major Third 1.25) from 16px */
+      /* Type scale — Major Third (1.25) from 16px */
       --fs-p:16px;
       --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
       --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
@@ -51,8 +51,8 @@
 
       /* Depth & motion */
       --e1: 0 10px 30px rgba(0,0,0,.08);
-      --e2: 0 16px 60px rgba(0,0,0,.14);
-      --ring: 0 0 0 3px rgba(215,38,56,.24);
+      --e2: 0 18px 60px rgba(0,0,0,.16);
+      --ring: 0 0 0 3px rgba(163,22,33,.22);
       --ease: cubic-bezier(.2,.6,.2,1);
     }
 
@@ -62,15 +62,12 @@
       margin:0;
       background:var(--bg);
       color:var(--ink);
-      font: 400 var(--fs-p)/var(--lh-p) Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font: 400 var(--fs-p)/var(--lh-p) "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
     /* Type */
-    h1,h2,h3,h4,h5,h6{
-      margin:0 0 var(--s2) 0;
-      font-family: "Fraunces", serif; font-weight:700; color:#101010;
-    }
+    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-family:"Newsreader", serif; font-weight:800; color:#0E0D0C}
     h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
     h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
     h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
@@ -78,152 +75,169 @@
     h5{font-size:var(--fs-h5)}
     h6{font-size:var(--fs-h6); letter-spacing:var(--ls-h6)}
     p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font: 600 14px/1 Inter; letter-spacing:.18em; text-transform:uppercase; color:#333}
+    .eyebrow{font: 800 12px/1 "Manrope"; letter-spacing:.24em; text-transform:uppercase; color:#3B3734}
 
     /* Links & Buttons */
     a{color:var(--accent); text-decoration:none}
     a:hover{color:var(--accent-600)}
     a:focus{outline:none; box-shadow:var(--ring); border-radius:12px}
 
-    /* Ticket-stub button (perforated edge + notch) */
+    /* Distinct button styles: brass stamp + ribbon */
     .btn{
-      display:inline-grid; grid-auto-flow:column; align-items:center; gap:12px;
+      display:inline-flex; align-items:center; justify-content:center; gap:12px;
       padding:12px 18px; border-radius:14px; border:2px solid transparent;
-      font-weight:800; text-transform:uppercase; letter-spacing:.04em;
+      font-weight:800; letter-spacing:.04em; text-transform:uppercase;
       transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
       position:relative;
     }
     .btn-pri{
-      background:linear-gradient(180deg, #E94452, var(--accent));
-      color:#fff; border-color:#E94452; box-shadow:var(--e1);
-      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 22px) 100%, 0 100%, 0 0);
+      background:linear-gradient(180deg,#C5404C,var(--accent)); color:#fff; border-color:#C5404C; box-shadow:0 2px 0 #7A121A, var(--e1);
     }
-    .btn-pri::after{ /* perforation dots */
-      content:""; position:absolute; right:18px; top:8px; bottom:8px; width:2px;
-      background: radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px) 0 0 / 2px 10px repeat-y;
-      opacity:.9;
-    }
-    .btn-pri:hover{transform:translateY(-2px); box-shadow:var(--e2)}
+    .btn-pri:hover{transform:translateY(-2px); box-shadow:0 3px 0 #6B1017, var(--e2)}
     .btn-ghost{
-      background:transparent; color:var(--accent-600); border-color:#F5A3AB;
+      background:transparent; color:var(--accent-600); border-color:#F3B7BE;
     }
     .btn-ghost:hover{background:var(--accent-soft)}
 
-    /* Layout */
+    /* Container & Grid */
     .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
     .section{padding: clamp(56px, 8vw, 120px) 0}
     .grid{display:grid; gap:var(--s3)}
     .g-12{grid-template-columns:repeat(12,1fr)}
     .span-8{grid-column:span 8} .span-4{grid-column:span 4}
+    .span-7{grid-column:span 7} .span-5{grid-column:span 5}
     .span-6{grid-column:span 6}
-    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-8,.span-6,.span-4{grid-column:1/-1} }
+    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-8,.span-7,.span-6,.span-5,.span-4{grid-column:1/-1} }
     @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-    /* Header — slim with rotating barber-pole rails */
+    /* === LAYOUT: editorial masthead strip left, content freeform right === */
+    .masthead{
+      position:fixed; inset:0 auto 0 0; width:84px; display:flex; flex-direction:column; align-items:center; gap:18px;
+      border-right:1px solid rgba(0,0,0,.06); background:linear-gradient(180deg,#FFFDFC,#FFF4E6);
+      z-index:60;
+    }
+    .mast-title{
+      writing-mode:vertical-rl; transform:rotate(180deg);
+      font-family:"Newsreader"; font-weight:800; letter-spacing:.14em; font-size:20px; margin-top:12px;
+    }
+    .pole{
+      width:12px; height:160px; border-radius:6px; overflow:hidden; border:1px solid rgba(0,0,0,.08); box-shadow:var(--e1);
+      background:
+        repeating-linear-gradient(135deg, var(--accent) 0 10px, #fff 10px 20px, var(--stripe-blue) 20px 30px, #fff 30px 40px);
+      animation: pole 14s linear infinite;
+    }
+    @keyframes pole{ to{ background-position: 0 240px } }
+    .seal{
+      width:56px; height:56px; border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(163,22,33,.25), transparent 60%),
+        repeating-conic-gradient(from 0deg, #7D161F 0 6deg, #A31621 6deg 12deg);
+      display:grid; place-items:center; color:#fff; font-weight:900; font-size:10px; text-align:center; padding:6px;
+      box-shadow:var(--e1); border:1px solid rgba(0,0,0,.08);
+    }
+
+    /* Header — minimal; nav lives in masthead for mobile via menu */
     header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(255,251,245,.85); backdrop-filter:saturate(140%) blur(8px);
+      position:sticky; top:0; z-index:50; margin-left:84px;
+      background:rgba(255,250,242,.85); backdrop-filter:saturate(140%) blur(8px);
       border-bottom:1px solid rgba(0,0,0,.06);
     }
     .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
-    .brand{font-family:"Fraunces"; font-weight:700; letter-spacing:-.02em; font-size:22px}
+    .brand{font-family:"Newsreader"; font-weight:800; letter-spacing:-.02em; font-size:22px}
     .nav{display:flex; gap:var(--s3); align-items:center}
-    .nav a{color:#1C1C1C; opacity:.9}
+    .nav a{color:#141312; opacity:.9}
     .nav a:hover{opacity:1}
     .spacer{flex:1}
     .nav-toggle{display:none}
     @media (max-width: 960px){
       .nav{display:none}
-      .nav-toggle{display:inline-flex; padding:10px 12px; border:1px solid rgba(0,0,0,.08); border-radius:10px; background:#fff}
+      .nav-toggle{display:inline-flex; margin-right:8px; padding:10px 12px; border:1px solid rgba(0,0,0,.08); border-radius:10px; background:#fff}
       #mobileNav[hidden]{display:none}
-      #mobileNav{position:fixed; inset:64px 16px auto 16px; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--e2); padding:12px}
-      #mobileNav a{display:block; padding:10px; color:#1C1C1C}
-    }
-    /* Rails */
-    .rail{
-      position:absolute; top:0; bottom:0; width:10px; z-index:-1;
-      background:
-        repeating-linear-gradient(45deg, var(--accent) 0 10px, #fff 10px 20px, var(--stripe-blue) 20px 30px, #fff 30px 40px);
-      animation: roll 12s linear infinite;
-      opacity:.6;
-    }
-    .rail.left{left:0; border-right:1px solid rgba(0,0,0,.06)}
-    .rail.right{right:0; border-left:1px solid rgba(0,0,0,.06)}
-    @keyframes roll{ to{ background-position: 0 160px } }
-
-    /* Hero — comb separator + coupon */
-    .hero{
-      position:relative; isolation:isolate; overflow:hidden;
-      background:
-        radial-gradient(700px 400px at 120% -20%, rgba(215,38,56,.10), transparent 60%);
-    }
-    .comb{
-      height:18px; margin:var(--s3) 0;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.08) 0 8px, transparent 8px 24px) repeat-x;
-      background-size:24px 100%;
-      mask-image: linear-gradient(90deg, #0000, #000 10%, #000 90%, #0000);
-      opacity:.5;
-    }
-    /* Scalloped coupon */
-    .coupon{
-      background:#fff; border:2px dashed #F2B6BC; border-radius:18px; padding:var(--s3);
-      box-shadow: var(--e1);
-      --r:16px;
-      -webkit-mask:
-        radial-gradient(var(--r) at 100% 0, #0000 98%, #000) 50% 0/var(--r) var(--r) space round,
-        radial-gradient(var(--r) at 0 100%, #0000 98%, #000) 0 100%/var(--r) var(--r) space round,
-        linear-gradient(#000,#000);
-      mask:
-        radial-gradient(var(--r) at 100% 0, #0000 98%, #000) 50% 0/var(--r) var(--r) space round,
-        radial-gradient(var(--r) at 0 100%, #0000 98%, #000) 0 100%/var(--r) var(--r) space round,
-        linear-gradient(#000,#000);
+      #mobileNav{position:fixed; left:84px; right:16px; top:64px; bottom:auto; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:var(--e2); padding:12px; z-index:70}
+      #mobileNav a{display:block; padding:10px; color:#141312}
     }
 
-    /* Dark panel (Services) with barber stripe header */
-    .panel{
-      background:var(--panel); color:var(--panel-ink);
-      border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:var(--s3);
-      box-shadow: var(--e1);
-      position:relative; overflow:hidden;
+    /* HERO — poster composition, NO previous placements */
+    .poster{
+      position:relative; isolation:isolate; margin-left:84px; overflow:hidden;
+      background:
+        radial-gradient(900px 600px at 110% -20%, rgba(163,22,33,.12), transparent 60%),
+        radial-gradient(700px 400px at -20% 120%, rgba(18,78,150,.08), transparent 60%);
     }
-    .panel::before{
-      content:""; position:absolute; left:-40px; top:-12px; right:-40px; height:10px;
-      background: repeating-linear-gradient(60deg, var(--accent) 0 16px, var(--panel) 16px 32px, var(--stripe-blue) 32px 48px, var(--panel) 48px 64px);
-      opacity:.6;
+    .halftone{
+      position:absolute; inset:auto -10% 0 -10%; height:220px; opacity:.3;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(0,0,0,.25) 1px, transparent 2px) 0 0/14px 14px repeat;
+      clip-path: polygon(0 58%, 100% 30%, 100% 100%, 0 100%);
+    }
+    .headline{
+      display:grid; gap:var(--s1); grid-template-columns: 1fr auto; align-items:end;
+    }
+    .ribbon{
+      padding:6px 10px; border-radius:999px; background:#FFF1F3; color:#7E1720; border:1px solid #F7C3CA; font-weight:900; letter-spacing:.08em;
+      box-shadow:var(--e1);
     }
 
-    /* Receipt-like price list with tear edge */
-    .receipt{
-      background:#fff; border:2px solid #F1E2DE; border-radius:12px; padding:var(--s3);
+    /* MENU — tear tabs floating across column grid */
+    .tabs-wrap{position:relative}
+    .tear-tabs{
+      display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr);
+    }
+    .tab{
+      grid-column: span 3;
+      background:#fff; border:2px solid #EADAD6; border-radius:16px; padding:var(--s3);
       box-shadow: var(--e1); position:relative; overflow:hidden;
     }
-    .receipt::after{
-      content:""; position:absolute; left:0; right:0; bottom:-8px; height:16px;
+    .tab::before{
+      content:""; position:absolute; right:-10px; top:0; bottom:0; width:18px;
       background:
-        radial-gradient(circle at 8px 8px, #0000 7px, #000 7px) left bottom/16px 16px repeat-x;
-      filter: drop-shadow(0 -2px 0 #EFD8D1);
-      opacity:.25;
+        radial-gradient(circle at 9px 9px, #0000 7px, #EADAD6 8px) left top/18px 18px repeat-y;
     }
-    .price-row{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed #EBD2CC}
-    .price-row:last-child{border-bottom:0}
+    @media (max-width:1000px){ .tab{grid-column:span 6} }
+    @media (max-width:640px){ .tab{grid-column:span 12} }
+
+    /* CHAIR CARDS — bottle green slabs with angled thumb notch */
+    .chairs{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
+    @media (max-width:1000px){ .chairs{grid-template-columns:1fr} }
+    .chair{
+      background:var(--panel); color:var(--panel-ink); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:var(--s3);
+      box-shadow: var(--e1); position:relative;
+    }
+    .chair::after{
+      content:""; position:absolute; right:12px; top:12px; width:20px; height:20px; border-radius:4px;
+      background:conic-gradient(from 180deg, rgba(255,255,255,.5), rgba(255,255,255,0));
+      mix-blend:screen;
+    }
+
+    /* PRICES — guilloché certificate card */
+    .cert{
+      background:#fff; border:2px solid #E5D7CF; border-radius:20px; padding:var(--s3);
+      box-shadow:var(--e1); position:relative; overflow:hidden;
+    }
+    .cert::before{
+      content:""; position:absolute; inset:10px; border-radius:14px;
+      background: repeating-conic-gradient(#F9EEE7 0 10deg, #FFF 10deg 20deg);
+      opacity:.7; mask-image: radial-gradient(120% 90% at 50% 50%, #000 60%, transparent 100%);
+    }
+    .row{display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px dashed #E5D7CF}
+    .row:last-child{border-bottom:0}
 
     /* FAQ */
-    details{background:#fff; border:2px solid #F1E2DE; border-radius:12px; padding:12px 16px; box-shadow:var(--e1)}
+    details{background:#fff; border:2px solid #E5D7CF; border-radius:14px; padding:12px 16px; box-shadow:var(--e1)}
     summary{cursor:pointer; font-weight:800; color:#111}
 
-    /* Form (Netlify) */
-    form.sheet{background:#fff; border:2px solid #F1E2DE; border-radius:16px; padding:var(--s3); box-shadow:var(--e1)}
-    label{display:block; font-weight:700; margin-bottom:8px}
+    /* FORM (Netlify) */
+    form.sheet{background:#fff; border:2px solid #E5D7CF; border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
+    label{display:block; font-weight:800; margin-bottom:8px}
     input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:2px solid #EAD8D2; background:#FFFEFD; color:#1C1C1C;
+      width:100%; padding:12px 14px; border-radius:12px; border:2px solid #E5D7CF; background:#FFFEFD; color:#141312;
     }
     input:focus, select:focus, textarea:focus{outline:none; box-shadow:var(--ring)}
 
     /* Sticky CTA (mobile) */
-    .sticky-cta{position:fixed; bottom:14px; left:0; right:0; display:flex; justify-content:center; pointer-events:none; z-index:40}
+    .sticky-cta{position:fixed; bottom:14px; left:84px; right:0; display:flex; justify-content:center; pointer-events:none; z-index:40}
     .sticky-cta .btn{pointer-events:auto}
-    @media (min-width: 720px){ .sticky-cta{display:none} }
+    @media (max-width: 720px){ .sticky-cta{left:0} }
 
     /* Utilities */
     .mt1{margin-top:var(--s1)} .mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)}
@@ -232,24 +246,28 @@
     .grid-2{display:grid; gap:var(--s3); grid-template-columns:repeat(2,1fr)}
     @media (max-width:1000px){ .grid-3,.grid-2{grid-template-columns:1fr} }
 
-    /* Reveal-on-scroll */
-    .reveal{opacity:0; transform: translateY(12px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
+    /* Reveal-on-scroll (used with $) */
+    .reveal{opacity:0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
     .reveal.in{opacity:1; transform:none}
   </style>
 </head>
 <body>
 
-  <!-- Rails -->
-  <div class="rail left" aria-hidden="true"></div>
-  <div class="rail right" aria-hidden="true"></div>
+  <!-- Vertical editorial masthead -->
+  <aside class="masthead" aria-label="Masthead">
+    <div class="mast-title">Odd&nbsp;Fellow&nbsp;Barber</div>
+    <div class="pole" aria-hidden="true"></div>
+    <div class="seal" aria-hidden="true">EST.<br>2014</div>
+  </aside>
 
-  <!-- Header -->
+  <!-- Header (compact, different structure) -->
   <header>
     <div class="container bar">
-      <div class="brand">Bristle &amp; Blade</div>
+      <div class="brand">Odd Fellow Barber</div>
       <nav class="nav" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
+        <a href="#poster">Intro</a>
+        <a href="#menu">Menu</a>
+        <a href="#chairs">Chairs</a>
         <a href="#prices">Prices</a>
         <a href="#book">Book</a>
         <a href="#faqs">FAQs</a>
@@ -259,8 +277,9 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">☰</button>
     </div>
     <nav id="mobileNav" hidden>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
+      <a href="#poster">Intro</a>
+      <a href="#menu">Menu</a>
+      <a href="#chairs">Chairs</a>
       <a href="#prices">Prices</a>
       <a href="#book">Book</a>
       <a href="#faqs">FAQs</a>
@@ -268,77 +287,104 @@
     </nav>
   </header>
 
-  <main id="home">
-    <!-- HERO -->
-    <section class="hero section" aria-label="Intro">
+  <main id="poster">
+    <!-- POSTER HERO — magazine spread; copy left, meta right -->
+    <section class="poster section" aria-label="Intro">
+      <div class="halftone" aria-hidden="true"></div>
       <div class="container grid g-12">
-        <div class="span-8">
-          <div class="reveal" style="max-width:28ch">
-            <span class="eyebrow">Since 2012 • Walk-ins welcome</span>
-            <h1>Classic cuts. Modern finish.</h1>
-            <p class="mt2">Tight fades, tidy scissor cuts, beard shaping — quick, clean, and precise. Coffee while you wait.</p>
-            <div class="mt3" style="display:flex; gap:12px; flex-wrap:wrap;">
-              <a class="btn btn-pri" href="#book">Book a seat</a>
-              <a class="btn btn-ghost" href="#prices">See price list</a>
+        <div class="span-7">
+          <div class="headline reveal">
+            <div>
+              <span class="eyebrow">Cuts • Shaves • Stories</span>
+              <h1>Barbering with<br>opinion.</h1>
             </div>
-            <div class="comb" aria-hidden="true"></div>
-            <div class="coupon">
-              <strong>First cut?</strong> Show this at the chair for a free hot towel finish.
-            </div>
+            <span class="ribbon">Walk-ins welcome</span>
+          </div>
+          <p class="mt2 reveal">Fades that disappear. Scissor work with structure. Beards lined to camera-ready. Coffee while you wait, hot towels when you sit.</p>
+          <div class="mt3 reveal" style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-pri" href="#book">Book a seat</a>
+            <a class="btn btn-ghost" href="#prices">See prices</a>
           </div>
         </div>
-        <div class="span-4"><!-- breathing room for rails/comb aesthetic --></div>
+        <div class="span-5">
+          <div class="reveal cert">
+            <h4 style="margin-bottom:6px">House Badge</h4>
+            <p class="mb0">No hard sell. No shortcuts. Clean stations. Sharp tools. Good music.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SERVICES (dark panel with subtle barber stripe header) -->
-    <section id="services" class="section" aria-label="Services">
-      <div class="container panel">
-        <h2>Services</h2>
-        <div class="grid-3 mt3">
-          <div>
+    <!-- MENU — tear tabs across the grid -->
+    <section id="menu" class="section tabs-wrap" aria-label="Menu">
+      <div class="container">
+        <h2 class="reveal">The Menu</h2>
+        <div class="tear-tabs mt3">
+          <article class="tab reveal">
             <h4>Scissor Cut</h4>
-            <p>Structured shape with clean neckline. Finish with matte or shine.</p>
-          </div>
-          <div>
+            <p>Structured silhouette, textured finish.</p>
+          </article>
+          <article class="tab reveal">
             <h4>Skin Fade</h4>
-            <p>Clippered close with seamless blend. Razor clean-up included.</p>
-          </div>
-          <div>
+            <p>Razor-clean outline, seamless blend.</p>
+          </article>
+          <article class="tab reveal">
             <h4>Beard Shape</h4>
-            <p>Line-up, bulk control, and hot towel treatment.</p>
-          </div>
-        </div>
-        <div class="mt3" style="text-align:right">
-          <a class="btn btn-pri" href="#book">Book a seat</a>
+            <p>Line-up + bulk control + hot towel.</p>
+          </article>
+          <article class="tab reveal">
+            <h4>Hot Towel Shave</h4>
+            <p>Steam prep, straight razor, aftercare.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- PRICES (receipt tear-off) -->
+    <!-- CHAIRS — editorial bios on bottle green slabs -->
+    <section id="chairs" class="section" aria-label="Chairs" style="background:linear-gradient(180deg,#FFFFFF,#F6F1E9)">
+      <div class="container">
+        <h2 class="reveal">At the chairs</h2>
+        <div class="chairs mt3">
+          <div class="chair reveal">
+            <h4>Viktor</h4>
+            <p>Fade precisionist. Loves the quiet taper that shocks in profile.</p>
+          </div>
+          <div class="chair reveal">
+            <h4>Maya</h4>
+            <p>Scissor architect. Shapes that grow out handsome for 4–6 weeks.</p>
+          </div>
+          <div class="chair reveal">
+            <h4>Hadi</h4>
+            <p>Beard tactician. Symmetry, line discipline, and warm finishes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICES — certificate card with guilloché -->
     <section id="prices" class="section" aria-label="Prices" style="background:#fff">
       <div class="container">
         <h2 class="reveal">Price list</h2>
-        <div class="receipt mt2 reveal" role="list">
-          <div class="price-row" role="listitem"><span>Scissor Cut</span><strong>kr 390</strong></div>
-          <div class="price-row" role="listitem"><span>Skin Fade</span><strong>kr 420</strong></div>
-          <div class="price-row" role="listitem"><span>Clipper All Over</span><strong>kr 280</strong></div>
-          <div class="price-row" role="listitem"><span>Beard Trim & Shape</span><strong>kr 250</strong></div>
-          <div class="price-row" role="listitem"><span>Cut + Beard</span><strong>kr 590</strong></div>
-          <div class="price-row" role="listitem"><span>Hot Towel Shave</span><strong>kr 520</strong></div>
+        <div class="cert mt2 reveal">
+          <div class="row"><span>Scissor Cut</span><strong>kr 390</strong></div>
+          <div class="row"><span>Skin Fade</span><strong>kr 420</strong></div>
+          <div class="row"><span>Clipper All Over</span><strong>kr 280</strong></div>
+          <div class="row"><span>Beard Trim & Shape</span><strong>kr 250</strong></div>
+          <div class="row"><span>Cut + Beard</span><strong>kr 590</strong></div>
+          <div class="row"><span>Hot Towel Shave</span><strong>kr 520</strong></div>
         </div>
-        <p class="mt2" style="color:#3D3D3D">Student & weekday lunch pricing available — ask at the chair.</p>
+        <p class="mt2" style="color:#3A3734">Student & weekday lunch pricing available — ask at the chair.</p>
       </div>
     </section>
 
-    <!-- BOOK (Netlify form) -->
+    <!-- BOOK — single goal -->
     <section id="book" class="section" aria-label="Book">
       <div class="container grid g-12">
         <div class="span-6">
           <h2>Book a seat</h2>
-          <p class="muted">Tell us your style and when you’d like to come in. We’ll confirm fast.</p>
-          <form class="sheet mt2" name="barber-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="barber-booking">
+          <p class="muted">Tell us when and what. We’ll confirm fast.</p>
+          <form class="sheet mt2" name="odd-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="odd-booking">
             <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
             <div class="grid g-12">
               <div class="span-6">
@@ -378,16 +424,16 @@
             <label class="mt2">Notes</label>
             <textarea rows="4" name="notes" placeholder="Style notes, barber preference, etc."></textarea>
             <button class="btn btn-pri mt2" type="submit">Confirm booking</button>
-            <p class="mt1" style="color:#3D3D3D">No pre-payment. We reply within 24h.</p>
+            <p class="mt1" style="color:#3A3734">No pre-payment. We reply within 24h.</p>
           </form>
         </div>
         <aside class="span-6">
-          <div class="receipt">
+          <div class="cert reveal">
             <h4>Hours & Location</h4>
-            <div class="price-row"><span>Mon–Fri</span><strong>09:00–19:00</strong></div>
-            <div class="price-row"><span>Saturday</span><strong>10:00–16:00</strong></div>
-            <div class="price-row"><span>Sunday</span><strong>Closed</strong></div>
-            <div class="price-row"><span>Address</span><strong>Langmyrvegen 22A, Oslo</strong></div>
+            <div class="row"><span>Mon–Fri</span><strong>09:00–19:00</strong></div>
+            <div class="row"><span>Saturday</span><strong>10:00–16:00</strong></div>
+            <div class="row"><span>Sunday</span><strong>Closed</strong></div>
+            <div class="row"><span>Address</span><strong>Langmyrvegen 22A, Oslo</strong></div>
             <p class="mt2">Questions? <a href="mailto:contact@citeks.net">contact@citeks.net</a> • +47 55 55 55</p>
           </div>
         </aside>
@@ -405,10 +451,10 @@
     </section>
   </main>
 
-  <footer class="section" style="padding-top:32px; padding-bottom:32px;">
+  <footer class="section" style="padding-top:32px; padding-bottom:32px; margin-left:84px;">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-      <div class="brand" style="font-family:'Fraunces'; font-weight:700;">Bristle &amp; Blade</div>
-      <p class="muted">© <span data-year></span> Bristle &amp; Blade • Classic cuts, modern finish</p>
+      <div class="brand" style="font-family:'Newsreader'; font-weight:800;">Odd Fellow Barber</div>
+      <p class="muted">© <span data-year></span> Odd Fellow Barber — Cuts, Shaves, Stories</p>
     </div>
   </footer>
 
@@ -416,7 +462,8 @@
     <a class="btn btn-pri" href="#book">Book a seat</a>
   </div>
 
-  <!-- Inline scripts -->
+  <!-- jQuery ($) for micro-interactions + reveal -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>
     // Mobile menu
     const toggle = document.querySelector('.nav-toggle');
@@ -429,20 +476,35 @@
       });
     }
 
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold:.14});
-    document.querySelectorAll('.reveal, details').forEach(el=> io.observe(el));
-
-    // Smooth anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    // Reveal on scroll with $
+    const $els = $('.reveal, details');
+    const reveal = () => {
+      const top = $(window).scrollTop();
+      const h = $(window).height();
+      $els.each(function(){
+        const $el = $(this);
+        if($el.hasClass('in')) return;
+        const rect = this.getBoundingClientRect();
+        const absTop = top + rect.top;
+        if (absTop < top + h*0.88) $el.addClass('in');
       });
+    };
+    $(window).on('scroll resize', reveal); $(reveal);
+
+    // Smooth anchors with $
+    $('a[href^="#"]').on('click', function(e){
+      const id = $(this).attr('href').slice(1);
+      const $t = $('#'+id);
+      if($t.length){ e.preventDefault(); $('html, body').animate({scrollTop: $t.offset().top - 8}, 500); }
     });
+
+    // Magnetic primary button (subtle)
+    $('.btn-pri').on('mousemove', function(e){
+      const r = this.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
+      const dy = (e.clientY - (r.top + r.height/2)) / (r.height/2);
+      $(this).css('transform', `translate(${dx*2}px, ${dy*2}px)`);
+    }).on('mouseleave', function(){ $(this).css('transform',''); });
 
     // Year
     document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
