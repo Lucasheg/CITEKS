@@ -1,539 +1,433 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<title>The Meridian Museum — Rooms, Frames & Light</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#3A2A1F" />
-<meta name="description" content="The Meridian Museum — a wandering of rooms, wood, frames and light. Explore exhibitions, collections and the house itself." />
+  <meta charset="utf-8" />
+  <title>Meridian Museum — Rooms, Frames & Light</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Meridian Museum — a contemporary house of wood, frames and light. Explore exhibitions and plan your visit." />
+  <meta name="theme-color" content="#1F1713" />
 
-<!-- Fonts: classic + refined -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,500&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Modern serif + workhorse sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<style>
-/* ======================= Museum System ======================= */
-:root{
-  /* Colors */
-  --wood-1:#3A2A1F;   /* deep walnut (walls/panels) */
-  --wood-2:#5B4536;   /* mid walnut */
-  --ivory:#FBF7EE;    /* paper/labels */
-  --cream:#F3ECE0;
-  --brass:#C8A55A;
-  --brass-dark:#8E7441;
-  --velvet:#6C1E28;   /* burgundy velvet rope */
-  --verdigris:#2E7B73;/* aged bronze hint */
-  --ink:#1A110C;
+  <style>
+    /* =========================================================
+       CITEKS RULES (A–E) — Applied
+       A) Type: Major Third from 16px, letter/line rules
+       B) Layout: 12/4 grid, 8-pt spacing
+       C) Visual hierarchy: proximity, size, alignment
+       D) Color: 60/30/10 (Dark wood / Ivory / Brass)
+       E) One goal: Plan your visit
+       ========================================================= */
 
-  --shadow-1: 0 10px 30px rgba(0,0,0,.25);
-  --shadow-2: 0 30px 80px rgba(0,0,0,.35);
+    :root{
+      /* D) Palette 60/30/10 */
+      --wood:#1F1713;        /* 60% - deep wood (backgrounds) */
+      --ivory:#FAF5EC;       /* 30% - paper surfaces */
+      --brass:#D4A657;       /* 10% - accent (CTAs, highlights) */
+      --ink:#130F0C;         /* text on light */
+      --ink-on-wood:#F4EDE3; /* text on dark */
+      --muted:#AFA195;       /* secondary text on dark */
 
-  --container: 1180px;
+      /* A) Type scale — Major Third 1.25 from 16px */
+      --fs-p:16px;
+      --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
+      --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
 
-  /* Interactive light/glass */
-  --glx: 52%;         /* updated by JS (mouse) */
-  --gly: 18%;
-}
+      /* A) Letter spacing */
+      --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
 
-/* Reset-ish */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:
-    linear-gradient(180deg, #2F231A 0%, #20160F 100%);
-  color:var(--ivory);
-  font: 400 16px/1.55 "EB Garamond", Georgia, serif;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-}
+      /* A) Line heights */
+      --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
 
-/* Type */
-h1,h2,h3{margin:0 0 12px 0; font-family:"Cinzel", serif; letter-spacing:.02em}
-h1{font-size:58px; line-height:1.05}
-h2{font-size:36px}
-h3{font-size:26px}
-p{margin:0 0 14px 0}
-.smallcaps{font-variant:small-caps; letter-spacing:.06em}
+      /* B) 8pt spacing system */
+      --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px;
 
-/* Layout */
-.container{max-width:var(--container); margin:0 auto; padding:0 20px}
-.section{padding:clamp(48px,8vw,120px) 0}
+      /* Layout */
+      --container:1200px;
 
-/* ======================= Header: Brass plaque ======================= */
-.header{
-  position:sticky; top:0; z-index:60;
-  background:
-    linear-gradient(180deg, rgba(30,20,14,.85), rgba(30,20,14,.65));
-  backdrop-filter: blur(6px) saturate(120%);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.plaque{
-  display:flex; align-items:center; justify-content:space-between; gap:20px;
-  padding:10px 0;
-}
-.brand{
-  display:inline-grid; place-items:center;
-  padding:10px 16px;
-  background:
-    linear-gradient(180deg, #E9D6A0, #B79141 70%, #8E7441 100%);
-  color:#1F160E;
-  border:2px solid #E8D79B;
-  border-radius:10px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.7),
-    inset 0 -2px 0 rgba(0,0,0,.25),
-    var(--shadow-1);
-  font-family:"Cinzel"; font-weight:700; letter-spacing:.08em;
-}
-.brand small{display:block; font: italic 500 12px/1 "EB Garamond"; opacity:.8}
+      /* Depth */
+      --e1: 0 10px 30px rgba(0,0,0,.25);
+      --e2: 0 24px 70px rgba(0,0,0,.35);
 
-/* Ticket-nav (no normal buttons) */
-.nav{
-  display:flex; gap:14px; flex-wrap:wrap;
-}
-.ticket{
-  position:relative; display:inline-flex; align-items:center; gap:10px;
-  padding:10px 14px; color:#2B2017; text-decoration:none;
-  background:
-    linear-gradient(180deg, #F5ECDC, #EADCC2);
-  border:1px solid #D7C6A1;
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-  box-shadow: 0 2px 0 #CDBA91, var(--shadow-1);
-  font: 700 12px/1 "Inter"; letter-spacing:.14em; text-transform:uppercase;
-}
-.ticket::after{
-  content:"▮"; font-size:10px; color:#B79B63; opacity:.8;
-}
-.ticket:hover{transform:translateY(-2px); box-shadow:0 4px 0 #C5B289, var(--shadow-2)}
+      /* Focus ring */
+      --ring: 0 0 0 3px rgba(212,166,87,.35);
 
-/* ======================= Hero: Gallery wall with frames ======================= */
-.hero{
-  position:relative; overflow:hidden;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.15)),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 1px, transparent 1px 80px);
-}
-.wood-rail{
-  position:absolute; left:0; right:0; top:0; height:36px;
-  background:
-    linear-gradient(90deg, #4A3628, #5E4635, #4A3628);
-  box-shadow:inset 0 -2px 0 rgba(0,0,0,.5), 0 20px 40px rgba(0,0,0,.35);
-}
-.rope{
-  position:absolute; top:36px; left:50%; transform:translateX(-50%);
-  width:800px; max-width:84vw; height:14px; border-radius:20px;
-  background:
-    radial-gradient(8px 8px at 8px 7px, #8B3A44, transparent 60%) repeat-x;
-  background-size: 24px 14px;
-  filter: saturate(60%);
-  opacity:.4;
-}
+      /* Motion */
+      --ease:cubic-bezier(.22,.61,.36,1);
+    }
 
-/* Spotlight & dust canvas */
-.spot{
-  position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen;
-  background:
-    radial-gradient(600px 280px at 60% 20%, rgba(255,250,210,.20), rgba(255,255,255,0) 60%),
-    radial-gradient(800px 380px at 30% 50%, rgba(255,240,170,.12), rgba(255,255,255,0) 60%);
-}
-#dust{
-  position:absolute; inset:0; pointer-events:none; opacity:.35; mix-blend-mode:screen;
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#1B1410,#231A14 40%,#1F1713 100%);
+      color:var(--ink-on-wood);
+      font:400 var(--fs-p)/var(--lh-p) "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
 
-/* Frame grid */
-.gallery{
-  display:grid; gap:26px; grid-template-columns:repeat(12,1fr); align-items:start;
-  padding-top:80px;
-}
-.frame{
-  grid-column:span 4; position:relative; isolation:isolate;
-  background:#0F0B08;
-  border:12px solid #6A4E33;            /* wood width */
-  border-radius:6px;
-  box-shadow:
-    inset 0 0 0 2px rgba(255,255,255,.05),
-    0 16px 40px rgba(0,0,0,.45);
-}
-.frame.gold{
-  border-color:#9E7A3A;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.1),
-    0 16px 40px rgba(0,0,0,.55);
-}
-.mat{
-  margin:10px; height:320px; background: linear-gradient(180deg, #20160F, #140E0A);
-  position:relative; overflow:hidden;
-}
-.paint{
-  position:absolute; inset:24px; border-radius:2px;
-  background:
-    conic-gradient(from 0deg, #4B3E32, #6F5A45, #3B2E26, #4B3E32);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
-}
+    /* A) Type */
+    h1,h2,h3,h4,h5,h6{
+      margin:0 0 var(--s2) 0;
+      font-family:"Fraunces", serif; font-weight:800; color:#FFF5E8;
+    }
+    h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
+    h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
+    h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
+    h4{font-size:var(--fs-h4); line-height:var(--lh-h4)}
+    p{margin:0 0 var(--s2) 0; color:var(--muted)}
+    .eyebrow{font:800 12px/1 "Inter"; letter-spacing:.24em; text-transform:uppercase; color:#CDBDAA}
 
-/* Glass glare */
-.mat::after{
-  content:""; position:absolute; inset:0;
-  background:
-    linear-gradient( 20deg,
-      rgba(255,255,255,.05) 0%,
-      rgba(255,255,255,0) 30%),
-    radial-gradient(200px 80px at var(--glx) var(--gly), rgba(255,255,255,.13), rgba(255,255,255,0) 60%);
-  mix-blend-mode:screen; pointer-events:none;
-}
+    /* Links as “museum UI” — no generic buttons */
+    a{color:var(--brass); text-decoration:none}
+    a:hover{opacity:.9}
+    a:focus{outline:none; box-shadow:var(--ring); border-radius:12px}
 
-/* Frame label (brass placard) */
-.label{
-  position:absolute; left:50%; bottom:-26px; transform:translateX(-50%);
-  padding:8px 12px; color:#2A1E13; background:
-    linear-gradient(180deg, #E8D79B, #C3A35B 70%, #8E7441);
-  border:1px solid #F4E6B7; border-radius:8px;
-  font: 700 12px/1 "Inter"; letter-spacing:.14em; text-transform:uppercase;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 6px 20px rgba(0,0,0,.35);
-}
+    /* B) Layout */
+    .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
+    .section{padding:clamp(56px, 8vw, 120px) 0}
+    .grid{display:grid; gap:var(--s3)}
+    .g-12{grid-template-columns:repeat(12,1fr)}
+    .span-6{grid-column:span 6} .span-7{grid-column:span 7} .span-5{grid-column:span 5} .span-8{grid-column:span 8} .span-4{grid-column:span 4}
+    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-6,.span-7,.span-5,.span-8,.span-4{grid-column:1/-1} }
+    @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-/* Caption note (ivory card, pinned) */
-.caption{
-  margin-top:34px; background:var(--ivory); color:var(--ink);
-  border:1px solid #D7CCB8; box-shadow: var(--shadow-1);
-  padding:12px 14px; max-width: 90%; position:relative;
-  font: italic 500 15px/1.5 "EB Garamond";
-}
-.caption::before{
-  content:"●"; color:var(--velvet); position:absolute; left:10px; top:-10px; font-size:18px;
-}
+    /* Header — modern slab + micro-frames */
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(10px) saturate(130%);
+      background:rgba(23,17,13,.7);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-row{display:flex; align-items:center; gap:var(--s3); padding:10px 0}
+    .brand{
+      display:grid; gap:4px; padding:10px 14px; border:1px solid rgba(255,255,255,.12);
+      border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.2));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .brand .name{font-family:"Fraunces"; font-weight:800; font-size:20px; letter-spacing:.08em}
+    .brand .tag{font:600 12px/1 "Inter"; letter-spacing:.22em; color:#BDAF9E; text-transform:uppercase}
+    .rail{display:flex; gap:18px; margin-left:auto; flex-wrap:wrap}
+    .rail a{
+      position:relative; padding:10px 0; color:#EDE1D1;
+    }
+    .rail a::after{
+      content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px; background:linear-gradient(90deg, var(--brass), transparent);
+      transition:right .35s var(--ease);
+    }
+    .rail a:hover::after{right:0}
 
-/* Hero title card */
-.titlecard{
-  grid-column: 1 / span 6; align-self:center;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.00)),
-    linear-gradient(180deg, #3F2F24, #2C1F18);
-  border: 1px solid rgba(255,255,255,.12);
-  padding: 28px; border-radius:8px; box-shadow:var(--shadow-1);
-}
-.titlecard h1{color:#F4EBDC}
-.titlecard p{color:#E8DFD0; max-width:48ch}
+    /* “Tickets” & “Plaques” as CTAs */
+    .ticket{
+      display:inline-flex; align-items:center; gap:10px; padding:10px 14px;
+      color:#1C140E; background:linear-gradient(180deg,#FFF4DD,#EBD7B6);
+      border:1px solid #E1C893; clip-path: polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+      box-shadow:0 2px 0 #C6A875, var(--e1); font:800 12px/1 "Inter"; letter-spacing:.16em; text-transform:uppercase;
+    }
+    .ticket:hover{transform:translateY(-2px); box-shadow:0 4px 0 #B9955B, var(--e2)}
 
-.admit{
-  display:inline-block; margin-top:14px; color:#2B2017; text-decoration:none;
-  background:
-    repeating-linear-gradient(90deg, #FDF5E7 0 6px, #F3E8D0 6px 12px);
-  padding:10px 14px; border:1px dashed #C5B089;
-  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
-  font: 700 12px/1 "Inter"; letter-spacing:.16em; text-transform:uppercase;
-  box-shadow: var(--shadow-1);
-}
-.admit:hover{transform: translateY(-2px); box-shadow:var(--shadow-2)}
+    /* Hero — modern, centered, with “frame marquee” */
+    .hero{
+      position:relative; overflow:hidden; background:
+        radial-gradient(900px 500px at -10% 120%, rgba(212,166,87,.10), transparent 60%),
+        radial-gradient(900px 500px at 110% -20%, rgba(255,255,255,.06), transparent 60%);
+    }
+    .halo{position:absolute; inset:-20% -20% auto -20%; height:280px; background:
+      radial-gradient(60% 100% at 50% 0%, rgba(255,255,255,.07), transparent 70%);
+      pointer-events:none; mix-blend-mode:screen;}
+    .lead{max-width:44ch; text-align:center; margin:0 auto}
+    .lead p{color:#D8CCBD}
 
-/* ======================= Rooms (panels + frames) ======================= */
-.rooms{
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)),
-    linear-gradient(180deg, #2F2219, #23170F);
-  border-top:1px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.roomgrid{
-  display:grid; gap:26px; grid-template-columns:repeat(12,1fr);
-}
-.room{
-  grid-column:span 4; position:relative; padding:20px; border:1px solid rgba(255,255,255,.08);
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.35));
-  box-shadow: var(--shadow-1);
-}
-.room .door{
-  height:200px; border:10px solid #6A4E33; border-radius:4px; position:relative; overflow:hidden;
-  background: linear-gradient(180deg, #2A2018, #23180F);
-}
-.room .door::after{
-  content:""; position:absolute; inset:12px; border-radius:2px;
-  border:1px solid rgba(255,255,255,.06);
-  background:
-    radial-gradient(160px 60px at var(--glx) var(--gly), rgba(255,255,255,.10), rgba(255,255,255,0) 60%),
-    linear-gradient(180deg, #3E3026, #2B2017);
-  mix-blend-mode:screen;
-}
+    /* Frame marquee (modern, clean) */
+    .marquee{
+      margin-top:var(--s6); position:relative; overflow:auto; padding-bottom:6px;
+      display:grid; grid-auto-flow:column; gap:20px; scroll-snap-type:x mandatory;
+    }
+    .frame{
+      scroll-snap-align:center; width:360px; flex:0 0 auto; border-radius:16px;
+      background:linear-gradient(180deg,#140F0C,#0F0B08);
+      border:12px solid #6A4E33; box-shadow:var(--e1); position:relative;
+      transition: transform .35s var(--ease);
+    }
+    .frame:hover{transform:translateY(-4px)}
+    .frame.gold{border-color:#99743A}
+    .mat{margin:10px; height:220px; border-radius:10px; position:relative; overflow:hidden; background:linear-gradient(180deg,#2A221C,#1B1410)}
+    .art{
+      position:absolute; inset:20px; border-radius:6px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+      background:conic-gradient(from 30deg,#2E3A4A,#6F8AA8,#202835,#2E3A4A);
+    }
+    .glare{content:""; position:absolute; inset:0; pointer-events:none; background:
+      linear-gradient(18deg, rgba(255,255,255,.06), rgba(255,255,255,0) 30%),
+      radial-gradient(180px 60px at var(--gx,68%) var(--gy,20%), rgba(255,255,255,.13), rgba(255,255,255,0) 60%);
+      mix-blend-mode:screen;}
 
-/* ======================= “Glass case” statement ======================= */
-.case{
-  border: 10px solid #836742; border-radius:12px; position:relative; overflow:hidden; background:#1E150F;
-  box-shadow: 0 20px 80px rgba(0,0,0,.45);
-}
-.case::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0)),
-    radial-gradient(400px 120px at var(--glx) 10%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%);
-  mix-blend-mode:screen;
-}
-.case-inner{
-  padding:26px; border:1px solid rgba(255,255,255,.08);
-}
-.case h2{color:#F1E6D6}
-.case p{color:#E8DDCA; max-width:60ch}
+    .label{
+      position:absolute; left:50%; bottom:-20px; transform:translateX(-50%); padding:8px 12px;
+      color:#1F160E; background:linear-gradient(180deg,#F4E2B9,#D1AF6E);
+      border:1px solid #F5E8C9; border-radius:8px; font:800 12px/1 "Inter"; letter-spacing:.14em; text-transform:uppercase;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7), 0 8px 18px rgba(0,0,0,.35);
+    }
 
-/* ======================= Footer ======================= */
-footer{
-  background:#1F160F; color:#DCCDB6; border-top:1px solid rgba(255,255,255,.06);
-}
-.list{
-  display:grid; gap:16px; grid-template-columns:repeat(3,1fr);
-}
-@media (max-width:900px){ .gallery .frame{grid-column:span 6} .titlecard{grid-column:1/-1} .room{grid-column:span 6} .list{grid-template-columns:1fr} }
-@media (max-width:600px){ .gallery .frame{grid-column:span 12} .room{grid-column:span 12} }
+    /* Sections on light ivory for contrast */
+    .paper{background:linear-gradient(180deg,#FAF5EC,#F6EFE5)}
 
-/* ======================= Reveal ======================= */
-.reveal{opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease}
-.reveal.in{opacity:1; transform:none}
-</style>
+    /* Exhibitions — modern scroll-snap gallery */
+    .scroll{
+      display:grid; grid-auto-flow:column; gap:20px; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:8px;
+    }
+    .card{
+      scroll-snap-align:center; width:420px; background:#FFFFFF; color:var(--ink);
+      border:1px solid #E6DFD2; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.08);
+      padding:var(--s3);
+    }
+    .thumb{
+      height:220px; border-radius:10px; margin-bottom:var(--s2);
+      background:linear-gradient(180deg,#DDD2C3,#C9B9A5);
+      position:relative; overflow:hidden;
+    }
+    .thumb .stroke{
+      position:absolute; inset:18px; border-radius:6px; border:2px solid rgba(0,0,0,.08);
+      background:conic-gradient(from 0deg,#704D34,#8E6A4C,#64462F,#704D34);
+    }
+
+    /* Visit CTA — plaque, as primary page goal */
+    .plaque{
+      background:linear-gradient(180deg,#F6E7C4,#E2C78E);
+      color:#1B140E; border:1px solid #EAD8AE; border-radius:14px; padding:var(--s4);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6), var(--e1);
+    }
+    .cta-rail{display:flex; gap:12px; flex-wrap:wrap}
+    .cta-rail a{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px dashed #C9AA68; color:#1B140E; background:linear-gradient(180deg,#FFF7E4,#F2DEB2); font:800 12px/1 "Inter"; letter-spacing:.16em; text-transform:uppercase; clip-path: polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);}
+    .cta-rail a:hover{transform:translateY(-2px); box-shadow:var(--e1)}
+
+    /* Rooms — modern tiles with subtle frame accents */
+    .rooms-grid{display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr)}
+    .room{grid-column:span 4; background:#111; border-radius:16px; border:1px solid rgba(255,255,255,.08); padding:var(--s3); box-shadow:var(--e1);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.3));}
+    .room .mini-frame{
+      height:160px; border:8px solid #6A4E33; border-radius:10px; margin-bottom:var(--s2);
+      background:linear-gradient(180deg,#2A221C,#1B1410); position:relative; overflow:hidden;
+    }
+    .room .mini-art{position:absolute; inset:16px; border-radius:6px; background:conic-gradient(from 60deg,#203B40,#476C74,#1C2A2D,#203B40)}
+    .room p{color:#CDBDAA}
+    @media(max-width:1000px){ .room{grid-column:span 6} }
+    @media(max-width:640px){ .room{grid-column:span 12} }
+
+    /* Footer */
+    footer{background:#18110D; color:#D8CCBD; border-top:1px solid rgba(255,255,255,.06)}
+    .foot{display:flex; align-items:center; justify-content:space-between; gap:var(--s3); flex-wrap:wrap}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease)}
+    .reveal.in{opacity:1; transform:none}
+  </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container plaque">
-    <div class="brand">
-      The Meridian Museum
-      <small>Rooms • Frames • Light</small>
+  <!-- Header -->
+  <header>
+    <div class="container nav-row">
+      <div class="brand">
+        <div class="name">Meridian Museum</div>
+        <div class="tag">Rooms • Frames • Light</div>
+      </div>
+      <nav class="rail" aria-label="Primary">
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#house">The House</a>
+        <a href="#visit">Visit</a>
+      </nav>
     </div>
-    <nav class="nav" aria-label="Primary">
-      <a class="ticket" href="#rooms">Rooms</a>
-      <a class="ticket" href="#exhibitions">Exhibitions</a>
-      <a class="ticket" href="#house">The House</a>
-      <a class="ticket" href="#visit">Visit</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main>
 
-  <!-- ======================= HERO WALL ======================= -->
-  <section class="hero section">
-    <div class="wood-rail" aria-hidden="true"></div>
-    <div class="rope" aria-hidden="true"></div>
-    <div class="spot" aria-hidden="true"></div>
-    <canvas id="dust"></canvas>
-
-    <div class="container">
-      <div class="gallery">
-        <div class="titlecard reveal">
-          <h1>Wander the hush between frames.</h1>
-          <p>We are a house of wood and shadow: paintings, objects and small stories arranged like breath. Take the long way. Let the light decide what you see first.</p>
-          <a href="#exhibitions" class="admit">Admit One</a>
+    <!-- Hero -->
+    <section class="hero section">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="container">
+        <div class="lead">
+          <span class="eyebrow">A contemporary house of looking</span>
+          <h1>Wood, glass and light—arranged for unhurried eyes.</h1>
+          <p>We hang slowly. We label lightly. We let the day choose the order of things.</p>
+          <div class="cta-rail" style="justify-content:center; margin-top:var(--s3)">
+            <a href="#visit" aria-label="Plan your visit">Plan your visit</a>
+            <a href="#exhibitions" aria-label="See exhibitions">See exhibitions</a>
+          </div>
         </div>
 
-        <!-- Three featured frames -->
-        <figure class="frame gold reveal">
-          <div class="mat">
-            <div class="paint" style="background:
-              conic-gradient(from 30deg, #203B40, #476C74, #1C2A2D, #203B40)"></div>
-          </div>
-          <figcaption class="label">Sea With Memory</figcaption>
-          <div class="caption">Oil on linen, anonymous. The surf remembers more than it tells.</div>
-        </figure>
-
-        <figure class="frame reveal">
-          <div class="mat">
-            <div class="paint" style="inset:18px; background:
-              conic-gradient(from -10deg, #5B3A32, #B48C6A, #2E1B16, #714E3D)"></div>
-          </div>
-          <figcaption class="label">Walnut Evening</figcaption>
-          <div class="caption">A small room, thick with stories. The wood is listening.</div>
-        </figure>
-
-        <figure class="frame gold reveal">
-          <div class="mat">
-            <div class="paint" style="background:
-              conic-gradient(from 60deg, #22314B, #5471A1, #1A2334, #22314B)"></div>
-          </div>
-          <figcaption class="label">Blue Hall</figcaption>
-          <div class="caption">Light slants once, then again. Every step is a different blue.</div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= ROOMS ======================= -->
-  <section id="rooms" class="rooms section">
-    <div class="container">
-      <h2 class="reveal">Rooms</h2>
-      <p class="reveal" style="max-width:60ch; color:#E7DAC4">Our rooms are conversations—each with its own temperature: maritime, portrait, instrument, paper. Step across thresholds, not floors.</p>
-      <div class="roomgrid" style="margin-top:26px">
-
-        <article class="room reveal">
-          <div class="door" aria-hidden="true"></div>
-          <h3 style="margin-top:14px">The Portrait Room</h3>
-          <p class="smallcaps" style="color:#E0D2BD">Lenses: empathy, posture, eye-line</p>
-          <p>Faces that hold the room together. Labels are small; silence is part of the work.</p>
-        </article>
-
-        <article class="room reveal">
-          <div class="door" aria-hidden="true"></div>
-          <h3 style="margin-top:14px">The Maritime</h3>
-          <p class="smallcaps" style="color:#E0D2BD">Lenses: weather, distance, time</p>
-          <p>Maps and salt. Ropes like handwriting. A tide between frames.</p>
-        </article>
-
-        <article class="room reveal">
-          <div class="door" aria-hidden="true"></div>
-          <h3 style="margin-top:14px">Paper & Light</h3>
-          <p class="smallcaps" style="color:#E0D2BD">Lenses: margin, breath, tactility</p>
-          <p>Drawings you can hear. Margins wider than a sentence.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= EXHIBITIONS (Glass Case) ======================= -->
-  <section id="exhibitions" class="section">
-    <div class="container">
-      <div class="case reveal">
-        <div class="case-inner">
-          <h2>Current Exhibition — “Lines that Remember”</h2>
-          <p>Works on paper and wood from unhurried hands. Rubbings, notations, fragments of rooms. Nothing is precious; everything is careful.</p>
-          <div style="display:grid; gap:18px; grid-template-columns:repeat(12,1fr); margin-top:18px">
-            <figure class="frame" style="grid-column:span 5;">
-              <div class="mat"><div class="paint" style="inset:20px; background:conic-gradient(from 0deg, #EEE6D6, #E0D1B9, #EFE8DB, #E9DDC9)"></div></div>
-              <figcaption class="label">Study in Paper</figcaption>
-            </figure>
-            <figure class="frame gold" style="grid-column:span 7;">
-              <div class="mat"><div class="paint" style="inset:28px; background:conic-gradient(from 0deg, #2B3D38, #2E7B73, #18312D, #2B3D38)"></div></div>
-              <figcaption class="label">Verdigris Field</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= THE HOUSE (curator note) ======================= -->
-  <section id="house" class="section">
-    <div class="container">
-      <div class="reveal" style="display:grid; grid-template-columns:repeat(12,1fr); gap:26px;">
-        <div style="grid-column:span 7;">
-          <h2>The House</h2>
-          <p style="max-width:60ch">The Meridian was once a carpenter’s workshop. We kept the walls. The frames know they’re made of older trees. We hang with patience and change with the weather.</p>
-          <p class="smallcaps" style="color:#D8CAB7; margin-top:10px">Please: look slowly.</p>
-        </div>
-        <aside style="grid-column:span 5;">
-          <div class="frame gold">
+        <!-- Modern frame marquee -->
+        <div class="marquee" id="marquee" aria-label="Highlights">
+          <figure class="frame gold reveal">
             <div class="mat">
-              <div class="paint" style="background:
-                conic-gradient(from 0deg, #704D34, #8E6A4C, #64462F, #704D34)"></div>
+              <div class="art"></div>
+              <div class="glare"></div>
             </div>
-            <div class="label">Workshop Wall</div>
+            <figcaption class="label">Blue Hall</figcaption>
+          </figure>
+          <figure class="frame reveal">
+            <div class="mat">
+              <div class="art" style="background:conic-gradient(from 20deg,#5B3A32,#B48C6A,#2E1B16,#714E3D)"></div>
+              <div class="glare"></div>
+            </div>
+            <figcaption class="label">Walnut Evening</figcaption>
+          </figure>
+          <figure class="frame gold reveal">
+            <div class="mat">
+              <div class="art" style="background:conic-gradient(from -30deg,#22314B,#5471A1,#1A2334,#22314B)"></div>
+              <div class="glare"></div>
+            </div>
+            <figcaption class="label">Sea With Memory</figcaption>
+          </figure>
+          <figure class="frame reveal">
+            <div class="mat">
+              <div class="art" style="background:conic-gradient(from 0deg,#2B3D38,#2E7B73,#18312D,#2B3D38)"></div>
+              <div class="glare"></div>
+            </div>
+            <figcaption class="label">Verdigris Field</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exhibitions (light paper section) -->
+    <section id="exhibitions" class="section paper">
+      <div class="container">
+        <h2 class="reveal" style="color:#1C130D">Exhibitions</h2>
+        <p class="reveal" style="max-width:60ch; color:#5C503F">Current rooms and seasonal shows—ink, oil, wood, and the gaps between them.</p>
+
+        <div class="scroll mt3" aria-label="Exhibition cards">
+          <article class="card reveal">
+            <div class="thumb"><div class="stroke"></div></div>
+            <h3 style="color:#1C130D">Lines that Remember</h3>
+            <p>Works on paper and wood from unhurried hands. Rubbings, notations, fragments of rooms.</p>
+          </article>
+          <article class="card reveal">
+            <div class="thumb"><div class="stroke" style="background:conic-gradient(from 0deg,#203B40,#476C74,#1C2A2D,#203B40)"></div></div>
+            <h3 style="color:#1C130D">Tide Archive</h3>
+            <p>Maritime studies, salt maps and knots like handwriting.</p>
+          </article>
+          <article class="card reveal">
+            <div class="thumb"><div class="stroke" style="background:conic-gradient(from 0deg,#704D34,#8E6A4C,#64462F,#704D34)"></div></div>
+            <h3 style="color:#1C130D">Walnut Room</h3>
+            <p>Frames built from older trees. The walls remember every nail.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section id="rooms" class="section">
+      <div class="container">
+        <h2 class="reveal">Rooms</h2>
+        <div class="rooms-grid mt3">
+          <article class="room reveal">
+            <div class="mini-frame"><div class="mini-art"></div></div>
+            <h4>Portrait</h4>
+            <p>Faces that hold the room together; labels small, posture large.</p>
+          </article>
+          <article class="room reveal">
+            <div class="mini-frame"><div class="mini-art" style="background:conic-gradient(from 0deg,#22314B,#5471A1,#1A2334,#22314B)"></div></div>
+            <h4>Maritime</h4>
+            <p>Maps and distance; a tide between frames.</p>
+          </article>
+          <article class="room reveal">
+            <div class="mini-frame"><div class="mini-art" style="background:conic-gradient(from 0deg,#DDD2C3,#C9B9A5,#E6DBCD,#DDD2C3)"></div></div>
+            <h4>Paper & Light</h4>
+            <p>Margins wider than a sentence; drawings you can hear.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- The House -->
+    <section id="house" class="section paper">
+      <div class="container grid g-12">
+        <div class="span-7">
+          <h2 class="reveal" style="color:#1C130D">The House</h2>
+          <p style="color:#5C503F">Once a carpenter’s workshop. We kept the walls. The frames know they’re made of older trees. We hang with patience and change with the weather.</p>
+        </div>
+        <aside class="span-5">
+          <div class="card reveal">
+            <h3 style="color:#1C130D">Materials</h3>
+            <p>Walnut, linen, paper, brass. Light is our favorite tool.</p>
           </div>
-          <p class="caption">We owe our straight lines to the bench that used to live here.</p>
         </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ======================= VISIT ======================= -->
-  <section id="visit" class="rooms section" style="border-bottom:none">
-    <div class="container">
-      <h2 class="reveal">Visit</h2>
-      <div class="list" style="margin-top:16px">
-        <div class="reveal">
-          <h3>Hours</h3>
-          <p>Wed–Fri 12:00–19:00</p>
-          <p>Sat–Sun 11:00–17:00</p>
-          <p class="smallcaps" style="color:#D6C9B5">Closed on Mondays & Tuesdays</p>
-        </div>
-        <div class="reveal">
-          <h3>Find Us</h3>
-          <p>Langmyrvegen 22A</p>
-          <p>Oslo, Norway</p>
-          <p><span class="smallcaps">Tram:</span> Line 11 — stop at the square</p>
-        </div>
-        <div class="reveal">
-          <h3>Notes</h3>
-          <p>Photography allowed without flash.</p>
-          <p>Sketchbooks welcome. Pens, not markers.</p>
-          <p>Cloakroom is a set of hooks we like to call “the forest”.</p>
+    <!-- Visit (Primary Goal) -->
+    <section id="visit" class="section">
+      <div class="container">
+        <div class="plaque reveal">
+          <h2 style="margin-bottom:var(--s1); color:#1B140E">Plan your visit</h2>
+          <p style="color:#4C3A2A; max-width:60ch">We keep hours that suit slow looking. Sketchbooks welcome. Photography without flash.</p>
+          <div class="grid g-12 mt3" style="align-items:start">
+            <div class="span-4">
+              <h4 style="color:#1B140E">Hours</h4>
+              <p style="color:#3A2C1F">Wed–Fri 12:00–19:00<br/>Sat–Sun 11:00–17:00<br/><span style="opacity:.8">Closed Mon–Tue</span></p>
+            </div>
+            <div class="span-4">
+              <h4 style="color:#1B140E">Find us</h4>
+              <p style="color:#3A2C1F">Langmyrvegen 22A, Oslo<br/>Tram 11 — stop at the square</p>
+            </div>
+            <div class="span-4">
+              <h4 style="color:#1B140E">Notes</h4>
+              <p style="color:#3A2C1F">Pens, not markers • Cloakroom hooks we call “the forest”.</p>
+            </div>
+          </div>
+          <div class="cta-rail mt3">
+            <a href="#visit" aria-label="View directions">View directions</a>
+            <a href="mailto:contact@citeks.net" aria-label="Write to the museum">Write to us</a>
+          </div>
         </div>
       </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="section">
+    <div class="container foot">
+      <div>© <span data-year></span> Meridian Museum</div>
+      <div class="rail">
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#house">The House</a>
+        <a href="#visit">Visit</a>
+      </div>
     </div>
-  </section>
+  </footer>
 
-</main>
+  <script>
+    // Reveal on scroll (C: hierarchy by motion)
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:.14});
+    document.querySelectorAll('.reveal, .frame, .card, .room').forEach(el=> io.observe(el));
 
-<footer class="section">
-  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-    <p style="margin:0">© <span id="year"></span> The Meridian Museum</p>
-    <p style="margin:0"><span class="smallcaps">Contact</span> <a class="ticket" href="mailto:contact@citeks.net" style="vertical-align:middle">Write a note</a></p>
-  </div>
-</footer>
-
-<!-- ======================= Motion & Atmosphere ======================= -->
-<script>
-/* Reveal on scroll */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-},{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-
-/* Live light angle for glass/doors via CSS vars */
-document.addEventListener('pointermove', (e)=>{
-  const x = (e.clientX / innerWidth) * 100;
-  const y = (e.clientY / innerHeight) * 100;
-  document.documentElement.style.setProperty('--glx', x + '%');
-  document.documentElement.style.setProperty('--gly', y + '%');
-});
-
-/* Dust in the spotlight (canvas) */
-(function(){
-  const c = document.getElementById('dust');
-  const ctx = c.getContext('2d');
-  let W,H,particles=[];
-  function resize(){ W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
-  window.addEventListener('resize', resize); resize();
-
-  const P = 90; // particles
-  for(let i=0;i<P;i++){
-    particles.push({
-      x: Math.random()*W,
-      y: Math.random()*H*.6 + H*.05,
-      r: Math.random()*1.6 + .4,
-      a: Math.random()*Math.PI*2,
-      s: Math.random()*.4 + .1
+    // Smooth anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id=a.getAttribute('href').slice(1); const el=document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
     });
-  }
 
-  function loop(){
-    ctx.clearRect(0,0,W,H);
-    for(const p of particles){
-      p.a += 0.002 + p.s*0.003;
-      p.x += Math.cos(p.a)*p.s;
-      p.y += Math.sin(p.a*.6)*p.s*0.6 - 0.05;
-      if(p.x < -10) p.x = W+10; if(p.x > W+10) p.x = -10;
-      if(p.y < 0) p.y = H*0.65 + Math.random()*H*0.2;
-
-      // Only bright inside spotlight bands
-      const grad = ctx.createRadialGradient(W*0.6, H*0.2, 0, W*0.6, H*0.2, 600);
-      grad.addColorStop(0, 'rgba(255,250,210,0.8)');
-      grad.addColorStop(1, 'rgba(255,250,210,0)');
-      ctx.fillStyle = grad;
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
-      ctx.globalCompositeOperation = 'source-over';
+    // Glass glare follows pointer for marquee frames
+    const marquee = document.getElementById('marquee');
+    function setGlare(e){
+      const r = marquee.getBoundingClientRect();
+      const gx = ((e.clientX - r.left) / r.width) * 100;
+      const gy = ((e.clientY - r.top) / r.height) * 100;
+      marquee.style.setProperty('--gx', gx+'%');
+      marquee.style.setProperty('--gy', gy+'%');
     }
-    requestAnimationFrame(loop);
-  }
-  loop();
-})();
+    marquee.addEventListener('pointermove', setGlare);
+    marquee.addEventListener('pointerleave', ()=>{ marquee.style.removeProperty('--gx'); marquee.style.removeProperty('--gy'); });
 
-/* Smooth anchors */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', (e)=>{
-    const id = a.getAttribute('href').slice(1), el = document.getElementById(id);
-    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-  });
-});
-
-/* Year */
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+    // Current year
+    document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
+  </script>
 </body>
 </html>
