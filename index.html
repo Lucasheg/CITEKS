@@ -2,81 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Odd Fellow Barber — Cuts, Shaves, Character</title>
-  <meta name="description" content="Odd Fellow Barber — classic cuts, modern finish, real personality. Book online now." />
+  <title>NovaLogic AI — Practical AI systems for real businesses</title>
+  <meta name="description" content="NovaLogic AI implements practical AI into your workflows: inbox agents, project status bots, auto customer profiles, and more. Book a consultation." />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#2C1B0D" />
-  <!-- Editorial fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700;6..72,800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#6D4AFF" />
+
+  <!-- Fonts: clean tech + character -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
        CITEKS RULES (A–E)
-       - Major Third (1.25) from 16px; letter/line rules
-       - Grid: 12 desktop / 4 mobile
-       - Spacing: 8-pt system
-       - Color: 60/30/10 (dark brown dominant)
-       - One goal: Book a seat
+       - A: Major Third (1.25) from 16px; letter/line rules
+       - B: 12/4 grid; 8pt spacing
+       - C: Clear visual hierarchy
+       - D: 60/30/10 (White 60%, Tech Purple 30%, Electric Blue 10%)
+       - E: One goal per page: Book a consultation
        ========================================================= */
 
     :root{
-      /* 60/30/10 — Dark Brown (dominant), Walnut panel, Brass accent */
-      --bg:#2C1B0D;            /* 60% primary background (dark brown) */
-      --ink:#F6EEE6;           /* light text */
-      --muted:#CBB7A6;
+      /* Palette */
+      --bg:#FFFFFF;          /* 60% */
+      --ink:#0E1023;
+      --muted:#5B607A;
 
-      --panel:#1E130A;         /* 30% secondary surface (even darker walnut) */
-      --panel-ink:#F6EEE6;
+      --panel:#1B1236;       /* 30% tech purple panel */
+      --panel-ink:#F4F4FF;
 
-      --accent:#C58A3B;        /* 10% brass accent */
-      --accent-600:#A87428;
-      --accent-soft:#3B2615;   /* soft brass on dark for ghost/hover background */
+      --accent:#6D4AFF;      /* 10% primary accent (tech purple) */
+      --accent-600:#5B39FB;
+      --electric:#22D3EE;    /* electric blue sparks */
+      --glass:#EEF1FFCC;
 
-      /* Type scale — Major Third from 16px */
+      /* Type scale: Major Third from 16px */
       --fs-p:16px;
       --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
       --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
 
-      /* Letter-spacing & line-height rules */
+      /* Letter-spacing / line-height */
       --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
       --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
 
-      /* 8pt spacing */
+      /* Spacing (8-pt) */
       --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px;
 
       /* Layout */
-      --container:1120px;
+      --container:1180px;
 
       /* Depth & motion */
-      --e1: 0 10px 30px rgba(0,0,0,.35);
-      --e2: 0 18px 60px rgba(0,0,0,.5);
-      --ring: 0 0 0 3px rgba(197,138,59,.35);
+      --e1: 0 12px 34px rgba(13, 16, 35, .10);
+      --e2: 0 24px 80px rgba(13, 16, 35, .18);
+      --ring: 0 0 0 3px rgba(109,74,255,.25);
       --ease: cubic-bezier(.2,.6,.2,1);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
-      font: 400 var(--fs-p)/var(--lh-p) "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      margin:0; background:var(--bg); color:var(--ink);
+      font:400 var(--fs-p)/var(--lh-p) "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
-    /* ===== Type */
+    /* Type */
     h1,h2,h3,h4,h5,h6{
-      margin:0 0 var(--s2) 0;
-      font-family:"Newsreader", serif; font-weight:800; color:#FFF4E7;
+      margin:0 0 var(--s2) 0; font-family:"Space Grotesk", ui-sans-serif; font-weight:700; color:#0B0D22;
     }
     h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
     h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
     h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
     h4{font-size:var(--fs-h4); line-height:var(--lh-h4)}
     p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font:800 12px/1 "Manrope"; letter-spacing:.24em; text-transform:uppercase; color:#E7D7C6}
+    .eyebrow{font:800 12px/1 "Plus Jakarta Sans"; letter-spacing:.22em; text-transform:uppercase; color:#444A73}
 
-    /* ===== Links & Buttons */
+    /* Links & buttons */
     a{color:var(--accent); text-decoration:none}
     a:hover{color:var(--accent-600)}
     a:focus{outline:none; box-shadow:var(--ring); border-radius:12px}
@@ -89,309 +88,395 @@
       position:relative;
     }
     .btn-pri{
-      background:linear-gradient(180deg,#D19A4C,var(--accent)); color:#2C1B0D; border-color:#D19A4C;
-      box-shadow: 0 2px 0 #8C5E23, var(--e1);
+      background: radial-gradient(120% 120% at 20% 0%, #8B6DFF, var(--accent));
+      color:#FFF; box-shadow: var(--e1);
     }
-    .btn-pri:hover{transform:translateY(-2px); box-shadow:0 3px 0 #7B541F, var(--e2); color:#fff}
+    .btn-pri:hover{transform: translateY(-2px); box-shadow: var(--e2)}
     .btn-ghost{
-      background:transparent; color:#E1C6A0; border-color:#7D5A34;
+      background:transparent; color:#382E73; border-color:#C9C7FF;
     }
-    .btn-ghost:hover{background:var(--accent-soft)}
+    .btn-ghost:hover{background:#F5F6FF}
 
-    /* ===== Container & Grid */
+    /* Grid & sections */
     .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
     .section{padding: clamp(56px, 8vw, 120px) 0}
     .grid{display:grid; gap:var(--s3)}
     .g-12{grid-template-columns:repeat(12,1fr)}
-    .span-6{grid-column:span 6} .span-7{grid-column:span 7} .span-5{grid-column:span 5} .span-12{grid-column:1/-1}
-    @media (max-width: 960px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-6,.span-7,.span-5,.span-12{grid-column:1/-1} }
+    .span-8{grid-column:span 8} .span-4{grid-column:span 4}
+    .span-6{grid-column:span 6} .span-5{grid-column:span 5} .span-7{grid-column:span 7}
+    @media (max-width: 980px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-8,.span-4,.span-6,.span-5,.span-7{grid-column:1/-1} }
     @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
 
-    /* ================== HEADER (unchanged layout) ================== */
+    /* ===== Header: hanging sign from previous barber brief, adapted to tech (kept unique) ===== */
     header{
-      position:sticky; top:0; z-index:60;
-      background:rgba(44,27,13,.85); backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky; top:0; z-index:80; background:rgba(255,255,255,.8);
+      backdrop-filter:saturate(160%) blur(10px); border-bottom:1px solid rgba(13,16,35,.06);
     }
     .sign-wrap{display:grid; place-items:center; padding:10px 0}
     .chains{display:flex; gap:120px; justify-content:center}
-    .chain{width:2px; height:22px; background:linear-gradient(180deg,#9A836F,#3E3128); border-radius:2px}
+    .chain{width:2px; height:22px; background:linear-gradient(180deg,#9AA0FF,#4A4FFF); border-radius:2px}
     .sign{
-      margin-top:-6px; min-width:320px; display:grid; gap:6px; place-items:center;
-      padding:12px 18px; border-radius:16px; border:2px solid #6D4E31;
+      margin-top:-6px; min-width:340px; display:grid; gap:6px; place-items:center;
+      padding:12px 18px; border-radius:16px; border:2px solid #CFCFFF;
       background:
-        radial-gradient(120% 80% at 30% 10%, rgba(255,255,255,.08), transparent 50%),
-        conic-gradient(from 0deg, #6E4A2E, #5C3F28, #7A5436, #5C3F28, #6E4A2E);
-      color:#F0E3D2; box-shadow:var(--e1);
+        radial-gradient(120% 80% at 30% 10%, rgba(255,255,255,.4), transparent 50%),
+        conic-gradient(from 0deg, #B9B3FF, #A099FF, #D2CCFF, #A099FF, #B9B3FF);
+      color:#171B44; box-shadow: var(--e1);
     }
-    .brand{font-family:"Newsreader"; font-weight:800; font-size:22px; letter-spacing:.08em; text-transform:uppercase}
-    .sub{font: 600 12px/1 "Manrope"; letter-spacing:.18em}
+    .brand{font-family:"Space Grotesk"; font-weight:700; font-size:22px; letter-spacing:.08em; text-transform:uppercase}
+    .sub{font: 600 12px/1 "Plus Jakarta Sans"; letter-spacing:.18em}
     .nav-row{display:flex; gap:var(--s3); justify-content:center; padding:8px 0}
-    .nav-row a{color:#F0E3D2; opacity:.9}
+    .nav-row a{color:#0E1023; opacity:.9}
     .nav-row a:hover{opacity:1}
 
-    /* ================== HERO — MID-CENTERED EDITORIAL ================== */
+    /* ===== HERO: unorthodox mid-centered 3D field with dotted annotations ===== */
     .hero{
-      position:relative; overflow:hidden; isolation:isolate;
+      position:relative; isolation:isolate; overflow:hidden;
       background:
-        radial-gradient(900px 600px at 110% -20%, rgba(197,138,59,.10), transparent 60%),
-        radial-gradient(700px 400px at -20% 120%, rgba(0,0,0,.25), transparent 60%);
+        radial-gradient(1200px 700px at 120% -10%, rgba(109,74,255,.16), transparent 60%),
+        radial-gradient(900px 600px at -10% 120%, rgba(34,211,238,.16), transparent 60%);
     }
 
-    /* Background shapes: soft parallax ribbons + embossed coins */
-    .ribbon{
-      position:absolute; inset:auto -20% 0 -20%; height:260px;
-      background:
-        repeating-linear-gradient(135deg, rgba(197,138,59,.08) 0 32px, transparent 32px 64px);
-      clip-path: polygon(0 54%, 100% 30%, 100% 100%, 0% 100%);
-      filter: saturate(120%);
-      transform: translateY(0);
-      will-change: transform;
+    /* 3D Layer field */
+    .space{
+      position:relative; height:clamp(520px, 70vh, 780px);
+      display:grid; place-items:center;
+      perspective: 1200px;
     }
-    .coins{
-      position:absolute; inset:0; pointer-events:none;
+    .layer{position:absolute; inset:0; transform-style:preserve-3d; will-change:transform}
+    .stars{
       background:
-        radial-gradient(120px 120px at 18% 22%, rgba(255,255,255,.06), transparent 70%),
-        radial-gradient(80px 80px at 82% 18%, rgba(255,255,255,.04), transparent 70%),
-        radial-gradient(100px 100px at 70% 78%, rgba(255,255,255,.05), transparent 70%);
-      mix-blend-mode: screen;
+        radial-gradient(circle at 10% 20%, rgba(34,211,238,.16), transparent 60%),
+        radial-gradient(circle at 80% 30%, rgba(109,74,255,.18), transparent 60%),
+        radial-gradient(2px 2px at 20% 30%, rgba(13,16,35,.35), rgba(13,16,35,.35)) repeat;
+      background-size: auto, auto, 8px 8px;
+      opacity:.35;
+      transform: translateZ(-300px) scale(1.4);
+    }
+    .orb{
+      position:absolute; width:180px; height:180px; border-radius:50%;
+      left:12%; top:24%;
+      background: radial-gradient(circle at 30% 30%, #FFFFFF, #C6B9FF 40%, #6D4AFF 70%, #37297F 100%);
+      box-shadow: 0 40px 90px rgba(109,74,255,.35);
+      transform: translateZ(120px);
+    }
+    .chip{
+      position:absolute; width:220px; height:140px; border-radius:18px;
+      right:8%; top:18%;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
+        linear-gradient(180deg, #1F1642, #151134);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 20px 60px rgba(13,16,35,.25);
+      transform: rotateY(-18deg) rotateX(7deg) translateZ(80px);
+    }
+    .ring{
+      position:absolute; width:520px; height:520px; border-radius:50%;
+      border:1px dashed rgba(98, 85, 191, .5);
+      left:calc(50% - 260px); top:calc(45% - 260px);
+      transform: translateZ(-80px) rotateX(50deg) rotateZ(-12deg);
+    }
+    .grid3d{
+      position:absolute; inset:auto 0 0 0; height:260px;
+      background:
+        linear-gradient(rgba(109,74,255,.15) 1px, transparent 1px) 0 0/ 40px 40px,
+        linear-gradient(90deg, rgba(109,74,255,.15) 1px, transparent 1px) 0 0/ 40px 40px;
+      transform: perspective(1200px) rotateX(62deg) translateZ(-120px) translateY(60px);
+      mask-image: linear-gradient(to top, #000, transparent 90%);
     }
 
-    /* Center stack with “speech-bubbles” badges */
+    /* Dotted annotations */
+    .pin{
+      position:absolute; display:flex; align-items:center; gap:10px; color:#0B0D22;
+      background:#FFFFFF; border:1px solid #E6E7FF; border-radius:14px; padding:8px 12px; box-shadow: var(--e1);
+      transform: translateZ(100px);
+    }
+    .pin .dot{width:10px; height:10px; border-radius:50%; background:var(--electric); box-shadow:0 0 0 3px rgba(34,211,238,.25)}
+    .pin.small{font-size:14px}
+    .pin.a{left:16%; top:46%}
+    .pin.b{right:10%; top:34%}
+    .pin.c{left:50%; bottom:18%; transform: translateX(-50%) translateZ(100px)}
+    .leader{
+      position:absolute; pointer-events:none; stroke-dasharray:3 6; stroke: rgba(109,74,255,.7); stroke-width:2;
+      filter: drop-shadow(0 0 2px rgba(255,255,255,.4));
+    }
+
+    /* Centered headline stack */
     .center{
-      display:grid; place-items:center; text-align:center;
+      display:grid; place-items:center; text-align:center; gap:var(--s2);
     }
-    .lead{max-width: 34ch; margin-inline:auto}
-    .bubbles{
-      display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:var(--s3);
+    .lead{max-width: 40ch; margin-inline:auto}
+
+    /* Services — asymmetric futurist cards */
+    .services{
+      display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr);
     }
-    .bubble{
-      color:#EAD7C3; font-weight:900; letter-spacing:.08em; text-transform:uppercase;
-      padding:10px 14px; border:2px solid #6D4E31; position:relative; box-shadow:var(--e1);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+    .svc{
+      grid-column: span 4; position:relative; overflow:hidden;
+      background:#FFFFFF; border:1px solid #E7E8FF; border-radius:18px; padding:var(--s3);
+      box-shadow: var(--e1);
     }
-    .bubble.round{border-radius:999px}
-    .bubble.flag{border-radius:14px 14px 14px 6px; clip-path: polygon(0 0, 100% 0, 100% 86%, 90% 86%, 88% 100%, 86% 86%, 0 86%);}
-    .bubble.tag{border-radius:14px; padding-right:28px}
-    .bubble.tag::after{
-      content:""; position:absolute; right:8px; top:50%; transform:translateY(-50%);
-      width:12px; height:12px; border-radius:50%; background: radial-gradient(circle, rgba(197,138,59,.8), rgba(197,138,59,.3));
-      box-shadow: 0 0 0 2px #6D4E31;
+    .svc::after{
+      content:""; position:absolute; right:-30px; top:-30px; width:180px; height:180px; border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(109,74,255,.25), rgba(109,74,255,0));
+      filter: blur(10px);
     }
+    @media (max-width: 1000px){ .svc{grid-column:span 12} }
 
-    /* ================== MENU — tear tabs ================== */
-    .tabs{display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr)}
-    .tab{grid-column:span 3; background:var(--panel); color:var(--panel-ink); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:var(--s3); box-shadow:var(--e1); position:relative}
-    .tab::before{content:""; position:absolute; right:-10px; top:0; bottom:0; width:18px; background:
-      radial-gradient(circle at 9px 9px, #0000 7px, rgba(255,255,255,.12) 8px) left top/18px 18px repeat-y}
-    @media (max-width:1000px){ .tab{grid-column:span 6} }
-    @media (max-width:640px){ .tab{grid-column:span 12} }
+    /* Dark proof strip */
+    .proof{background:var(--panel); color:var(--panel-ink); border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08)}
+    .pgrid{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
+    @media (max-width:1000px){ .pgrid{grid-template-columns:1fr} }
+    .metric{padding:var(--s3); border:1px solid rgba(255,255,255,.08); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0))}
 
-    /* ================== BARBERS (dark slabs) ================== */
-    .chairs{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
-    @media (max-width:1000px){ .chairs{grid-template-columns:1fr} }
-    .chair{background:var(--panel); color:var(--panel-ink); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
-    .chair h4{color:#FFEED9}
+    /* Pricing examples (Growth) */
+    .pricing{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
+    @media (max-width:1000px){ .pricing{grid-template-columns:1fr} }
+    .price{
+      background:#fff; border:1px solid #E7E8FF; border-radius:18px; padding:var(--s3); box-shadow:var(--e1)
+    }
+    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; background:#F1F2FF; color:#3A2FA4; font-weight:800}
 
-    /* ================== PRICES (light certificate for contrast) ================== */
-    .cert{background:#FFF6ED; color:#2B1B0E; border:2px solid #E4D2C2; border-radius:20px; padding:var(--s3); box-shadow:var(--e1)}
-    .row{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px dashed #E4D2C2}
-    .row:last-child{border-bottom:0}
-
-    /* ================== FORM ================== */
-    form.sheet{background:var(--panel); border:1px solid rgba(255,255,255,.08); color:var(--panel-ink); border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
+    /* Form */
+    form.sheet{background:#FFFFFF; border:1px solid #E7E8FF; border-radius:18px; padding:var(--s3); box-shadow:var(--e1)}
     label{display:block; font-weight:800; margin-bottom:8px}
     input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:2px solid #6D4E31; background:#2F1E10; color:#F6EEE6;
+      width:100%; padding:12px 14px; border-radius:12px; border:2px solid #E7E8FF; background:#FAFAFF; color:#0E1023;
     }
-    input::placeholder, textarea::placeholder{color:#BFA792}
     input:focus, select:focus, textarea:focus{outline:none; box-shadow:var(--ring)}
-    .muted{color:#CBB7A6}
 
-    /* FAQ */
-    details{background:var(--panel); color:var(--panel-ink); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px 16px; box-shadow:var(--e1)}
-    summary{cursor:pointer; font-weight:800}
-
-    /* Utilities & reveal */
+    /* Utilities */
     .mt1{margin-top:var(--s1)} .mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)}
-    .grid-3{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
-    .grid-2{display:grid; gap:var(--s3); grid-template-columns:repeat(2,1fr)}
-    @media (max-width:1000px){ .grid-3,.grid-2{grid-template-columns:1fr} }
-    .reveal{opacity:0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease)}
+    .mb0{margin-bottom:0}
+
+    /* Reveal */
+    .reveal{opacity:0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease)}
     .reveal.in{opacity:1; transform:none}
   </style>
 </head>
 <body>
 
-  <!-- ========= HEADER (kept same layout/design) ========= -->
+  <!-- Header: hanging sign + nav -->
   <header>
     <div class="sign-wrap">
-      <div class="chains" aria-hidden="true"><div class="chain"></div><div class="chain"></div></div>
+      <div class="chains"><div class="chain"></div><div class="chain"></div></div>
       <div class="sign">
-        <div class="brand">Odd Fellow Barber</div>
-        <div class="sub">Cuts • Shaves • Character</div>
+        <div class="brand">NovaLogic AI</div>
+        <div class="sub">Deploy • Automate • Scale</div>
       </div>
     </div>
     <nav class="nav-row" aria-label="Primary">
-      <a href="#intro">Intro</a>
-      <a href="#menu">Menu</a>
-      <a href="#chairs">Barbers</a>
-      <a href="#prices">Prices</a>
+      <a href="#home">Home</a>
+      <a href="#services">Use-cases</a>
+      <a href="#pricing">Pricing</a>
       <a href="#book">Book</a>
       <a href="#faqs">FAQ</a>
     </nav>
   </header>
 
-  <main id="intro">
-    <!-- ========= MID-CENTERED HERO (no side card, no House Code) ========= -->
-    <section class="hero section" aria-label="Intro">
-      <div class="ribbon" aria-hidden="true"></div>
-      <div class="coins" aria-hidden="true"></div>
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero section">
       <div class="container center">
-        <div class="span-12">
-          <div class="lead reveal">
-            <span class="eyebrow">Since 2014 • Coffee while you wait</span>
-            <h1>Barbering with <em style="font-style:italic; text-shadow:0 1px 0 rgba(0,0,0,.35)">character</em>, not clichés.</h1>
-            <p class="mt2">Crisp fades. Architectural scissor work. Beards lined to camera. All signal, no noise.</p>
-          </div>
-
-          <!-- New shapes: mixed speech-bubbles (no repetition across sites) -->
-          <div class="bubbles reveal">
-            <div class="bubble round">No contracts</div>
-            <div class="bubble flag">Walk-ins welcome</div>
-            <div class="bubble tag">Hot towels</div>
-            <div class="bubble round">Clean finish</div>
-          </div>
-
-          <div class="mt3 reveal" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-            <a class="btn btn-pri" href="#book">Book a seat</a>
-            <a class="btn btn-ghost" href="#prices">See prices</a>
+        <div class="lead reveal">
+          <span class="eyebrow">Practical AI • Fast integration</span>
+          <h1>AI systems that answer mail, brief your team, and learn your customers.</h1>
+          <p class="mt2">Senior implementers. Plain-English delivery. Your stack, safely automated.</p>
+          <div class="mt3" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a class="btn btn-pri" href="#book">Book a consultation</a>
+            <a class="btn btn-ghost" href="#services">Explore use-cases</a>
           </div>
         </div>
       </div>
+
+      <!-- 3D field with annotations -->
+      <div class="space">
+        <div class="layer stars"></div>
+        <div class="layer ring"></div>
+        <div class="layer grid3d"></div>
+        <div class="layer orb" aria-hidden="true"></div>
+        <div class="layer chip" aria-hidden="true"></div>
+
+        <svg class="leader" width="100%" height="100%">
+          <line x1="18%" y1="48%" x2="28%" y2="60%"></line>
+          <line x1="90%" y1="36%" x2="76%" y2="48%"></line>
+          <line x1="50%" y1="82%" x2="50%" y2="68%"></line>
+        </svg>
+
+        <div class="pin small a"><span class="dot"></span>Inbox Agent • replies & triage</div>
+        <div class="pin small b"><span class="dot"></span>Project updates • Slack briefs</div>
+        <div class="pin small c"><span class="dot"></span>Auto customer profiles</div>
+      </div>
     </section>
 
-    <!-- ========= MENU (tear tabs on dark) ========= -->
-    <section id="menu" class="section" aria-label="Menu">
+    <!-- SERVICES -->
+    <section id="services" class="section">
       <div class="container">
-        <h2 class="reveal">Menu</h2>
-        <div class="tabs mt3">
-          <article class="tab reveal"><h4>Scissor Cut</h4><p>Structured silhouette, textured finish.</p></article>
-          <article class="tab reveal"><h4>Skin Fade</h4><p>Razor clean, seamless blend.</p></article>
-          <article class="tab reveal"><h4>Beard Shape</h4><p>Line-up + bulk control + hot towel.</p></article>
-          <article class="tab reveal"><h4>Hot Towel Shave</h4><p>Steam prep, straight razor, aftercare.</p></article>
+        <h2 class="reveal">What we implement</h2>
+        <div class="services mt3">
+          <article class="svc reveal">
+            <h4>Email & Calendar Agent</h4>
+            <p>Understands threads, drafts replies, schedules meetings, and flags risks. Works with Google or Microsoft 365.</p>
+          </article>
+          <article class="svc reveal">
+            <h4>Project Status Bot</h4>
+            <p>Watches tickets/PRs/docs, posts human-sized updates in Slack/Teams, and highlights blockers with owners.</p>
+          </article>
+          <article class="svc reveal">
+            <h4>Customer 360 Profiles</h4>
+            <p>Auto-builds living profiles from CRM, emails, calls and notes so your team knows context before every touch.</p>
+          </article>
+          <article class="svc reveal">
+            <h4>Knowledge Answers</h4>
+            <p>Private Q&A on your docs/wikis. Citations included. Great for onboarding, sales, and support.</p>
+          </article>
+          <article class="svc reveal">
+            <h4>Support Co-pilot</h4>
+            <p>Suggests responses, detects sentiment, escalates smartly, logs outcomes to your helpdesk.</p>
+          </article>
+          <article class="svc reveal">
+            <h4>Data Hygiene & Sync</h4>
+            <p>De-duplicates, enriches, and syncs entities across HubSpot, Notion, Jira, Zendesk, Sheets.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ========= BARBERS ========= -->
-    <section id="chairs" class="section" aria-label="Barbers">
+    <!-- PROOF -->
+    <section class="section proof">
       <div class="container">
-        <h2 class="reveal">At the chairs</h2>
-        <div class="chairs mt3">
-          <div class="chair reveal"><h4>Viktor</h4><p>Fade perfectionist. Quiet tapers that impress in profile.</p></div>
-          <div class="chair reveal"><h4>Maya</h4><p>Scissor architect. Shapes that grow out elegantly.</p></div>
-          <div class="chair reveal"><h4>Hadi</h4><p>Beard tactician. Symmetry, line discipline, warm finishes.</p></div>
+        <h2 class="reveal">Proof, not promises.</h2>
+        <div class="pgrid mt3">
+          <div class="metric reveal"><h3>–42%</h3><p class="mb0">less human time on inbox + scheduling.</p></div>
+          <div class="metric reveal"><h3>+31%</h3><p class="mb0">faster PR/issue cycle time after status bot.</p></div>
+          <div class="metric reveal"><h3>4.9/5</h3><p class="mb0">internal client satisfaction (NPS-style).</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ========= PRICES (light card for contrast) ========= -->
-    <section id="prices" class="section" aria-label="Prices" style="background:#25170D">
+    <!-- PRICING (Growth examples) -->
+    <section id="pricing" class="section">
       <div class="container">
-        <h2 class="reveal">Price list</h2>
-        <div class="cert mt2 reveal">
-          <div class="row"><span>Scissor Cut</span><strong>kr 390</strong></div>
-          <div class="row"><span>Skin Fade</span><strong>kr 420</strong></div>
-          <div class="row"><span>Clipper All Over</span><strong>kr 280</strong></div>
-          <div class="row"><span>Beard Trim &amp; Shape</span><strong>kr 250</strong></div>
-          <div class="row"><span>Cut + Beard</span><strong>kr 590</strong></div>
-          <div class="row"><span>Hot Towel Shave</span><strong>kr 520</strong></div>
+        <h2 class="reveal">Transparent pricing</h2>
+        <div class="pricing mt3">
+          <article class="price reveal">
+            <span class="tag">Starter integration</span>
+            <h4 class="mt2">Inbox Agent</h4>
+            <p>Connects email + calendar, drafts & routes, cc’s human on edge cases.</p>
+            <p class="mt1"><strong>kr 14,900</strong> • 1 week</p>
+          </article>
+          <article class="price reveal">
+            <span class="tag">Most chosen</span>
+            <h4 class="mt2">Growth bundle</h4>
+            <p>Inbox Agent + Project Status Bot + Customer Profiles. GA4 events, dashboards, tracking.</p>
+            <p class="mt1"><strong>kr 29,900</strong> • 2 weeks</p>
+          </article>
+          <article class="price reveal">
+            <span class="tag">Flexible</span>
+            <h4 class="mt2">Custom</h4>
+            <p>Tailored to your stack and compliance. Quote after consult.</p>
+            <p class="mt1"><strong>On request</strong></p>
+          </article>
         </div>
-        <p class="mt2" style="color:#E7D7C6">Student & weekday lunch pricing — ask at the chair.</p>
+        <div class="mt3" style="text-align:right;">
+          <a class="btn btn-pri" href="#book">Book a consultation</a>
+        </div>
       </div>
     </section>
 
-    <!-- ========= BOOK ========= -->
-    <section id="book" class="section" aria-label="Book">
+    <!-- BOOK -->
+    <section id="book" class="section" style="background:linear-gradient(180deg,#FFF,#F7F7FF)">
       <div class="container grid g-12">
         <div class="span-6">
-          <h2>Book a seat</h2>
-          <p class="muted">Tell us when and what. We’ll confirm quickly.</p>
-          <form class="sheet mt2" name="odd-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="odd-booking">
+          <h2>Book a consultation</h2>
+          <p class="muted">Tell us your stack and the outcomes you want. We’ll reply quickly with next steps.</p>
+          <form class="sheet mt2" name="novalogic-growth" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="novalogic-growth">
             <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
             <div class="grid g-12">
               <div class="span-6"><label>Name</label><input required name="name" placeholder="Jane Doe"></div>
               <div class="span-6"><label>Email</label><input required type="email" name="email" placeholder="you@company.com"></div>
             </div>
             <div class="grid g-12">
-              <div class="span-6"><label>Phone</label><input required name="phone" placeholder="+47 …"></div>
+              <div class="span-6"><label>Company</label><input name="company" placeholder="Acme AS"></div>
               <div class="span-6">
-                <label>Service</label>
-                <select name="service" required>
+                <label>Primary goal</label>
+                <select name="goal" required>
                   <option value="">Select…</option>
-                  <option>Scissor Cut</option>
-                  <option>Skin Fade</option>
-                  <option>Clipper All Over</option>
-                  <option>Beard Trim &amp; Shape</option>
-                  <option>Cut + Beard</option>
-                  <option>Hot Towel Shave</option>
+                  <option>Inbox & scheduling</option>
+                  <option>Project status automation</option>
+                  <option>Customer 360 profiles</option>
+                  <option>Knowledge answers / docs</option>
+                  <option>Support co-pilot</option>
+                  <option>Other (describe below)</option>
                 </select>
               </div>
             </div>
-            <label class="mt2">Preferred time</label>
-            <select name="slot" required>
-              <option value="">Select…</option>
-              <option>Morning (09–12)</option>
-              <option>Afternoon (12–16)</option>
-              <option>Evening (16–19)</option>
-            </select>
-            <label class="mt2">Notes</label>
-            <textarea rows="4" name="notes" placeholder="Style notes, preferred barber, etc."></textarea>
-            <button class="btn btn-pri mt2" type="submit">Confirm</button>
-            <p class="mt1 muted">No prepayment. We reply within 24h.</p>
+            <label class="mt2">Notes (stack, deadlines, constraints)</label>
+            <textarea rows="4" name="notes" placeholder="We use Google Workspace + Slack + HubSpot. Need a proof in 2 weeks…"></textarea>
+            <button class="btn btn-pri mt2" type="submit">Send</button>
+            <p class="mt1" style="color:#3E4370">No spam. We reply within 24h.</p>
           </form>
         </div>
         <aside class="span-6">
-          <div class="cert reveal" style="background:#FFF6ED; color:#2B1B0E;">
-            <h4>Hours &amp; Location</h4>
-            <div class="row"><span>Mon–Fri</span><strong>09:00–19:00</strong></div>
-            <div class="row"><span>Saturday</span><strong>10:00–16:00</strong></div>
-            <div class="row"><span>Sunday</span><strong>Closed</strong></div>
-            <div class="row"><span>Address</span><strong>Langmyrvegen 22A, Oslo</strong></div>
-            <p class="mt2"><a href="mailto:contact@citeks.net">contact@citeks.net</a> • +47 55 55 55</p>
+          <div class="price" style="background:linear-gradient(180deg,#FFFFFF, #FAFAFF);">
+            <h4>What to expect</h4>
+            <ul style="margin:0;padding-left:18px;color:#4C5283">
+              <li>30–40 min discovery call (Calendly)</li>
+              <li>Written plan with scope, data map, and risks</li>
+              <li>Implementation in days, not weeks</li>
+              <li>Hand-off docs + tracking + success criteria</li>
+            </ul>
+            <p class="mt2">Questions? <a href="mailto:contact@citeks.net">contact@citeks.net</a></p>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- ========= FAQ ========= -->
-    <section id="faqs" class="section" aria-label="FAQs">
+    <!-- FAQ -->
+    <section id="faqs" class="section">
       <div class="container">
         <h2 class="reveal">FAQs</h2>
-        <details class="mt2 reveal"><summary>Do you take walk-ins?</summary><p class="mt1">Yes — first come, first served. Booking guarantees your slot.</p></details>
-        <details class="mt2 reveal"><summary>Do you cut kids’ hair?</summary><p class="mt1">Absolutely. We keep it quick and friendly.</p></details>
-        <details class="mt2 reveal"><summary>Payment?</summary><p class="mt1">Card and cash. Tips optional.</p></details>
+        <details class="mt2 reveal"><summary>Is our data safe?</summary><p class="mt1">We isolate environments and use least-privilege keys. Optional on-prem / VPC hosting and model choices by sensitivity.</p></details>
+        <details class="mt2 reveal"><summary>Which tools do you integrate?</summary><p class="mt1">Google/Microsoft, Slack/Teams, HubSpot/Salesforce, Notion/Confluence, Jira/GitHub, Zendesk/Intercom, and more.</p></details>
+        <details class="mt2 reveal"><summary>How do you measure results?</summary><p class="mt1">Clear baselines + GA4/GSC events + ops metrics (time saved, cycle time, CSAT). We ship dashboards.</p></details>
       </div>
     </section>
   </main>
 
   <footer class="section" style="padding-top:32px; padding-bottom:32px;">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-      <div class="brand" style="font-family:'Newsreader'; font-weight:800;">Odd Fellow Barber</div>
-      <p class="muted">© <span data-year></span> Odd Fellow Barber — Cuts, Shaves, Character</p>
+      <div class="brand" style="font-family:'Space Grotesk'; font-weight:700;">NovaLogic AI</div>
+      <p class="muted">© <span data-year></span> NovaLogic AI — Practical AI systems for real businesses</p>
     </div>
   </footer>
 
-  <script>
-    // Subtle parallax for ribbon (kept lightweight)
-    const rib = document.querySelector('.ribbon');
-    window.addEventListener('scroll', ()=>{
-      const y = window.scrollY * 0.08;
-      rib.style.transform = `translateY(${y}px)`;
-    });
+  <!-- Schema (Growth: on-page SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"NovaLogic AI",
+    "url":"https://novalogic.example",
+    "description":"We implement practical AI: inbox agents, project status bots, customer 360 profiles, knowledge answers, and support co-pilots.",
+    "areaServed":"NO",
+    "sameAs":[],
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"AI Implementation",
+      "itemListElement":[
+        {"@type":"Offer","name":"Inbox & Calendar Agent"},
+        {"@type":"Offer","name":"Project Status Bot"},
+        {"@type":"Offer","name":"Customer 360 Profiles"},
+        {"@type":"Offer","name":"Knowledge Answers"},
+        {"@type":"Offer","name":"Support Co-pilot"}
+      ]
+    }
+  }
+  </script>
 
+  <!-- Motion & interactivity -->
+  <script>
     // Reveal on scroll
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -406,6 +491,33 @@
         if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
       });
     });
+
+    // Parallax tilt by mouse for 3D layers
+    const space = document.querySelector('.space');
+    const layers = document.querySelectorAll('.space .layer');
+    if(space){
+      space.addEventListener('pointermove', (e)=>{
+        const r = space.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width/2)) / r.width;
+        const dy = (e.clientY - (r.top + r.height/2)) / r.height;
+        layers.forEach((el, i)=>{
+          const depth = (i-2)*10; // stagger
+          el.style.transform = `translateX(${dx*depth*10}px) translateY(${dy*depth*10}px) rotateY(${dx*6}deg) rotateX(${-dy*6}deg)`;
+        });
+      });
+      space.addEventListener('pointerleave', ()=>{
+        layers.forEach(el=> el.style.transform = '');
+      });
+    }
+
+    // Leader lines follow pins (simple resize recalc)
+    const svg = document.querySelector('svg.leader');
+    function setLines(){
+      if(!svg) return;
+      const lines = svg.querySelectorAll('line');
+      // nothing dynamic here; kept for possible runtime updates
+    }
+    window.addEventListener('resize', setLines);
 
     // Year
     document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
