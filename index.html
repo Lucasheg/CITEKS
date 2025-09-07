@@ -1,436 +1,539 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>SentienceWorks — Implement AI that moves the needle</title>
-  <meta name="description" content="SentienceWorks integrates practical AI into your workflows: inbox agents, status briefs, auto customer profiles, and more. Book a consultation." />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1B1236" />
+<meta charset="utf-8" />
+<title>The Meridian Museum — Rooms, Frames & Light</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#3A2A1F" />
+<meta name="description" content="The Meridian Museum — a wandering of rooms, wood, frames and light. Explore exhibitions, collections and the house itself." />
 
-  <!-- Futuristic but readable fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;800&family=Michroma&display=swap" rel="stylesheet">
+<!-- Fonts: classic + refined -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,500&family=Inter:wght@500;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* ================== CITEKS RULESET (applied, but design is sharp & kinetic) ================== */
-    :root{
-      /* 60/30/10 — White / Deep Tech Purple / Electric Blue */
-      --bg:#FFFFFF;            /* 60% */
-      --ink:#0B0D22;
-      --muted:#5B607A;
+<style>
+/* ======================= Museum System ======================= */
+:root{
+  /* Colors */
+  --wood-1:#3A2A1F;   /* deep walnut (walls/panels) */
+  --wood-2:#5B4536;   /* mid walnut */
+  --ivory:#FBF7EE;    /* paper/labels */
+  --cream:#F3ECE0;
+  --brass:#C8A55A;
+  --brass-dark:#8E7441;
+  --velvet:#6C1E28;   /* burgundy velvet rope */
+  --verdigris:#2E7B73;/* aged bronze hint */
+  --ink:#1A110C;
 
-      --panel:#13102B;         /* 30% */
-      --panel-ink:#F2F3FF;
+  --shadow-1: 0 10px 30px rgba(0,0,0,.25);
+  --shadow-2: 0 30px 80px rgba(0,0,0,.35);
 
-      --accent:#6D4AFF;        /* 10% */
-      --accent-600:#553BFF;
-      --electric:#23D5FF;
+  --container: 1180px;
 
-      /* Type scale — Major Third from 16px */
-      --fs-p:16px;
-      --fs-h6:20px; --fs-h5:25px; --fs-h4:31px;
-      --fs-h3:39px; --fs-h2:49px; --fs-h1:61px;
+  /* Interactive light/glass */
+  --glx: 52%;         /* updated by JS (mouse) */
+  --gly: 18%;
+}
 
-      /* Letter/line rules */
-      --ls-p:0; --ls-h6:-0.005em; --ls-h3:-0.015em; --ls-h1:-0.02em;
-      --lh-p:1.5; --lh-h4:1.3; --lh-h2:1.1; --lh-h1:1.0;
+/* Reset-ish */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(180deg, #2F231A 0%, #20160F 100%);
+  color:var(--ivory);
+  font: 400 16px/1.55 "EB Garamond", Georgia, serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
 
-      /* 8pt spacing */
-      --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s7:56px; --s8:64px;
+/* Type */
+h1,h2,h3{margin:0 0 12px 0; font-family:"Cinzel", serif; letter-spacing:.02em}
+h1{font-size:58px; line-height:1.05}
+h2{font-size:36px}
+h3{font-size:26px}
+p{margin:0 0 14px 0}
+.smallcaps{font-variant:small-caps; letter-spacing:.06em}
 
-      --container:1200px;
+/* Layout */
+.container{max-width:var(--container); margin:0 auto; padding:0 20px}
+.section{padding:clamp(48px,8vw,120px) 0}
 
-      --e1: 0 14px 40px rgba(11,13,34,.12);
-      --e2: 0 30px 100px rgba(11,13,34,.22);
-      --ring: 0 0 0 3px rgba(109,74,255,.28);
-      --ease: cubic-bezier(.2,.7,.2,1);
-    }
+/* ======================= Header: Brass plaque ======================= */
+.header{
+  position:sticky; top:0; z-index:60;
+  background:
+    linear-gradient(180deg, rgba(30,20,14,.85), rgba(30,20,14,.65));
+  backdrop-filter: blur(6px) saturate(120%);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.plaque{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:10px 0;
+}
+.brand{
+  display:inline-grid; place-items:center;
+  padding:10px 16px;
+  background:
+    linear-gradient(180deg, #E9D6A0, #B79141 70%, #8E7441 100%);
+  color:#1F160E;
+  border:2px solid #E8D79B;
+  border-radius:10px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.7),
+    inset 0 -2px 0 rgba(0,0,0,.25),
+    var(--shadow-1);
+  font-family:"Cinzel"; font-weight:700; letter-spacing:.08em;
+}
+.brand small{display:block; font: italic 500 12px/1 "EB Garamond"; opacity:.8}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--ink);
-      font:400 var(--fs-p)/var(--lh-p) "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
+/* Ticket-nav (no normal buttons) */
+.nav{
+  display:flex; gap:14px; flex-wrap:wrap;
+}
+.ticket{
+  position:relative; display:inline-flex; align-items:center; gap:10px;
+  padding:10px 14px; color:#2B2017; text-decoration:none;
+  background:
+    linear-gradient(180deg, #F5ECDC, #EADCC2);
+  border:1px solid #D7C6A1;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  box-shadow: 0 2px 0 #CDBA91, var(--shadow-1);
+  font: 700 12px/1 "Inter"; letter-spacing:.14em; text-transform:uppercase;
+}
+.ticket::after{
+  content:"▮"; font-size:10px; color:#B79B63; opacity:.8;
+}
+.ticket:hover{transform:translateY(-2px); box-shadow:0 4px 0 #C5B289, var(--shadow-2)}
 
-    /* Type */
-    h1,h2,h3,h4,h5,h6{margin:0 0 var(--s2) 0; font-family:"Michroma", ui-sans-serif; font-weight:400; color:#0B0D22}
-    h1{font-size:var(--fs-h1); letter-spacing:var(--ls-h1); line-height:var(--lh-h1)}
-    h2{font-size:var(--fs-h2); line-height:var(--lh-h2)}
-    h3{font-size:var(--fs-h3); letter-spacing:var(--ls-h3)}
-    h4{font-size:var(--fs-h4); line-height:var(--lh-h4)}
-    p{margin:0 0 var(--s2) 0; color:var(--muted)}
-    .eyebrow{font:800 12px/1 "DM Sans"; letter-spacing:.22em; text-transform:uppercase; color:#444A73}
+/* ======================= Hero: Gallery wall with frames ======================= */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.15)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 1px, transparent 1px 80px);
+}
+.wood-rail{
+  position:absolute; left:0; right:0; top:0; height:36px;
+  background:
+    linear-gradient(90deg, #4A3628, #5E4635, #4A3628);
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.5), 0 20px 40px rgba(0,0,0,.35);
+}
+.rope{
+  position:absolute; top:36px; left:50%; transform:translateX(-50%);
+  width:800px; max-width:84vw; height:14px; border-radius:20px;
+  background:
+    radial-gradient(8px 8px at 8px 7px, #8B3A44, transparent 60%) repeat-x;
+  background-size: 24px 14px;
+  filter: saturate(60%);
+  opacity:.4;
+}
 
-    /* Grid / layout */
-    .container{max-width:var(--container); margin:0 auto; padding:0 var(--s2)}
-    .section{padding:clamp(56px, 8vw, 120px) 0}
-    .grid{display:grid; gap:var(--s3)}
-    .g-12{grid-template-columns:repeat(12,1fr)}
-    .span-6{grid-column:span 6} .span-7{grid-column:span 7} .span-5{grid-column:span 5} .span-8{grid-column:span 8} .span-4{grid-column:span 4}
-    @media (max-width: 980px){ .g-12{grid-template-columns:repeat(8,1fr)} .span-6,.span-7,.span-5,.span-8,.span-4{grid-column:1/-1} }
-    @media (max-width: 640px){ .g-12{grid-template-columns:repeat(4,1fr)} }
+/* Spotlight & dust canvas */
+.spot{
+  position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen;
+  background:
+    radial-gradient(600px 280px at 60% 20%, rgba(255,250,210,.20), rgba(255,255,255,0) 60%),
+    radial-gradient(800px 380px at 30% 50%, rgba(255,240,170,.12), rgba(255,255,255,0) 60%);
+}
+#dust{
+  position:absolute; inset:0; pointer-events:none; opacity:.35; mix-blend-mode:screen;
+}
 
-    /* Header — razor-sharp rail with animated indicator */
-    header{
-      position:sticky; top:0; z-index:90; background:rgba(255,255,255,.85);
-      border-bottom:1px solid rgba(11,13,34,.08); backdrop-filter:saturate(160%) blur(10px);
-    }
-    .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
-    .brand{display:flex; align-items:center; gap:10px; font-family:"Michroma"; letter-spacing:.08em}
-    .brand-badge{width:18px; height:18px; transform:skewX(-14deg); background:linear-gradient(135deg,#8A75FF, #2A21A8); box-shadow:0 0 0 2px #E8E7FF inset}
-    nav.primary{display:flex; gap:24px; margin-left:24px}
-    nav.primary a{position:relative; padding:8px 2px; color:#0B0D22; text-decoration:none}
-    nav.primary a::after{
-      content:""; position:absolute; left:0; right:100%; bottom:-1px; height:2px; background:linear-gradient(90deg,var(--accent), var(--electric));
-      transition: right .35s var(--ease);
-    }
-    nav.primary a:hover::after{ right:0 }
+/* Frame grid */
+.gallery{
+  display:grid; gap:26px; grid-template-columns:repeat(12,1fr); align-items:start;
+  padding-top:80px;
+}
+.frame{
+  grid-column:span 4; position:relative; isolation:isolate;
+  background:#0F0B08;
+  border:12px solid #6A4E33;            /* wood width */
+  border-radius:6px;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.05),
+    0 16px 40px rgba(0,0,0,.45);
+}
+.frame.gold{
+  border-color:#9E7A3A;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.1),
+    0 16px 40px rgba(0,0,0,.55);
+}
+.mat{
+  margin:10px; height:320px; background: linear-gradient(180deg, #20160F, #140E0A);
+  position:relative; overflow:hidden;
+}
+.paint{
+  position:absolute; inset:24px; border-radius:2px;
+  background:
+    conic-gradient(from 0deg, #4B3E32, #6F5A45, #3B2E26, #4B3E32);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+}
 
-    .spacer{flex:1}
+/* Glass glare */
+.mat::after{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient( 20deg,
+      rgba(255,255,255,.05) 0%,
+      rgba(255,255,255,0) 30%),
+    radial-gradient(200px 80px at var(--glx) var(--gly), rgba(255,255,255,.13), rgba(255,255,255,0) 60%);
+  mix-blend-mode:screen; pointer-events:none;
+}
 
-    /* Buttons — sharp variants (cut, bevel, micro-rounded) */
-    .btn{display:inline-grid; grid-auto-flow:column; align-items:center; gap:12px; padding:12px 18px; border:2px solid transparent; font-weight:800; letter-spacing:.04em; text-transform:uppercase; transition:transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), color .18s var(--ease)}
-    .btn-cut{background:linear-gradient(180deg,#846AFF,var(--accent)); color:#fff; clip-path:polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px); box-shadow:var(--e1)}
-    .btn-cut:hover{transform:translateY(-2px); box-shadow:var(--e2)}
-    .btn-ghost{background:transparent; color:#2F2B86; border-color:#C9C8FF}
-    .btn-ghost:hover{background:#F1F2FF}
+/* Frame label (brass placard) */
+.label{
+  position:absolute; left:50%; bottom:-26px; transform:translateX(-50%);
+  padding:8px 12px; color:#2A1E13; background:
+    linear-gradient(180deg, #E8D79B, #C3A35B 70%, #8E7441);
+  border:1px solid #F4E6B7; border-radius:8px;
+  font: 700 12px/1 "Inter"; letter-spacing:.14em; text-transform:uppercase;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 6px 20px rgba(0,0,0,.35);
+}
 
-    /* HERO — asymmetric split, 3D geometry rig, orbital annotations (advanced motion) */
-    .hero{position:relative; isolation:isolate; overflow:hidden; background:
-      radial-gradient(1100px 600px at 120% -10%, rgba(109,74,255,.16), transparent 60%),
-      radial-gradient(900px 600px at -10% 120%, rgba(35,213,255,.18), transparent 60%);
-    }
-    .hero-grid{display:grid; gap:var(--s3); grid-template-columns: 5fr 7fr; align-items:center}
-    @media(max-width:980px){ .hero-grid{grid-template-columns:1fr} }
+/* Caption note (ivory card, pinned) */
+.caption{
+  margin-top:34px; background:var(--ivory); color:var(--ink);
+  border:1px solid #D7CCB8; box-shadow: var(--shadow-1);
+  padding:12px 14px; max-width: 90%; position:relative;
+  font: italic 500 15px/1.5 "EB Garamond";
+}
+.caption::before{
+  content:"●"; color:var(--velvet); position:absolute; left:10px; top:-10px; font-size:18px;
+}
 
-    .hero-copy h1{line-height:1.05}
-    .bullets{display:flex; gap:10px; flex-wrap:wrap; margin-top:var(--s2)}
-    .chip{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid #E7E8FF; background:#FAFAFF; color:#2C2F6E; font-weight:800}
-    .chip::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--electric); box-shadow:0 0 0 3px rgba(35,213,255,.22)}
+/* Hero title card */
+.titlecard{
+  grid-column: 1 / span 6; align-self:center;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.00)),
+    linear-gradient(180deg, #3F2F24, #2C1F18);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 28px; border-radius:8px; box-shadow:var(--shadow-1);
+}
+.titlecard h1{color:#F4EBDC}
+.titlecard p{color:#E8DFD0; max-width:48ch}
 
-    /* 3D scene container */
-    .scene{position:relative; height:560px; perspective:1200px}
-    .rig{position:absolute; inset:0; transform-style:preserve-3d}
+.admit{
+  display:inline-block; margin-top:14px; color:#2B2017; text-decoration:none;
+  background:
+    repeating-linear-gradient(90deg, #FDF5E7 0 6px, #F3E8D0 6px 12px);
+  padding:10px 14px; border:1px dashed #C5B089;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  font: 700 12px/1 "Inter"; letter-spacing:.16em; text-transform:uppercase;
+  box-shadow: var(--shadow-1);
+}
+.admit:hover{transform: translateY(-2px); box-shadow:var(--shadow-2)}
 
-    /* Spinning wire-icosahedron (SVG) */
-    .icosa{position:absolute; left:8%; top:50%; width:220px; height:220px; transform-style:preserve-3d; transform: translateY(-50%) rotateX(28deg) rotateZ(-10deg); animation: spinY 14s linear infinite}
-    @keyframes spinY{ to{ transform: translateY(-50%) rotateX(28deg) rotateZ(-10deg) rotateY(360deg)} }
-    .glow{filter: drop-shadow(0 12px 24px rgba(109,74,255,.45))}
+/* ======================= Rooms (panels + frames) ======================= */
+.rooms{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)),
+    linear-gradient(180deg, #2F2219, #23170F);
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.roomgrid{
+  display:grid; gap:26px; grid-template-columns:repeat(12,1fr);
+}
+.room{
+  grid-column:span 4; position:relative; padding:20px; border:1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.35));
+  box-shadow: var(--shadow-1);
+}
+.room .door{
+  height:200px; border:10px solid #6A4E33; border-radius:4px; position:relative; overflow:hidden;
+  background: linear-gradient(180deg, #2A2018, #23180F);
+}
+.room .door::after{
+  content:""; position:absolute; inset:12px; border-radius:2px;
+  border:1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(160px 60px at var(--glx) var(--gly), rgba(255,255,255,.10), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #3E3026, #2B2017);
+  mix-blend-mode:screen;
+}
 
-    /* Orbiting data nodes */
-    .orbit{position:absolute; right:10%; top:46%; width:320px; height:320px; transform: translateY(-50%) rotateX(62deg); border:1px dashed rgba(109,74,255,.5); border-radius:50%}
-    .node{position:absolute; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle,#fff,#8DE9FF); box-shadow:0 0 0 3px rgba(35,213,255,.22)}
-    .node:nth-child(1){left:50%; top:-6px; transform:translateX(-50%); animation: orbit 9s linear infinite}
-    .node:nth-child(2){left: -6px; top:50%; transform:translateY(-50%); animation: orbit 12s linear infinite reverse}
-    .node:nth-child(3){right:-6px; bottom:40%; animation: orbit 15s linear infinite}
-    @keyframes orbit{ to{ transform: rotate(360deg) } }
+/* ======================= “Glass case” statement ======================= */
+.case{
+  border: 10px solid #836742; border-radius:12px; position:relative; overflow:hidden; background:#1E150F;
+  box-shadow: 0 20px 80px rgba(0,0,0,.45);
+}
+.case::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0)),
+    radial-gradient(400px 120px at var(--glx) 10%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%);
+  mix-blend-mode:screen;
+}
+.case-inner{
+  padding:26px; border:1px solid rgba(255,255,255,.08);
+}
+.case h2{color:#F1E6D6}
+.case p{color:#E8DDCA; max-width:60ch}
 
-    /* Helix of micro dots (CSS grid, spinning) */
-    .helix{position:absolute; left:50%; bottom:4%; width:420px; height:160px; transform: translateX(-50%) rotateX(50deg); display:grid; grid-template-columns:repeat(14,1fr); gap:8px; opacity:.9}
-    .helix span{width:6px; height:6px; border-radius:50%; background:linear-gradient(180deg,#B6A8FF,#6D4AFF); box-shadow:0 0 12px rgba(109,74,255,.6); animation: helix 3.2s ease-in-out infinite}
-    .helix span:nth-child(odd){background:linear-gradient(180deg,#9AEAFF,#23D5FF)}
-    @keyframes helix{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-16px) } }
+/* ======================= Footer ======================= */
+footer{
+  background:#1F160F; color:#DCCDB6; border-top:1px solid rgba(255,255,255,.06);
+}
+.list{
+  display:grid; gap:16px; grid-template-columns:repeat(3,1fr);
+}
+@media (max-width:900px){ .gallery .frame{grid-column:span 6} .titlecard{grid-column:1/-1} .room{grid-column:span 6} .list{grid-template-columns:1fr} }
+@media (max-width:600px){ .gallery .frame{grid-column:span 12} .room{grid-column:span 12} }
 
-    /* Services — sharp split cards with diagonal corners */
-    .services{display:grid; gap:var(--s3); grid-template-columns:repeat(12,1fr)}
-    .svc{grid-column:span 6; position:relative; padding:var(--s4); background:#fff; border:1px solid #E7E8FF; box-shadow:var(--e1); clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%)}
-    .svc h4{font-family:"DM Sans"; font-weight:800}
-    .svc .meta{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px}
-    .svc .meta .pill{padding:6px 10px; background:#F2F3FF; color:#2E2F76; font-weight:700}
-    @media(max-width:1000px){ .svc{grid-column:1/-1} }
-
-    /* Dark proof rail — neon numbers */
-    .proof{background:var(--panel); color:var(--panel-ink); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06)}
-    .pgrid{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
-    @media(max-width:1000px){ .pgrid{grid-template-columns:1fr} }
-    .metric{padding:var(--s4); border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)); box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
-    .metric h3{font-family:"Michroma"; color:#9BA0FF; text-shadow:0 0 16px rgba(109,74,255,.45)}
-
-    /* Pricing — angular stacks */
-    .pricing{display:grid; gap:var(--s3); grid-template-columns:repeat(3,1fr)}
-    .price{background:#fff; border:1px solid #E7E8FF; padding:var(--s4); box-shadow:var(--e1); clip-path:polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%)}
-    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; background:#EEF0FF; color:#2F2B86; font-weight:800}
-    @media(max-width:1000px){ .pricing{grid-template-columns:1fr} }
-
-    /* Form — glass panel */
-    form.sheet{background:linear-gradient(180deg, #FFFFFF, #F7F7FF); border:1px solid #E7E8FF; border-radius:12px; padding:var(--s3); box-shadow:var(--e1)}
-    label{display:block; font-weight:800; margin-bottom:8px}
-    input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:8px; border:2px solid #E7E8FF; background:#FAFAFF; color:#0B0D22;
-    }
-    input:focus, select:focus, textarea:focus{outline:none; box-shadow:var(--ring)}
-
-    /* Reveal */
-    .reveal{opacity:0; transform: translateY(16px); transition: opacity .55s var(--ease), transform .55s var(--ease)}
-    .reveal.in{opacity:1; transform:none}
-  </style>
+/* ======================= Reveal ======================= */
+.reveal{opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
+</style>
 </head>
 <body>
 
-  <!-- ================== HEADER ================== -->
-  <header>
-    <div class="container bar">
-      <div class="brand"><span class="brand-badge"></span>SentienceWorks</div>
-      <nav class="primary" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#usecases">Use-cases</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#book">Book</a>
-        <a href="#faqs">FAQ</a>
-      </nav>
-      <div class="spacer"></div>
-      <a class="btn btn-cut" href="#book">Book consult</a>
+<header class="header">
+  <div class="container plaque">
+    <div class="brand">
+      The Meridian Museum
+      <small>Rooms • Frames • Light</small>
     </div>
-  </header>
+    <nav class="nav" aria-label="Primary">
+      <a class="ticket" href="#rooms">Rooms</a>
+      <a class="ticket" href="#exhibitions">Exhibitions</a>
+      <a class="ticket" href="#house">The House</a>
+      <a class="ticket" href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
 
-  <main id="home">
+<main>
 
-    <!-- ================== HERO ================== -->
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow reveal">Practical AI • fast integrations</span>
-          <h1 class="reveal">Cut response times, keep projects on track, and know every customer before you speak.</h1>
-          <p class="reveal">Senior implementers, plain-English delivery, measurable outcomes you can track.</p>
-          <div class="bullets reveal">
-            <span class="chip">Email & triage agent</span>
-            <span class="chip">Project status bot</span>
-            <span class="chip">Customer 360</span>
-            <span class="chip">Knowledge answers</span>
-          </div>
-          <div class="reveal" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:var(--s3)">
-            <a class="btn btn-cut" href="#book">Book a consultation</a>
-            <a class="btn btn-ghost" href="#usecases">Explore use-cases</a>
-          </div>
+  <!-- ======================= HERO WALL ======================= -->
+  <section class="hero section">
+    <div class="wood-rail" aria-hidden="true"></div>
+    <div class="rope" aria-hidden="true"></div>
+    <div class="spot" aria-hidden="true"></div>
+    <canvas id="dust"></canvas>
+
+    <div class="container">
+      <div class="gallery">
+        <div class="titlecard reveal">
+          <h1>Wander the hush between frames.</h1>
+          <p>We are a house of wood and shadow: paintings, objects and small stories arranged like breath. Take the long way. Let the light decide what you see first.</p>
+          <a href="#exhibitions" class="admit">Admit One</a>
         </div>
 
-        <div class="scene" aria-hidden="true">
-          <div class="rig" id="rig">
+        <!-- Three featured frames -->
+        <figure class="frame gold reveal">
+          <div class="mat">
+            <div class="paint" style="background:
+              conic-gradient(from 30deg, #203B40, #476C74, #1C2A2D, #203B40)"></div>
+          </div>
+          <figcaption class="label">Sea With Memory</figcaption>
+          <div class="caption">Oil on linen, anonymous. The surf remembers more than it tells.</div>
+        </figure>
 
-            <!-- Spinning wire icosahedron -->
-            <div class="icosa">
-              <svg class="glow" viewBox="0 0 200 200" width="100%" height="100%" fill="none" stroke="url(#grad)" stroke-width="1.2">
-                <defs>
-                  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#6D4AFF"/><stop offset="100%" stop-color="#23D5FF"/>
-                  </linearGradient>
-                  <filter id="blur"><feGaussianBlur stdDeviation="1.2"/></filter>
-                </defs>
-                <!-- Icosahedron edges (approx) -->
-                <g filter="url(#blur)">
-                  <polygon points="100,10 40,60 160,60" />
-                  <polygon points="100,10 60,140 40,60" />
-                  <polygon points="100,10 160,60 140,140" />
-                  <polygon points="40,60 60,140 100,190 140,140 160,60 40,60" />
-                  <line x1="60" y1="140" x2="140" y2="140"/>
-                  <line x1="60" y1="140" x2="100" y2="10"/>
-                  <line x1="140" y1="140" x2="100" y2="10"/>
-                </g>
-              </svg>
-            </div>
+        <figure class="frame reveal">
+          <div class="mat">
+            <div class="paint" style="inset:18px; background:
+              conic-gradient(from -10deg, #5B3A32, #B48C6A, #2E1B16, #714E3D)"></div>
+          </div>
+          <figcaption class="label">Walnut Evening</figcaption>
+          <div class="caption">A small room, thick with stories. The wood is listening.</div>
+        </figure>
 
-            <!-- Orbit with data nodes -->
-            <div class="orbit">
-              <div class="node"></div>
-              <div class="node"></div>
-              <div class="node"></div>
-            </div>
+        <figure class="frame gold reveal">
+          <div class="mat">
+            <div class="paint" style="background:
+              conic-gradient(from 60deg, #22314B, #5471A1, #1A2334, #22314B)"></div>
+          </div>
+          <figcaption class="label">Blue Hall</figcaption>
+          <div class="caption">Light slants once, then again. Every step is a different blue.</div>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-            <!-- Helix dots -->
-            <div class="helix" id="helix">
-              <!-- 14x dots, animated out-of-phase -->
-              <span style="animation-delay:.0s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.2s"></span>
-              <span style="animation-delay:.3s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.5s"></span>
-              <span style="animation-delay:.6s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.8s"></span>
-              <span style="animation-delay:.9s"></span><span style="animation-delay:1.0s"></span><span style="animation-delay:1.1s"></span>
-              <span style="animation-delay:1.2s"></span><span style="animation-delay:1.3s"></span>
-            </div>
+  <!-- ======================= ROOMS ======================= -->
+  <section id="rooms" class="rooms section">
+    <div class="container">
+      <h2 class="reveal">Rooms</h2>
+      <p class="reveal" style="max-width:60ch; color:#E7DAC4">Our rooms are conversations—each with its own temperature: maritime, portrait, instrument, paper. Step across thresholds, not floors.</p>
+      <div class="roomgrid" style="margin-top:26px">
+
+        <article class="room reveal">
+          <div class="door" aria-hidden="true"></div>
+          <h3 style="margin-top:14px">The Portrait Room</h3>
+          <p class="smallcaps" style="color:#E0D2BD">Lenses: empathy, posture, eye-line</p>
+          <p>Faces that hold the room together. Labels are small; silence is part of the work.</p>
+        </article>
+
+        <article class="room reveal">
+          <div class="door" aria-hidden="true"></div>
+          <h3 style="margin-top:14px">The Maritime</h3>
+          <p class="smallcaps" style="color:#E0D2BD">Lenses: weather, distance, time</p>
+          <p>Maps and salt. Ropes like handwriting. A tide between frames.</p>
+        </article>
+
+        <article class="room reveal">
+          <div class="door" aria-hidden="true"></div>
+          <h3 style="margin-top:14px">Paper & Light</h3>
+          <p class="smallcaps" style="color:#E0D2BD">Lenses: margin, breath, tactility</p>
+          <p>Drawings you can hear. Margins wider than a sentence.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= EXHIBITIONS (Glass Case) ======================= -->
+  <section id="exhibitions" class="section">
+    <div class="container">
+      <div class="case reveal">
+        <div class="case-inner">
+          <h2>Current Exhibition — “Lines that Remember”</h2>
+          <p>Works on paper and wood from unhurried hands. Rubbings, notations, fragments of rooms. Nothing is precious; everything is careful.</p>
+          <div style="display:grid; gap:18px; grid-template-columns:repeat(12,1fr); margin-top:18px">
+            <figure class="frame" style="grid-column:span 5;">
+              <div class="mat"><div class="paint" style="inset:20px; background:conic-gradient(from 0deg, #EEE6D6, #E0D1B9, #EFE8DB, #E9DDC9)"></div></div>
+              <figcaption class="label">Study in Paper</figcaption>
+            </figure>
+            <figure class="frame gold" style="grid-column:span 7;">
+              <div class="mat"><div class="paint" style="inset:28px; background:conic-gradient(from 0deg, #2B3D38, #2E7B73, #18312D, #2B3D38)"></div></div>
+              <figcaption class="label">Verdigris Field</figcaption>
+            </figure>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================== USE-CASES (sharp cards) ================== -->
-    <section id="usecases" class="section">
-      <div class="container">
-        <h2 class="reveal">Where we plug AI in</h2>
-        <div class="services mt3">
-          <article class="svc reveal">
-            <h4>Email & Calendar Agent</h4>
-            <p>Understands threads, drafts replies, schedules cleanly, and flags risks. Google/Microsoft workspace native.</p>
-            <div class="meta"><span class="pill">SLAs</span><span class="pill">Edge-case routing</span><span class="pill">Delegation</span></div>
-          </article>
-          <article class="svc reveal">
-            <h4>Project Status Bot</h4>
-            <p>Watches PRs/issues/docs and posts concise Slack/Teams updates with blockers and owners.</p>
-            <div class="meta"><span class="pill">GitHub/Jira</span><span class="pill">Notion/Confluence</span></div>
-          </article>
-          <article class="svc reveal">
-            <h4>Customer 360 Profiles</h4>
-            <p>Auto-builds living profiles from CRM, emails, calls, and notes so your team has instant context.</p>
-            <div class="meta"><span class="pill">HubSpot/Salesforce</span><span class="pill">Enrichment</span></div>
-          </article>
-          <article class="svc reveal">
-            <h4>Knowledge Answers</h4>
-            <p>Private Q&A over your docs with citations. Great for onboarding, sales, and support.</p>
-            <div class="meta"><span class="pill">Citations</span><span class="pill">Access control</span></div>
-          </article>
+  <!-- ======================= THE HOUSE (curator note) ======================= -->
+  <section id="house" class="section">
+    <div class="container">
+      <div class="reveal" style="display:grid; grid-template-columns:repeat(12,1fr); gap:26px;">
+        <div style="grid-column:span 7;">
+          <h2>The House</h2>
+          <p style="max-width:60ch">The Meridian was once a carpenter’s workshop. We kept the walls. The frames know they’re made of older trees. We hang with patience and change with the weather.</p>
+          <p class="smallcaps" style="color:#D8CAB7; margin-top:10px">Please: look slowly.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ================== PROOF ================== -->
-    <section class="section proof">
-      <div class="container">
-        <h2 class="reveal">Proof over promises</h2>
-        <div class="pgrid mt3">
-          <div class="metric reveal"><h3>–43%</h3><p class="mb0">time spent on inbox & scheduling.</p></div>
-          <div class="metric reveal"><h3>+29%</h3><p class="mb0">faster ticket/PR cycles after status bot.</p></div>
-          <div class="metric reveal"><h3>4.9/5</h3><p class="mb0">client satisfaction (internal NPS-style).</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================== PRICING (Growth) ================== -->
-    <section id="pricing" class="section">
-      <div class="container">
-        <h2 class="reveal">Transparent pricing</h2>
-        <div class="pricing mt3">
-          <article class="price reveal">
-            <span class="tag">Focused</span>
-            <h4 class="mt2">Inbox Agent</h4>
-            <p>Connects mail + calendar, drafts and routes, cc’s human on edge cases.</p>
-            <p class="mt1"><strong>$1,490</strong> • 1 week</p>
-          </article>
-          <article class="price reveal">
-            <span class="tag">Growth bundle</span>
-            <h4 class="mt2">Inbox + Status + Profiles</h4>
-            <p>Three systems, one cohesive hand-off. Events, dashboards, success criteria.</p>
-            <p class="mt1"><strong>$2,990</strong> • 2 weeks</p>
-          </article>
-          <article class="price reveal">
-            <span class="tag">Custom</span>
-            <h4 class="mt2">Your stack</h4>
-            <p>Tailored to your data & compliance. We propose after discovery.</p>
-            <p class="mt1"><strong>On request</strong></p>
-          </article>
-        </div>
-        <div class="mt3" style="text-align:right">
-          <a class="btn btn-cut" href="#book">Book consultation</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================== BOOK ================== -->
-    <section id="book" class="section" style="background:linear-gradient(180deg,#FFFFFF,#F6F7FF)">
-      <div class="container grid g-12">
-        <div class="span-6">
-          <h2>Book a consultation</h2>
-          <p class="muted">Tell us your stack and the outcome you want. We’ll reply quickly with next steps.</p>
-          <form class="sheet mt2" name="sentienceworks-growth" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="sentienceworks-growth" />
-            <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-            <div class="grid g-12">
-              <div class="span-6"><label>Name</label><input required name="name" placeholder="Jane Doe" /></div>
-              <div class="span-6"><label>Email</label><input required type="email" name="email" placeholder="you@company.com" /></div>
+        <aside style="grid-column:span 5;">
+          <div class="frame gold">
+            <div class="mat">
+              <div class="paint" style="background:
+                conic-gradient(from 0deg, #704D34, #8E6A4C, #64462F, #704D34)"></div>
             </div>
-            <div class="grid g-12">
-              <div class="span-6"><label>Company</label><input name="company" placeholder="Acme AS" /></div>
-              <div class="span-6">
-                <label>Primary goal</label>
-                <select name="goal" required>
-                  <option value="">Select…</option>
-                  <option>Inbox & scheduling</option>
-                  <option>Project status automation</option>
-                  <option>Customer 360 profiles</option>
-                  <option>Knowledge answers / docs</option>
-                  <option>Support co-pilot</option>
-                  <option>Other (describe below)</option>
-                </select>
-              </div>
-            </div>
-            <label class="mt2">Notes</label>
-            <textarea rows="4" name="notes" placeholder="We use Google + Slack + HubSpot. Need proof within 2 weeks…"></textarea>
-            <button class="btn btn-cut mt2" type="submit">Send</button>
-            <p class="mt1" style="color:#3E4370">No spam. We reply within 24h.</p>
-          </form>
-        </div>
-        <aside class="span-6">
-          <div class="price" style="background:linear-gradient(180deg,#FFFFFF,#F7F8FF)">
-            <h4>What you get</h4>
-            <ul style="margin:0; padding-left:18px; color:#4C5283">
-              <li>30–40 min discovery (Calendly)</li>
-              <li>Written plan with scope, data map, risk assessment</li>
-              <li>Implementation in days, not weeks</li>
-              <li>Dashboards + tracking + success criteria</li>
-            </ul>
-            <p class="mt2">Questions? <a href="mailto:contact@citeks.net">contact@citeks.net</a></p>
+            <div class="label">Workshop Wall</div>
           </div>
+          <p class="caption">We owe our straight lines to the bench that used to live here.</p>
         </aside>
       </div>
-    </section>
-
-    <!-- ================== FAQ ================== -->
-    <section id="faqs" class="section">
-      <div class="container">
-        <h2 class="reveal">FAQs</h2>
-        <details class="mt2 reveal"><summary>Is our data safe?</summary><p class="mt1">Least-privilege keys, data isolation, optional VPC / on-prem. Model choice by sensitivity.</p></details>
-        <details class="mt2 reveal"><summary>Which tools do you integrate?</summary><p class="mt1">Google/Microsoft, Slack/Teams, HubSpot/Salesforce, Notion/Confluence, Jira/GitHub, Zendesk/Intercom, and more.</p></details>
-        <details class="mt2 reveal"><summary>How do you prove ROI?</summary><p class="mt1">Baselines + GA4/GSC + ops metrics (time saved, cycle time, CSAT). Dashboards included.</p></details>
-      </div>
-    </section>
-  </main>
-
-  <footer class="section" style="padding-top:32px; padding-bottom:32px;">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-      <div class="brand" style="display:flex; align-items:center; gap:10px; font-family:'Michroma'"><span class="brand-badge"></span>SentienceWorks</div>
-      <p class="muted">© <span data-year></span> SentienceWorks — Practical AI systems for real businesses</p>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Reveal on scroll
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-    }, {threshold:.16});
-    document.querySelectorAll('.reveal, details').forEach(el=> io.observe(el));
+  <!-- ======================= VISIT ======================= -->
+  <section id="visit" class="rooms section" style="border-bottom:none">
+    <div class="container">
+      <h2 class="reveal">Visit</h2>
+      <div class="list" style="margin-top:16px">
+        <div class="reveal">
+          <h3>Hours</h3>
+          <p>Wed–Fri 12:00–19:00</p>
+          <p>Sat–Sun 11:00–17:00</p>
+          <p class="smallcaps" style="color:#D6C9B5">Closed on Mondays & Tuesdays</p>
+        </div>
+        <div class="reveal">
+          <h3>Find Us</h3>
+          <p>Langmyrvegen 22A</p>
+          <p>Oslo, Norway</p>
+          <p><span class="smallcaps">Tram:</span> Line 11 — stop at the square</p>
+        </div>
+        <div class="reveal">
+          <h3>Notes</h3>
+          <p>Photography allowed without flash.</p>
+          <p>Sketchbooks welcome. Pens, not markers.</p>
+          <p>Cloakroom is a set of hooks we like to call “the forest”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    // Smooth anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',(e)=>{
-        const id=a.getAttribute('href').slice(1); const el=document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-      });
+</main>
+
+<footer class="section">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <p style="margin:0">© <span id="year"></span> The Meridian Museum</p>
+    <p style="margin:0"><span class="smallcaps">Contact</span> <a class="ticket" href="mailto:contact@citeks.net" style="vertical-align:middle">Write a note</a></p>
+  </div>
+</footer>
+
+<!-- ======================= Motion & Atmosphere ======================= -->
+<script>
+/* Reveal on scroll */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+/* Live light angle for glass/doors via CSS vars */
+document.addEventListener('pointermove', (e)=>{
+  const x = (e.clientX / innerWidth) * 100;
+  const y = (e.clientY / innerHeight) * 100;
+  document.documentElement.style.setProperty('--glx', x + '%');
+  document.documentElement.style.setProperty('--gly', y + '%');
+});
+
+/* Dust in the spotlight (canvas) */
+(function(){
+  const c = document.getElementById('dust');
+  const ctx = c.getContext('2d');
+  let W,H,particles=[];
+  function resize(){ W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
+  window.addEventListener('resize', resize); resize();
+
+  const P = 90; // particles
+  for(let i=0;i<P;i++){
+    particles.push({
+      x: Math.random()*W,
+      y: Math.random()*H*.6 + H*.05,
+      r: Math.random()*1.6 + .4,
+      a: Math.random()*Math.PI*2,
+      s: Math.random()*.4 + .1
     });
+  }
 
-    // Mouse parallax for the 3D rig (subtle but sharp)
-    const rig = document.getElementById('rig');
-    const scene = document.querySelector('.scene');
-    if(rig && scene){
-      scene.addEventListener('pointermove', (e)=>{
-        const r = scene.getBoundingClientRect();
-        const dx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
-        const dy = (e.clientY - (r.top + r.height/2)) / (r.height/2);
-        rig.style.transform = `rotateY(${dx*10}deg) rotateX(${-dy*8}deg)`;
-      });
-      scene.addEventListener('pointerleave', ()=> rig.style.transform = '');
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of particles){
+      p.a += 0.002 + p.s*0.003;
+      p.x += Math.cos(p.a)*p.s;
+      p.y += Math.sin(p.a*.6)*p.s*0.6 - 0.05;
+      if(p.x < -10) p.x = W+10; if(p.x > W+10) p.x = -10;
+      if(p.y < 0) p.y = H*0.65 + Math.random()*H*0.2;
+
+      // Only bright inside spotlight bands
+      const grad = ctx.createRadialGradient(W*0.6, H*0.2, 0, W*0.6, H*0.2, 600);
+      grad.addColorStop(0, 'rgba(255,250,210,0.8)');
+      grad.addColorStop(1, 'rgba(255,250,210,0)');
+      ctx.fillStyle = grad;
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
     }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
 
-    // Helix drift (adds slight left-right oscillation)
-    const helix = document.getElementById('helix');
-    if(helix){
-      let t = 0;
-      const loop = ()=>{
-        t += 0.01;
-        helix.style.transform = `translateX(${Math.sin(t)*6}px) rotateX(50deg)`;
-        requestAnimationFrame(loop);
-      };
-      loop();
-    }
+/* Smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', (e)=>{
+    const id = a.getAttribute('href').slice(1), el = document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
 
-    // Year
-    document.querySelectorAll('[data-year]').forEach(el=> el.textContent = new Date().getFullYear());
-  </script>
+/* Year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
