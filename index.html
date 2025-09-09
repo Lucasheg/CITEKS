@@ -6,19 +6,14 @@
     <title>Harrow & Vale — Securities Law (Showcase)</title>
     <meta name="description" content="Scale package showcase — editorial, proof-first visual for a capital-markets law firm." />
     <style>
-      /* ---------- Tokens (match your system) ---------- */
       :root{
         --clr-neutral:#F5F7FB; --clr-secondary:#0F172A; --clr-accent:#3B82F6; --clr-accent-hover:#1D4ED8; --clr-subtle:#E5E7EB;
         --container:1280px;
-
-        /* Major Third (desktop) */
         --ts-p:16px; --ts-h6:20px; --ts-h5:25px; --ts-h4:31.25px; --ts-h3:39.0625px; --ts-h2:48.8281px; --ts-h1:61.0352px;
       }
       html,body{height:100%}
       body{margin:0;background:var(--clr-neutral);color:var(--clr-secondary);
            font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;}
-
-      /* Type scale + letter-spacing + line-heights per your rules */
       .ts-p{font-size:var(--ts-p);letter-spacing:0;line-height:1.5}
       .ts-h6{font-size:var(--ts-h6);letter-spacing:-0.005em;line-height:1.3}
       .ts-h5{font-size:var(--ts-h5);letter-spacing:-0.01em;line-height:1.3}
@@ -26,8 +21,6 @@
       .ts-h3{font-size:var(--ts-h3);letter-spacing:-0.015em;line-height:1.2}
       .ts-h2{font-size:var(--ts-h2);letter-spacing:-0.018em;line-height:1.1}
       .ts-h1{font-size:var(--ts-h1);letter-spacing:-0.02em;line-height:1}
-
-      /* Layout helpers */
       .container{max-width:var(--container);margin:0 auto;padding:0 24px}
       .card{background:#fff;border:1px solid var(--clr-subtle);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
       .ar-2-1{aspect-ratio:2/1}
@@ -45,8 +38,6 @@
       .link{color:inherit;text-decoration:underline;text-underline-offset:3px}
       .nav a{opacity:.85;text-decoration:none}
       .nav a[data-active="1"]{opacity:1}
-
-      /* Grid: desktop 12-col, mobile single; 8pt spacing */
       .grid{display:grid;gap:24px}
       .grid-12{grid-template-columns:repeat(12,1fr)}
       .col-span-7{grid-column:span 7}
@@ -56,19 +47,15 @@
       .col-span-3{grid-column:span 3}
       .items-center{align-items:center}
       .items-start{align-items:start}
-
-      /* Tablet */
       @media (max-width:1024px){
         .grid-12{grid-template-columns:repeat(4,1fr)}
         .col-span-7,.col-span-5,.col-span-8,.col-span-4,.col-span-3{grid-column:1/-1}
       }
-      /* Mobile type: two steps smaller */
       @media (max-width:480px){
         :root{
           --ts-p:16px; --ts-h1:39.0625px; --ts-h2:31.25px; --ts-h3:25px; --ts-h4:20px; --ts-h5:16px; --ts-h6:14px;
         }
       }
-
       header.sticky{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.72);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--clr-subtle)}
       footer{background:#fff;border-top:1px solid var(--clr-subtle)}
       .blurbox{background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border:1px solid var(--clr-subtle);border-radius:12px;padding:16px}
@@ -80,7 +67,7 @@
   <body>
     <div id="root"></div>
 
-    <!-- React + ReactDOM (UMD) + Babel to allow JSX in a single file -->
+    <!-- React + ReactDOM (UMD) + Babel -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -88,29 +75,27 @@
     <script type="text/babel">
       const { useState } = React;
 
-      /* Inline icons (SVG) */
       const IconArrowRight = (props) => (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-             strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
           <path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path>
         </svg>
       );
       const IconCheck = (props) => (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-             strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
           <path d="M20 6L9 17l-5-5"></path>
         </svg>
       );
 
       function App(){
-        const [page,setPage] = useState("home"); // "home" | "services" | "service-mar" | "cases" | "pricing" | "about" | "contact"
+        const [page,setPage] = useState("home");
         return (
           <div>
             <header className="sticky">
               <div className="container" style={{paddingTop:12,paddingBottom:12,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                 <div className="ts-h5" style={{fontWeight:600}}>Harrow &amp; Vale</div>
-                <nav className="nav ts-h6" style={{display:"none",gap:24,alignItems:"center"}}
-                     id="desktopNav">
+                <nav className="nav ts-h6" id="desktopNav" style={{display:"none",gap:24,alignItems:"center"}}>
                   {[
                     ["Home","home"],
                     ["Services","services"],
@@ -119,7 +104,10 @@
                     ["About","about"],
                     ["Contact","contact"],
                   ].map(([label,key]) => (
-                    <a key={key} href="#" data-active={page===key?1:0} onClick={(e)=>{e.preventDefault();setPage(key);}}>{label}</a>
+                    <a key={key} href="#" data-active={page===key?1:0}
+                       onClick={(e)=>{e.preventDefault();setPage(key);}}>
+                      {label}
+                    </a>
                   ))}
                   <button className="cta" onClick={()=>setPage("contact")} style={{display:"inline-flex",gap:8,alignItems:"center",borderRadius:999}}>
                     Book consultation <IconArrowRight/>
@@ -170,7 +158,7 @@
                         Book consultation <IconArrowRight/>
                       </button>
                       <a href="#" onClick={(e)=>{e.preventDefault();onGoServices();}} className="ts-h6" style={{textDecoration:"none"}}>
-                        View services <span style={{display:"inline-flex",verticalAlign:"middle"}}><IconArrowRight/></span>
+                        View services <span style={{display:"inline-flex"}}><IconArrowRight/></span>
                       </a>
                     </div>
                     <div style={{display:"flex",flexWrap:"wrap",gap:12,marginTop:24}} className="muted ts-h6">
@@ -182,7 +170,7 @@
                   <div className="col-span-5">
                     <div className="frame ar-2-1">
                       <div className="art"></div>
-                      <div style="position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;justify-content:flex-end">
+                      <div style={{position:"absolute",top:0,right:0,bottom:0,left:0,padding:24,display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
                         <div className="blurbox">
                           <div className="ts-h6" style={{fontWeight:600}}>What we do</div>
                           <ul className="list ts-h6 muted" style={{marginTop:8}}>
@@ -199,7 +187,7 @@
               </div>
             </section>
 
-            <section style="padding:80px 0;background:#fff;border-top:1px solid var(--clr-subtle);border-bottom:1px solid var(--clr-subtle)">
+            <section style={{padding:"80px 0",background:"#fff",borderTop:"1px solid var(--clr-subtle)",borderBottom:"1px solid var(--clr-subtle)"}}>
               <div className="container">
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
                   <h2 className="ts-h2" style={{fontWeight:600,margin:0}}>Services</h2>
@@ -221,13 +209,13 @@
               </div>
             </section>
 
-            <section style="padding:80px 0">
+            <section style={{padding:"80px 0"}}>
               <div className="container">
                 <div className="grid grid-12 items-start">
                   <div className="col-span-7">
                     <div className="frame ar-2-1">
                       <div className="art"></div>
-                      <div style="position:absolute;inset:0;padding:24px;display:flex;align-items:flex-end">
+                      <div style={{position:"absolute",top:0,right:0,bottom:0,left:0,padding:24,display:"flex",alignItems:"flex-end"}}>
                         <div className="blurbox">
                           <div className="ts-h6" style={{fontWeight:600}}>Cross-border offering</div>
                           <div className="ts-h6 muted">Regulator Q&amp;A cycles reduced by <b>32%</b>. Clean response letter.</div>
@@ -281,7 +269,7 @@
         );
       }
 
-      function ServiceMAR(){
+      function ServiceMAR({onPrimary}){
         return (
           <section style={{padding:"80px 0"}}>
             <div className="container">
@@ -293,8 +281,8 @@
                 <div className="col-span-7">
                   <div className="frame ar-2-1">
                     <div className="art"></div>
-                    <div style="position:absolute;inset:0;padding:24px;display:flex;align-items:flex-end">
-                      <ul className="blurbox list ts-h6 muted" style={{gap:6,display:"grid"}}>
+                    <div style={{position:"absolute",top:0,right:0,bottom:0,left:0,padding:24,display:"flex",alignItems:"flex-end"}}>
+                      <ul className="blurbox list ts-h6 muted" style={{display:"grid",gap:6}}>
                         {[
                           "Disclosure calendar (alerts & owner)",
                           "Drafting & senior review",
@@ -325,7 +313,7 @@
         );
       }
 
-      function Cases(){
+      function Cases({onPrimary}){
         return (
           <section style={{padding:"80px 0"}}>
             <div className="container">
@@ -334,7 +322,7 @@
                 <div className="col-span-7">
                   <div className="frame ar-2-1">
                     <div className="art"></div>
-                    <div style="position:absolute;inset:0;padding:24px;display:flex;align-items:flex-end">
+                    <div style={{position:"absolute",top:0,right:0,bottom:0,left:0,padding:24,display:"flex",alignItems:"flex-end"}}>
                       <div className="blurbox">
                         <div className="ts-h6" style={{fontWeight:600}}>Issuer A — cross-border offering</div>
                         <div className="ts-h6 muted">Disclosure cycle time reduced by <b>32%</b>; clean regulator responses.</div>
@@ -365,9 +353,9 @@
         );
       }
 
-      function Pricing({onPrimary}){
+      function Pricing(){
         return (
-          <section style="padding:80px 0;background:#fff;border-top:1px solid var(--clr-subtle);border-bottom:1px solid var(--clr-subtle)">
+          <section style={{padding:"80px 0",background:"#fff",borderTop:"1px solid var(--clr-subtle)",borderBottom:"1px solid var(--clr-subtle)"}}>
             <div className="container">
               <h1 className="ts-h1" style={{fontWeight:600,margin:"0 0 12px 0"}}>Pricing ranges</h1>
               <p className="ts-h6 muted" style={{maxWidth:720,margin:0}}>
@@ -394,7 +382,7 @@
         );
       }
 
-      function About({onPrimary}){
+      function About(){
         return (
           <section style={{padding:"80px 0"}}>
             <div className="container">
@@ -443,12 +431,12 @@
                 <div style={{gridColumn:"1 / -1"}}>
                   <label className="ts-h6" style={{display:"block",marginBottom:8}}>Notes</label>
                   <textarea rows="5" placeholder="Deadline, jurisdictions, quick context..." className="ts-h6"
-                            style="width:100%;border:1px solid var(--clr-subtle);border-radius:12px;padding:12px;background:#fff"></textarea>
+                            style={{width:"100%",border:"1px solid var(--clr-subtle)",borderRadius:12,padding:12,background:"#fff"}}></textarea>
                 </div>
-                <div style="grid-column:1 / -1;display:flex;justify-content:space-between;align-items:center">
+                <div style={{gridColumn:"1 / -1",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <div className="ts-h6 muted">No spam. We reply fast.</div>
-                  <button className="cta ts-h6" style="display:inline-flex;gap:8px;align-items:center">
-                    Book consultation <span style="display:inline-flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg></span>
+                  <button className="cta ts-h6" style={{display:"inline-flex",gap:8,alignItems:"center"}}>
+                    Book consultation <IconArrowRight/>
                   </button>
                 </div>
               </form>
@@ -462,7 +450,7 @@
           <div>
             <label className="ts-h6" style={{display:"block",marginBottom:8}}>{label}</label>
             <input type={type} placeholder={placeholder} className="ts-h6"
-                   style={{width:"100%",border:"1px solid var(--clr-subtle)",borderRadius:12,padding:"12px",background:"#fff"}} />
+                   style={{width:"100%",border:"1px solid var(--clr-subtle)",borderRadius:12,padding:12,background:"#fff"}} />
           </div>
         );
       }
@@ -472,14 +460,14 @@
     </script>
 
     <script>
-      // show desktop nav when viewport >= 768px (simple progressive enhancement)
+      // show desktop nav when viewport >= 768px
       const mq = window.matchMedia("(min-width: 768px)");
       const nav = () => {
         const el = document.getElementById("desktopNav");
         if (!el) return;
         el.style.display = mq.matches ? "flex" : "none";
       };
-      mq.addEventListener ? mq.addEventListener("change", nav) : mq.addListener(nav);
+      (mq.addEventListener ? mq.addEventListener("change", nav) : mq.addListener(nav));
       window.addEventListener("resize", nav);
       window.addEventListener("DOMContentLoaded", nav);
     </script>
