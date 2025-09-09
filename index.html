@@ -3,339 +3,426 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Harrow & Vale — Securities Law (Showcase)</title>
-  <meta name="description" content="Scale package showcase — editorial, proof-first visual for a capital-markets law firm."/>
+  <title>Harrow & Vale — Capital Markets Counsel</title>
+  <meta name="description" content="Editorial showcase for a securities law practice — prospectus, disclosure, listings, governance."/>
   <style>
-    /* ----- TOKENS (match your system) ----- */
+    /* ====== TOKENS (keep your rules) ====== */
     :root{
-      --clr-neutral:#F5F7FB; --clr-secondary:#0F172A; --clr-accent:#3B82F6; --clr-accent-hover:#1D4ED8; --clr-subtle:#E5E7EB;
-      --container:1280px;
-      /* Major Third */
-      --ts-p:16px; --ts-h6:20px; --ts-h5:25px; --ts-h4:31.25px; --ts-h3:39.0625px; --ts-h2:48.8281px; --ts-h1:61.0352px;
+      /* 60 / 30 / 10 */
+      --neutral: #F2F2F2;         /* 60% surface */
+      --secondary: #111111;       /* 30% text / headings */
+      --accent: #BFA76F;          /* 10% accent (muted gold) */
+      --subtle: #D9D9D9;          /* hairlines */
+
+      --container: 1200px;        /* tighter than 1280 for editorial feel */
+
+      /* Major Third scale (desktop) */
+      --ts-p: 16px;
+      --ts-h6: 20px;
+      --ts-h5: 25px;
+      --ts-h4: 31.25px;
+      --ts-h3: 39.0625px;
+      --ts-h2: 48.8281px;
+      --ts-h1: 61.0352px;
     }
+
     html,body{height:100%}
-    body{margin:0;background:var(--clr-neutral);color:var(--clr-secondary);
-         font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
-    /* Type scale + letter-spacing + line-heights */
-    .ts-p{font-size:var(--ts-p);letter-spacing:0;line-height:1.5}
-    .ts-h6{font-size:var(--ts-h6);letter-spacing:-0.005em;line-height:1.3}
-    .ts-h5{font-size:var(--ts-h5);letter-spacing:-0.01em;line-height:1.3}
-    .ts-h4{font-size:var(--ts-h4);letter-spacing:-0.012em;line-height:1.3}
-    .ts-h3{font-size:var(--ts-h3);letter-spacing:-0.015em;line-height:1.2}
-    .ts-h2{font-size:var(--ts-h2);letter-spacing:-0.018em;line-height:1.1}
-    .ts-h1{font-size:var(--ts-h1);letter-spacing:-0.02em;line-height:1}
-    /* Layout helpers */
-    .container{max-width:var(--container);margin:0 auto;padding:0 24px}
-    .grid{display:grid;gap:24px}
+    body{
+      margin:0;
+      background:var(--neutral);
+      color:var(--secondary);
+      font-family: "EB Garamond", Georgia, "Times New Roman", Times, serif; /* serif-led */
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .sans{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial}
+    .container{max-width:var(--container); margin:0 auto; padding:0 24px}
+    .grid{display:grid; gap:24px}
     .grid-12{grid-template-columns:repeat(12,1fr)}
-    .col-span-7{grid-column:span 7}
-    .col-span-5{grid-column:span 5}
-    .col-span-8{grid-column:span 8}
-    .col-span-4{grid-column:span 4}
-    .col-span-3{grid-column:span 3}
+    .col-8{grid-column:span 8}
+    .col-7{grid-column:span 7}
+    .col-6{grid-column:span 6}
+    .col-5{grid-column:span 5}
+    .col-4{grid-column:span 4}
+    .col-3{grid-column:span 3}
     .items-center{align-items:center}
     .items-start{align-items:start}
-    .card{background:#fff;border:1px solid var(--clr-subtle);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
-    .ar-2-1{aspect-ratio:2/1}
-    .frame{position:relative;border:1px solid var(--clr-subtle);border-radius:12px;overflow:hidden}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;border:1px solid var(--clr-subtle);background:#fff}
-    .dot{width:6px;height:6px;border-radius:999px;background:var(--clr-accent);opacity:.9}
-    .muted{color:#64748B}
-    .cta{background:var(--clr-accent);color:#fff;border:0;border-radius:999px;padding:10px 16px;cursor:pointer}
-    .cta:hover{background:var(--clr-accent-hover)}
-    .hero{position:relative;overflow:clip}
-    .art{position:absolute;inset:0;background:
-      radial-gradient(60% 60% at 0% 0%, rgba(59,130,246,0.12), transparent 60%),
-      radial-gradient(50% 50% at 100% 100%, rgba(15,23,42,0.10), transparent 55%),
-      linear-gradient(0deg, #fff, #fff);}
-    .link{color:inherit;text-decoration:underline;text-underline-offset:3px}
-    .sep{border-top:1px solid var(--clr-subtle);margin:32px 0}
-    /* Header & nav */
-    header.sticky{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.72);
-      backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--clr-subtle)}
-    .nav{display:none;gap:24px;align-items:center}
-    .nav a{opacity:.85;text-decoration:none}
-    .nav a.active{opacity:1}
-    @media (min-width:768px){ .nav{display:flex} }
-    /* Sections */
-    section{scroll-margin-top:72px}
-    /* Tablet */
+    .justify-between{justify-content:space-between}
+    .muted{color:#4C4C4C}
+
+    /* Type scale + tracking + leading */
+    .ts-p{font-size:var(--ts-p); letter-spacing:0; line-height:1.5}
+    .ts-h6{font-size:var(--ts-h6); letter-spacing:-0.005em; line-height:1.3}
+    .ts-h5{font-size:var(--ts-h5); letter-spacing:-0.01em; line-height:1.3}
+    .ts-h4{font-size:var(--ts-h4); letter-spacing:-0.012em; line-height:1.3}
+    .ts-h3{font-size:var(--ts-h3); letter-spacing:-0.015em; line-height:1.2}
+    .ts-h2{font-size:var(--ts-h2); letter-spacing:-0.018em; line-height:1.1}
+    .ts-h1{font-size:var(--ts-h1); letter-spacing:-0.02em; line-height:1}
+
+    /* Editorial ornaments */
+    .rule{border:0; border-top:1px solid var(--subtle); margin:32px 0}
+    .rule-accent{border:0; border-top:2px solid var(--accent); width:88px; margin:24px 0}
+    .smallcaps{font-variant-caps:all-small-caps; letter-spacing:.06em}
+    .link{color:inherit; text-decoration:underline; text-underline-offset:3px}
+    .btn-outline{
+      display:inline-flex; gap:8px; align-items:center;
+      border:1px solid var(--secondary); border-radius:999px;
+      padding:10px 16px; background:transparent; color:var(--secondary);
+      text-decoration:none;
+    }
+    .btn-outline:hover{border-color:var(--accent); color:var(--accent)}
+
+    header.sticky{
+      position:sticky; top:0; z-index:40;
+      background:rgba(242,242,242,.86);
+      backdrop-filter:saturate(1.1) blur(6px);
+      border-bottom:1px solid var(--subtle);
+    }
+    nav a{
+      text-decoration:none; color:inherit; opacity:.85; margin-left:24px;
+      font-variant-caps:all-small-caps; letter-spacing:.06em; font-size:14px;
+    }
+    nav a:hover{opacity:1; color:var(--accent)}
+    .kicker{color:var(--accent); font-variant-caps:all-small-caps; letter-spacing:.08em}
+
+    .list-plain{list-style:none; padding:0; margin:0}
+    .row{display:flex; justify-content:space-between; gap:16px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+
+    /* Tablet / Mobile */
     @media (max-width:1024px){
       .grid-12{grid-template-columns:repeat(4,1fr)}
-      .col-span-7,.col-span-5,.col-span-8,.col-span-4,.col-span-3{grid-column:1/-1}
+      .col-8,.col-7,.col-6,.col-5,.col-4,.col-3{grid-column:1/-1}
+      nav{display:none}
     }
-    /* Mobile type: two steps smaller */
     @media (max-width:480px){
-      :root{ --ts-p:16px; --ts-h1:39.0625px; --ts-h2:31.25px; --ts-h3:25px; --ts-h4:20px; --ts-h5:16px; --ts-h6:14px; }
+      :root{
+        --ts-p:16px;
+        --ts-h1:39.0625px; --ts-h2:31.25px; --ts-h3:25px; --ts-h4:20px; --ts-h5:16px; --ts-h6:14px;
+      }
     }
+
+    /* Section spacing (8pt multiples) */
+    section{scroll-margin-top:72px}
+    .py-32{padding-top:128px; padding-bottom:128px}
+    .py-24{padding-top:96px; padding-bottom:96px}
+    .py-16{padding-top:64px; padding-bottom:64px}
+    .pt-24{padding-top:96px}
+    .mb-2{margin-bottom:8px} .mb-3{margin-bottom:12px} .mb-4{margin-bottom:16px}
+    .mb-6{margin-bottom:24px} .mb-8{margin-bottom:32px} .mb-10{margin-bottom:40px}
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- ===== Header (hairline, small-caps nav, no colored button) ===== -->
   <header class="sticky">
-    <div class="container" style="padding:12px 24px;display:flex;justify-content:space-between;align-items:center">
-      <div class="ts-h5" style="font-weight:600">Harrow &amp; Vale</div>
-      <nav class="nav ts-h6">
-        <a class="active" href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#cases">Cases</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="cta" style="display:inline-flex;gap:8px;align-items:center;border-radius:999px;text-decoration:none;padding:10px 16px;">
-          Book consultation
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </nav>
+    <div class="container" style="padding:12px 24px">
+      <div class="row">
+        <div class="ts-h5" style="font-weight:600">Harrow &amp; Vale</div>
+        <nav class="sans">
+          <a href="#overview">Overview</a>
+          <a href="#mandates">Mandates</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#approach">Approach</a>
+          <a href="#matters">Matters</a>
+          <a href="#updates">Updates</a>
+          <a href="#fees">Fees</a>
+          <a href="#team">Team</a>
+          <a href="#engage">Engage</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Home / Hero -->
-  <main id="home">
-    <section class="hero">
-      <div class="container" style="padding:96px 24px 80px">
-        <div class="grid grid-12 items-center">
-          <div class="col-span-7">
-            <h1 class="ts-h1" style="font-weight:600;margin:0 0 12px 0">
-              Securities counsel that <span style="color:var(--clr-accent)">moves at deal speed.</span>
-            </h1>
-            <p class="ts-h5 muted" style="max-width:720px;margin:0">
-              Prospectus, disclosure, and listings—delivered with partner accountability and timelines you can bank on.
-            </p>
-            <div style="display:flex;gap:16px;align-items:center;margin-top:24px">
-              <a href="#contact" class="cta ts-h6" style="display:inline-flex;gap:8px;align-items:center;text-decoration:none">
-                Book consultation
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-              <a href="#services" class="ts-h6" style="text-decoration:none;display:inline-flex;gap:8px;align-items:center">
-                View services
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-            <div class="muted ts-h6" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
-              <span class="badge"><span class="dot"></span>214+ filings reviewed</span>
-              <span class="badge"><span class="dot"></span>98.6% on-time delivery</span>
-              <span class="badge"><span class="dot"></span>EU/EEA + UK coverage</span>
-              <span class="badge"><span class="dot"></span>Partner-led review</span>
-            </div>
-          </div>
-          <div class="col-span-5">
-            <div class="frame ar-2-1">
-              <div class="art"></div>
-              <div style="position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;justify-content:flex-end">
-                <div class="blurbox" style="background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border:1px solid var(--clr-subtle);border-radius:12px;padding:16px">
-                  <div class="ts-h6" style="font-weight:600">What we do</div>
-                  <ul class="ts-h6 muted" style="margin:8px 0 0 0;padding:0;list-style:none;display:grid;gap:6px">
-                    <li style="display:flex;gap:8px;align-items:flex-start">✔ Offerings &amp; Prospectus</li>
-                    <li style="display:flex;gap:8px;align-items:flex-start">✔ Ongoing Disclosure &amp; MAR</li>
-                    <li style="display:flex;gap:8px;align-items:flex-start">✔ Listing &amp; Governance</li>
-                    <li style="display:flex;gap:8px;align-items:flex-start">✔ Fund Formation &amp; AIFMD</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="ts-h6 muted" style="margin-top:8px;text-align:right">Editorial mock • 2:1</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" style="padding:80px 0;background:#fff;border-top:1px solid var(--clr-subtle);border-bottom:1px solid var(--clr-subtle)">
-      <div class="container">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
-          <h2 class="ts-h2" style="font-weight:600;margin:0">Services</h2>
-          <span class="ts-h6 muted">Scope that clarifies decisions.</span>
-        </div>
-        <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:16px">
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Offerings &amp; Prospectus</div>
-            <p class="ts-h6 muted" style="margin:6px 0 0 0">Offering docs, circulars, regulator prep.</p>
-          </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Ongoing Disclosure &amp; MAR</div>
-            <p class="ts-h6 muted" style="margin:6px 0 0 0">Calendar, drafting, approvals, training.</p>
-          </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Listing &amp; Governance</div>
-            <p class="ts-h6 muted" style="margin:6px 0 0 0">Listing prep, policies, board cadence.</p>
-          </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Fund Formation &amp; AIFMD</div>
-            <p class="ts-h6 muted" style="margin:6px 0 0 0">Structures, filings, cross-border rules.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case / Proof -->
-    <section id="cases" style="padding:80px 0">
+  <main>
+    <!-- ===== Overview (different skeleton: no hero image, serif-led masthead) ===== -->
+    <section id="overview" class="pt-24">
       <div class="container">
         <div class="grid grid-12 items-start">
-          <div class="col-span-7">
-            <div class="frame ar-2-1">
-              <div class="art"></div>
-              <div style="position:absolute;inset:0;padding:24px;display:flex;align-items:flex-end">
-                <div class="blurbox" style="background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border:1px solid var(--clr-subtle);border-radius:12px;padding:16px">
-                  <div class="ts-h6" style="font-weight:600">Cross-border offering</div>
-                  <div class="ts-h6 muted">Regulator Q&amp;A cycles reduced by <b>32%</b>. Clean response letter.</div>
-                </div>
-              </div>
-            </div>
-            <div class="ts-h6 muted" style="margin-top:8px">Case study mock • outcomes, not promises</div>
-          </div>
-          <div class="col-span-5">
-            <h3 class="ts-h4" style="font-weight:600;margin:0 0 8px 0">Proof, not promises</h3>
-            <p class="ts-h6 muted" style="margin:0">
-              We show measurable outcomes: fewer Q&amp;A cycles, on-time rates, and process clarity. Anonymous summaries, regulator-safe.
+          <div class="col-7">
+            <div class="kicker">Capital markets counsel</div>
+            <h1 class="ts-h1" style="font-weight:600; margin:8px 0 0 0">
+              Securities guidance designed for <span style="border-bottom:2px solid var(--accent)">listing day certainty.</span>
+            </h1>
+            <hr class="rule-accent"/>
+            <p class="ts-h5 muted" style="max-width:720px; margin:0">
+              Prospectus, ongoing disclosure (MAR), listings, and governance—partner-led, regulator-safe, and measured by outcomes.
             </p>
-            <a href="#contact" class="cta ts-h6" style="display:inline-flex;gap:8px;align-items:center;text-decoration:none;margin-top:16px">
-              Book consultation
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
+            <div class="mb-6"></div>
+            <a href="#engage" class="btn-outline ts-h6 sans">Request counsel</a>
+          </div>
+          <div class="col-5">
+            <div class="ts-h6 smallcaps muted mb-3">Key facts</div>
+            <div class="ts-h6">
+              <div class="row"><span>Filings reviewed</span><span class="mono">214+</span></div>
+              <hr class="rule"/>
+              <div class="row"><span>On-time delivery</span><span class="mono">98.6%</span></div>
+              <hr class="rule"/>
+              <div class="row"><span>Coverage</span><span class="mono">EU/EEA · UK</span></div>
+              <hr class="rule"/>
+              <div class="row"><span>Review model</span><span class="mono">Partner-led</span></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" style="padding:80px 0;background:#fff;border-top:1px solid var(--clr-subtle);border-bottom:1px solid var(--clr-subtle)">
+    <!-- ===== Mandates (strip of compact items; monochrome chips, no badges) ===== -->
+    <section id="mandates" class="py-16">
       <div class="container">
-        <h2 class="ts-h2" style="font-weight:600;margin:0 0 12px 0">Pricing ranges</h2>
-        <p class="ts-h6 muted" style="max-width:720px;margin:0">
-          Transparent ranges. Fixed scope where possible. Final quotes reflect jurisdiction, complexity, and timelines.
-        </p>
-        <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px">
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Offerings &amp; Prospectus</div>
-            <div class="ts-h4" style="font-weight:600;margin-top:6px">€8,000 – €24,000+</div>
+        <div class="ts-h6 smallcaps muted mb-3">Typical mandates</div>
+        <div class="grid" style="grid-template-columns:repeat(6,1fr); gap:16px">
+          <div class="ts-h6" style="border-top:1px solid var(--subtle); padding-top:12px">IPO / Prospectus</div>
+          <div class="ts-h6" style="border-top:1px solid var(--subtle); padding-top:12px">Follow-on &amp; Supplements</div>
+          <div class="ts-h6" style="border-top:1px solid var(--subtle); padding-top:12px">Ongoing Disclosure (MAR)</div>
+          <div class="ts-h6" style="border-top:1px solid var(--subtle); padding-top:12px">Listing Readiness</div>
+          <div class="ts-h6" style="border-top:1px solid var(--subtle); padding-top:12px">Governance &amp; Committees</div>
+          <div class="ts-h6" style="border-top:1px solid var(--subtle); padding-top:12px">Funds &amp; AIFMD</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Capabilities (text-first; no cards, just columns and hairlines) ===== -->
+    <section id="capabilities" class="py-24" style="background:#FFFFFF; border-top:1px solid var(--subtle); border-bottom:1px solid var(--subtle)">
+      <div class="container">
+        <div class="grid grid-12 items-start">
+          <div class="col-5">
+            <div class="kicker">Scope</div>
+            <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Capabilities</h2>
+            <hr class="rule-accent"/>
+            <p class="ts-h6 muted" style="margin:0; max-width:520px">
+              Clear scope, senior review, and paper that stands in front of regulators.
+            </p>
           </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Ongoing Disclosure (monthly)</div>
-            <div class="ts-h4" style="font-weight:600;margin-top:6px">€2,000 – €6,000</div>
-          </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Listing &amp; Governance</div>
-            <div class="ts-h4" style="font-weight:600;margin-top:6px">€5,000 – €18,000+</div>
-          </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Fund Formation &amp; AIFMD</div>
-            <div class="ts-h4" style="font-weight:600;margin-top:6px">€12,000 – €40,000+</div>
+          <div class="col-7">
+            <ul class="list-plain ts-h6" style="display:grid; gap:16px">
+              <li>
+                <div class="smallcaps muted mb-2">Offerings &amp; prospectus</div>
+                Prospectus and offering circulars, regulator preparation and responses, comfort letter coordination.
+              </li>
+              <hr class="rule"/>
+              <li>
+                <div class="smallcaps muted mb-2">Ongoing disclosure (mar)</div>
+                Disclosure calendar with owners and deadlines, drafting and approvals, training, decision logs, and audit trail.
+              </li>
+              <hr class="rule"/>
+              <li>
+                <div class="smallcaps muted mb-2">Listing &amp; governance</div>
+                Listing readiness, board cadence and materials, committee policies, and market notices.
+              </li>
+              <hr class="rule"/>
+              <li>
+                <div class="smallcaps muted mb-2">Funds &amp; aifmd</div>
+                Structures, filings, and cross-border requirements across the EEA/UK for managers and vehicles.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" style="padding:80px 0">
+    <!-- ===== Approach (roman steps; entirely different choreography) ===== -->
+    <section id="approach" class="py-24">
       <div class="container">
-        <h2 class="ts-h2" style="font-weight:600;margin:0 0 12px 0">About</h2>
-        <p class="ts-h6 muted" style="max-width:720px;margin:0">
-          Partner-led counsel with cross-border fluency. Plain-English guidance, tight timelines, and measured outcomes.
-        </p>
-        <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px">
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Elena Harrow</div>
+        <div class="grid grid-12 items-start">
+          <div class="col-4">
+            <div class="kicker">Method</div>
+            <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Approach</h2>
+            <hr class="rule-accent"/>
+          </div>
+          <div class="col-8">
+            <ol class="list-plain ts-h5">
+              <li style="margin-bottom:24px">
+                <span class="smallcaps" style="color:var(--accent)">I — Intake</span><br/>
+                Plain-English scoping call. Risks, regulators, deadlines. Single goal defined.
+              </li>
+              <li style="margin-bottom:24px">
+                <span class="smallcaps" style="color:var(--accent)">II — Draft &amp; proof</span><br/>
+                Senior-led drafting. Evidence over adjectives. Footnotes and citations aligned with disclosure standards.
+              </li>
+              <li>
+                <span class="smallcaps" style="color:var(--accent)">III — Submit &amp; iterate</span><br/>
+                Clean response letters. Track changes. Decision logs. Timelines that hold.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Matters (selected outcomes; no imagery) ===== -->
+    <section id="matters" class="py-24" style="background:#FFFFFF; border-top:1px solid var(--subtle); border-bottom:1px solid var(--subtle)">
+      <div class="container">
+        <div class="kicker">Anonymous summaries</div>
+        <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Selected matters</h2>
+        <hr class="rule-accent"/>
+        <div class="grid" style="grid-template-columns:repeat(2,1fr); gap:24px">
+          <div class="ts-h6">
+            <div class="row"><b>Issuer A — Cross-border offering</b><span class="mono">EEA/UK</span></div>
+            <div class="muted">Regulator Q&amp;A cycles reduced by <b>32%</b>; clean response letter.</div>
+            <hr class="rule"/>
+            <div class="row"><b>Issuer B — Listing readiness</b><span class="mono">EU Main</span></div>
+            <div class="muted">Committee policies and board cadence implemented prior to listing.</div>
+          </div>
+          <div class="ts-h6">
+            <div class="row"><b>Manager C — AIFMD passport</b><span class="mono">EEA</span></div>
+            <div class="muted">Structure finalized; filings approved on first submission.</div>
+            <hr class="rule"/>
+            <div class="row"><b>Issuer D — MAR program</b><span class="mono">UK</span></div>
+            <div class="muted">Disclosure calendar + training; last-minute notices eliminated.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Updates (editorial teasers) ===== -->
+    <section id="updates" class="py-24">
+      <div class="container">
+        <div class="kicker">Regulatory notes</div>
+        <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Updates</h2>
+        <hr class="rule-accent"/>
+        <div class="grid" style="grid-template-columns:repeat(3,1fr); gap:24px">
+          <article>
+            <div class="smallcaps muted mb-2">Brief</div>
+            <h3 class="ts-h4" style="margin:0 0 8px 0">Prospectus supplements: when to file</h3>
+            <p class="ts-h6 muted" style="margin:0">A quick decision tree for material changes during offer periods.</p>
+          </article>
+          <article>
+            <div class="smallcaps muted mb-2">Memo</div>
+            <h3 class="ts-h4" style="margin:0 0 8px 0">MAR disclosure timing under pressure</h3>
+            <p class="ts-h6 muted" style="margin:0">Balancing legitimate interests with prompt disclosure obligations.</p>
+          </article>
+          <article>
+            <div class="smallcaps muted mb-2">Note</div>
+            <h3 class="ts-h4" style="margin:0 0 8px 0">Board cadence before listing</h3>
+            <p class="ts-h6 muted" style="margin:0">Why committees and calendar matter more than boilerplate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Fees (no cards; table-like rows) ===== -->
+    <section id="fees" class="py-24" style="background:#FFFFFF; border-top:1px solid var(--subtle); border-bottom:1px solid var(--subtle)">
+      <div class="container">
+        <div class="kicker">Ranges</div>
+        <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Fees</h2>
+        <hr class="rule-accent"/>
+        <div class="grid grid-12 items-start">
+          <div class="col-6 ts-h6">
+            <div class="row"><span>Offerings &amp; Prospectus</span><span class="mono">€8,000 – €24,000+</span></div>
+            <hr class="rule"/>
+            <div class="row"><span>Ongoing Disclosure (monthly)</span><span class="mono">€2,000 – €6,000</span></div>
+            <hr class="rule"/>
+            <div class="row"><span>Listing &amp; Governance</span><span class="mono">€5,000 – €18,000+</span></div>
+            <hr class="rule"/>
+            <div class="row"><span>Funds &amp; AIFMD</span><span class="mono">€12,000 – €40,000+</span></div>
+          </div>
+          <div class="col-6">
+            <p class="ts-h6 muted" style="margin:0; max-width:520px">
+              Transparent ranges. Fixed scope where possible. Final quotes reflect jurisdiction, complexity, and timelines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Team (very simple, text only) ===== -->
+    <section id="team" class="py-24">
+      <div class="container">
+        <div class="kicker">People</div>
+        <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Team</h2>
+        <hr class="rule-accent"/>
+        <div class="grid" style="grid-template-columns:repeat(3,1fr); gap:24px">
+          <div>
+            <div class="ts-h4" style="font-weight:600; margin:0">Elena Harrow</div>
             <div class="ts-h6 muted">Managing Partner — Capital Markets</div>
-            <ul class="ts-h6 muted" style="margin:12px 0 0 0;list-style:none;padding:0">
-              <li>• Bar admissions EU/UK</li><li>• 18y experience</li><li>• Regulator-safe outcomes</li>
+            <ul class="list-plain ts-h6 muted" style="margin:12px 0 0 0">
+              <li>• Bar admissions EU/UK</li>
+              <li>• 18y experience</li>
+              <li>• Regulator-safe outcomes</li>
             </ul>
           </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Jon Vale</div>
+          <div>
+            <div class="ts-h4" style="font-weight:600; margin:0">Jon Vale</div>
             <div class="ts-h6 muted">Partner — Funds &amp; AIFMD</div>
-            <ul class="ts-h6 muted" style="margin:12px 0 0 0;list-style:none;padding:0">
-              <li>• Bar admissions EU/UK</li><li>• 15y experience</li><li>• Cross-border funds</li>
+            <ul class="list-plain ts-h6 muted" style="margin:12px 0 0 0">
+              <li>• Cross-border funds</li>
+              <li>• AIFMD filings</li>
+              <li>• Passporting programs</li>
             </ul>
           </div>
-          <div class="card" style="padding:20px">
-            <div class="ts-h5" style="font-weight:600">Priya Raman</div>
+          <div>
+            <div class="ts-h4" style="font-weight:600; margin:0">Priya Raman</div>
             <div class="ts-h6 muted">Counsel — Disclosure &amp; Governance</div>
-            <ul class="ts-h6 muted" style="margin:12px 0 0 0;list-style:none;padding:0">
-              <li>• MAR programs</li><li>• Governance cadence</li><li>• Training &amp; decision logs</li>
+            <ul class="list-plain ts-h6 muted" style="margin:12px 0 0 0">
+              <li>• MAR programs</li>
+              <li>• Board cadence</li>
+              <li>• Decision logs</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" style="padding:80px 0">
+    <!-- ===== Engage (single primary CTA, minimal form) ===== -->
+    <section id="engage" class="py-24" style="background:#FFFFFF; border-top:1px solid var(--subtle); border-bottom:1px solid var(--subtle)">
       <div class="container">
-        <h2 class="ts-h2" style="font-weight:600;margin:0 0 12px 0">Contact</h2>
-        <p class="ts-h6 muted" style="max-width:720px;margin:0">
-          Tell us your timeline and jurisdiction. We’ll triage within 2 business hours.
-        </p>
-        <form class="card" style="padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
-          <div>
-            <label class="ts-h6" style="display:block;margin-bottom:8px">Name</label>
-            <input class="ts-h6" type="text" placeholder="Jane Doe"
-                   style="width:100%;border:1px solid var(--clr-subtle);border-radius:12px;padding:12px;background:#fff"/>
+        <div class="kicker">Next step</div>
+        <h2 class="ts-h2" style="font-weight:600; margin:8px 0 0 0">Engage</h2>
+        <hr class="rule-accent"/>
+        <div class="grid grid-12 items-start">
+          <div class="col-5">
+            <p class="ts-h6 muted" style="margin:0">
+              Tell us your timeline and jurisdiction. We triage within two business hours.
+            </p>
+            <div class="mb-6"></div>
+            <a href="#engage" class="btn-outline ts-h6 sans">Request counsel</a>
           </div>
-          <div>
-            <label class="ts-h6" style="display:block;margin-bottom:8px">Email</label>
-            <input class="ts-h6" type="email" placeholder="you@company.com"
-                   style="width:100%;border:1px solid var(--clr-subtle);border-radius:12px;padding:12px;background:#fff"/>
+          <div class="col-7">
+            <form class="ts-h6 sans" style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+              <div>
+                <label class="smallcaps muted" style="display:block; margin-bottom:8px">Name</label>
+                <input type="text" placeholder="Jane Doe" style="width:100%; padding:12px; border:1px solid var(--subtle); background:#fff"/>
+              </div>
+              <div>
+                <label class="smallcaps muted" style="display:block; margin-bottom:8px">Email</label>
+                <input type="email" placeholder="you@company.com" style="width:100%; padding:12px; border:1px solid var(--subtle); background:#fff"/>
+              </div>
+              <div>
+                <label class="smallcaps muted" style="display:block; margin-bottom:8px">Company</label>
+                <input type="text" placeholder="Issuer / Manager" style="width:100%; padding:12px; border:1px solid var(--subtle); background:#fff"/>
+              </div>
+              <div>
+                <label class="smallcaps muted" style="display:block; margin-bottom:8px">Topic</label>
+                <input type="text" placeholder="Prospectus / MAR / Listing / AIFMD" style="width:100%; padding:12px; border:1px solid var(--subtle); background:#fff"/>
+              </div>
+              <div style="grid-column:1/-1">
+                <label class="smallcaps muted" style="display:block; margin-bottom:8px">Notes</label>
+                <textarea rows="5" placeholder="Deadline, regulators, quick context…" style="width:100%; padding:12px; border:1px solid var(--subtle); background:#fff"></textarea>
+              </div>
+              <div style="grid-column:1/-1; display:flex; justify-content:space-between; align-items:center">
+                <div class="ts-h6 muted">No marketing emails. Just a reply.</div>
+                <a href="#engage" class="btn-outline ts-h6 sans">Send request</a>
+              </div>
+            </form>
           </div>
-          <div>
-            <label class="ts-h6" style="display:block;margin-bottom:8px">Company</label>
-            <input class="ts-h6" type="text" placeholder="Issuer or Fund name"
-                   style="width:100%;border:1px solid var(--clr-subtle);border-radius:12px;padding:12px;background:#fff"/>
-          </div>
-          <div>
-            <label class="ts-h6" style="display:block;margin-bottom:8px">Topic</label>
-            <input class="ts-h6" type="text" placeholder="Disclosure / Prospectus / Listing / Fund"
-                   style="width:100%;border:1px solid var(--clr-subtle);border-radius:12px;padding:12px;background:#fff"/>
-          </div>
-          <div style="grid-column:1 / -1">
-            <label class="ts-h6" style="display:block;margin-bottom:8px">Notes</label>
-            <textarea class="ts-h6" rows="5" placeholder="Deadline, jurisdictions, quick context..."
-                      style="width:100%;border:1px solid var(--clr-subtle);border-radius:12px;padding:12px;background:#fff"></textarea>
-          </div>
-          <div style="grid-column:1 / -1;display:flex;justify-content:space-between;align-items:center">
-            <div class="ts-h6 muted">No spam. We reply fast.</div>
-            <a href="#contact" class="cta ts-h6" style="display:inline-flex;gap:8px;align-items:center;text-decoration:none">
-              Book consultation
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer style="background:#fff;border-top:1px solid var(--clr-subtle)">
+  <!-- ===== Footer (disclosure tone) ===== -->
+  <footer>
     <div class="container" style="padding:32px 24px">
-      <div class="ts-h6 muted" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between">
-        <div>© <span id="year"></span> Harrow &amp; Vale — Securities Law</div>
-        <div style="display:flex;gap:16px;flex-wrap:wrap">
-          <span>Information here is general and not legal advice.</span>
-          <a class="link" href="#home">Privacy</a>
-          <a class="link" href="#home">Terms</a>
+      <hr class="rule"/>
+      <div class="row ts-h6 muted">
+        <div>© <span id="year"></span> Harrow &amp; Vale — Information is general and not legal advice.</div>
+        <div class="sans">
+          <a class="link" href="#overview">Privacy</a> &nbsp;·&nbsp;
+          <a class="link" href="#overview">Terms</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Set year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
